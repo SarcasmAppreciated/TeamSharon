@@ -139,47 +139,62 @@ create table tvSeries
 		ON DELETE CASCADE ON UPDATE CASCADE);
 
 -- appearsIn
+INSERT INTO appearsIn VALUES ('Archangel','Modern','X-Men: The Last Stand');
+INSERT INTO appearsIn VALUES ('Aquaman','Modern','Justice League');
+INSERT INTO appearsIn VALUES ('Batman','Modern','Justice League');
+INSERT INTO appearsIn VALUES ('Batman','Modern','The Dark Knight Rises');
+INSERT INTO appearsIn VALUES ('Beast','Modern','X-Men: The Last Stand');
+INSERT INTO appearsIn VALUES ('Black Widow','Modern','The Avengers');
+INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers');
+INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: Earth''s Mightiest Heroes');
+INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: United They Stand');
+INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: Volume 1');
+INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: Volume 2');
+INSERT INTO appearsIn VALUES ('Cyclops','Modern','X-Men');
+INSERT INTO appearsIn VALUES ('Cyclops','Modern','X-Men (1992)');
+INSERT INTO appearsIn VALUES ('Cyclops','Modern','X-Men Origins: Wolverine');
+INSERT INTO appearsIn VALUES ('Cyclops','Modern','X-Men: The Last Stand');
+INSERT INTO appearsIn VALUES ('Doctor Doom','Modern','X-Men');
+INSERT INTO appearsIn VALUES ('Doctor Doom','Modern','Essential Fantastic Four: Volume 1');
+INSERT INTO appearsIn VALUES ('Doctor Octopus','Modern','Spider-Man 2');
+INSERT INTO appearsIn VALUES ('The Flash','Modern','Justice League');
+INSERT INTO appearsIn VALUES ('Green Lantern','Modern','Justice League');
+INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers: United They Stand');
+INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers: Earth''s Mightiest Heroes');
+INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers');
+INSERT INTO appearsIn VALUES ('Hulk','Modern','The Avengers');
+INSERT INTO appearsIn VALUES ('Human Torch','Modern','Fantastic Four (1994)');
+INSERT INTO appearsIn VALUES ('Iceman','Modern','X-Men: The Last Stand');
+
+INSERT INTO appearsIn VALUES ('Invisible Woman','Modern','Fantastic Four (1994)');
+INSERT INTO appearsIn VALUES ('Invisible Woman','Modern','Essential Fantastic Four: Volume 1');
+INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: Earth''s Mightiest Heroes');
+INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: United They Stand');
+INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers');
+INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: Volume 1');
+INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: Volume 2');
+INSERT INTO appearsIn VALUES ('Mister Fantastic','Modern','Fantastic Four (1994)');
+INSERT INTO appearsIn VALUES ('Phoenix','Modern','X-Men');
+INSERT INTO appearsIn VALUES ('Storm','Modern','X-Men (1992)');
+INSERT INTO appearsIn VALUES ('Storm','Modern','X-Men');
+INSERT INTO appearsIn VALUES ('Storm','Modern','X-Men: Days of Future Past');
+INSERT INTO appearsIn VALUES ('Storm','Modern','X-Men: The Last Stand');
 INSERT INTO appearsIn VALUES ('Superman','Modern','Adventures of Superman');
 INSERT INTO appearsIn VALUES ('Superman','Modern','The Superman Chronicles: Volume One');
+INSERT INTO appearsIn VALUES ('Superman','Modern','The Superman Chronicles: Volume 2');
+INSERT INTO appearsIn VALUES ('Superman','Modern','Justice League');
+INSERT INTO appearsIn VALUES ('The Thing','Modern','Fantastic Four (1994)');
+INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers: Earth''s Mightiest Heroes');
+INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers');
+INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers: Volume 1');
+INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers: Volume 2');
+INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers: United They Stand');
 INSERT INTO appearsIn VALUES ('Wolverine','Modern','X-Men');
 INSERT INTO appearsIn VALUES ('Wolverine','Modern','X-Men: The Last Stand');
 INSERT INTO appearsIn VALUES ('Wolverine','Modern','X-Men Origins: Wolverine');
 INSERT INTO appearsIn VALUES ('Wolverine','Modern','X-Men: First Class');
 INSERT INTO appearsIn VALUES ('Wolverine','Modern','X-Men: Days of Future Past');
-INSERT INTO appearsIn VALUES ('Cyclops','Modern','X-Men');
-INSERT INTO appearsIn VALUES ('Storm','Modern','X-Men');
-INSERT INTO appearsIn VALUES ('Doctor Doom','Modern','X-Men');
-INSERT INTO appearsIn VALUES ('Invisible Woman','Modern','Fantastic Four (1994)');
-INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: United They Stand');
-INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: United They Stand');
-INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers: United They Stand');
-INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers: United They Stand');
-INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: Earth''s Mightiest Heroes');
-INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: Earth''s Mightiest Heroes');
-INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers: Earth''s Mightiest Heroes');
-INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers: Earth''s Mightiest Heroes');
-INSERT INTO appearsIn VALUES ('Storm','Modern','X-Men (1992)');
-INSERT INTO appearsIn VALUES ('Cyclops','Modern','X-Men (1992)');
-INSERT INTO appearsIn VALUES ('Superman','Modern','The Superman Chronicles: Volume 2');
-INSERT INTO appearsIn VALUES ('Doctor Doom','Modern','Essential Fantastic Four: Volume 1');
-INSERT INTO appearsIn VALUES ('Invisible Woman','Modern','Essential Fantastic Four: Volume 1');
-INSERT INTO appearsIn VALUES ('Doctor Octopus','Modern','Spider-Man 2');
-INSERT INTO appearsIn VALUES ('Cyclops','Modern','X-Men Origins: Wolverine');
-INSERT INTO appearsIn VALUES ('Storm','Modern','X-Men: Days of Future Past');
-INSERT INTO appearsIn VALUES ('Storm','Modern','X-Men: The Last Stand');
-INSERT INTO appearsIn VALUES ('Cyclops','Modern','X-Men: The Last Stand');
-INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers');
-INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers');
-INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers');
-INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers');
-INSERT INTO appearsIn VALUES ('Black Widow','Modern','The Avengers');
-INSERT INTO appearsIn VALUES ('Batman','Modern','The Dark Knight Rises');
-INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: Volume 1');
-INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: Volume 1');
-INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers: Volume 1');
-INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: Volume 2');
-INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: Volume 2');
-INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers: Volume 2');
+INSERT INTO appearsIn VALUES ('Wonder Woman','Modern','Justice League');
 
 -- book
 INSERT INTO book VALUES ('The Superman Chronicles: Volume 1','978-1-4012-0764-9','Jerry Siegel','2006-02-22','Graphic Novel');
@@ -196,7 +211,7 @@ INSERT INTO character VALUES ('Beast','Modern','Hank McCoy','Mutant','Hero','Mal
 INSERT INTO character VALUES ('Black Widow','Modern','Natasha Romanoff','Human','Hero','Female','Combat','Earth');
 INSERT INTO character VALUES ('Captain America','Modern','Steve Rogers','Human','Hero','Male','Strength;Endurance','Earth');
 INSERT INTO character VALUES ('Cyclops','Modern','Scott Summers','Mutant','Hero','Male','Lasers','Earth');
-INSERT INTO character VALUES ('Dr. C#','Silver','Devon Graham','Human','Hero','Male','Properties;LaTeX','Earth');
+--INSERT INTO character VALUES ('Dr. C#','Silver','Devon Graham','Human','Hero','Male','Properties;LaTeX','Earth');
 INSERT INTO character VALUES ('Doctor Doom','Modern','Viktor Krumm','Human','Villian','Male','Technopathy;Genius;Flight;Force Fields','Earth');
 INSERT INTO character VALUES ('Doctor Octopus','Modern','Otto Gunther Octavius','Human','Villian','Male','Genius','Earth');
 INSERT INTO character VALUES ('The Flash','Modern','Wally West','Human','Hero','Male','Speed','Earth');
@@ -213,7 +228,6 @@ INSERT INTO character VALUES ('Mister Fantastic','Modern','Reed Richards','Human
 INSERT INTO character VALUES ('Phoenix','Modern','Jean Grey','Mutant','Hero','Female','Telekinesis;Telepathy;Phoenix Force','Earth');
 INSERT INTO character VALUES ('Professor X','Modern','Charles Xavier','Mutant','Hero','Male','Telepathy','Earth');
 INSERT INTO character VALUES ('Quicksilver','Modern','Pietro Maximoff','Mutant','Hero','Male','Speed','Earth');
-
 INSERT INTO character VALUES ('Scarlet Witch','Modern','Wanda Maximoff','Mutant','Hero','Female','Reality Warping','Earth');
 
 INSERT INTO character VALUES ('Storm','Modern','Ororo Monroe','Mutant','Hero','Female','Weather Control;Flight','Earth');
@@ -276,20 +290,22 @@ INSERT INTO creator VALUES ('Stan Lee','Author');
 INSERT INTO creator VALUES ('Steve Ditko','Illustrator');
 
 -- distributesMedium
-INSERT INTO distributesMedium VALUES ('X-Men: Days of Future Past','20th Century Fox');
-INSERT INTO distributesMedium VALUES ('The Superman Chronicles: Volume One','DC Comics');
-INSERT INTO distributesMedium VALUES ('The Superman Chronicles: Volume Two','DC Comics');
-INSERT INTO distributesMedium VALUES ('Essential Fantastic Four: Volume 1','Marvel Comics');
+INSERT INTO distributesMedium VALUES ('Adventures of Superman','Warner Bros. Television Distribution');
 INSERT INTO distributesMedium VALUES ('The Avengers: Volume 1','Marvel Comics');
 INSERT INTO distributesMedium VALUES ('The Avengers: Volume 2','Marvel Comics');
-INSERT INTO distributesMedium VALUES ('Adventures of Superman','Warner Bros. Television Distribution');
-INSERT INTO distributesMedium VALUES ('Fantastic Four (1994)','Disney–ABC Domestic Television');
 INSERT INTO distributesMedium VALUES ('The Avengers: United They Stand','Disney–ABC Domestic Television');
 INSERT INTO distributesMedium VALUES ('The Avengers: Earth''s Mightiest Heroes','Disney–ABC Domestic Television');
-INSERT INTO distributesMedium VALUES ('X-Men (1992)','Genesis Entertainment');
 INSERT INTO distributesMedium VALUES ('The Avengers','Marvel Studios');
+INSERT INTO distributesMedium VALUES ('Avengers: Age of Ultron','Marvel Studios');
 INSERT INTO distributesMedium VALUES ('The Dark Knight Rises','Warner Bros. Pictures');
+INSERT INTO distributesMedium VALUES ('Essential Fantastic Four: Volume 1','Marvel Comics');
+INSERT INTO distributesMedium VALUES ('Fantastic Four (1994)','Disney–ABC Domestic Television');
+INSERT INTO distributesMedium VALUES ('Fantastic Four','20th Century Fox');
 INSERT INTO distributesMedium VALUES ('Spider-Man 2','Columbia Pictures');
+INSERT INTO distributesMedium VALUES ('The Superman Chronicles: Volume One','DC Comics');
+INSERT INTO distributesMedium VALUES ('The Superman Chronicles: Volume Two','DC Comics');
+INSERT INTO distributesMedium VALUES ('X-Men: Days of Future Past','20th Century Fox');
+INSERT INTO distributesMedium VALUES ('X-Men (1992)','Genesis Entertainment');
 
 -- distributor
 INSERT INTO distributor VALUES ('20th Century Fox','Studio');
@@ -346,6 +362,8 @@ INSERT INTO movie VALUES ('X-Men: Days of Future Past','Bryan Singer','2013-05-2
 INSERT INTO movie VALUES ('The Avengers','Joss Whedon','2012-05-04','FALSE',1519000000);
 INSERT INTO movie VALUES ('Spider-Man 2','Sam Raimi','2004-06-30','FALSE',783800000);
 INSERT INTO movie VALUES ('The Dark Knight Rises','Christopher Nolan','2012-07-20','FALSE',1084000000);
+INSERT INTO movie VALUES ('Fantastic Four', 'Tim Story', '2005-7-8', 'FALSE', 330600000);
+
 
 -- participatesIn
 INSERT INTO participatesIn VALUES ('Battle of New York','Modern','Black Widow','Modern');
@@ -376,3 +394,4 @@ INSERT INTO tvSeries VALUES ('Fantastic Four (1994)','1994-09-24','Avi Arad');
 INSERT INTO tvSeries VALUES ('The Avengers: United They Stand','1999-10-30','Avi Arad');
 INSERT INTO tvSeries VALUES ('The Avengers: Earth''s Mightiest Heroes','2010-09-22','Simon Philips');
 INSERT INTO tvSeries VALUES ('X-Men (1992)','1992-10-31','Larry Houston');
+INSERT INTO tvSeries VALUES ('Justice League', '2001-11-17', 'Bruce Timm')
