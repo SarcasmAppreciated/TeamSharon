@@ -362,7 +362,6 @@ INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Quicksilver','M
 INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Scarlet Witch','Modern');
 INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Thor','Modern');
 
-INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Captain America','Modern'); 
 -- team
 INSERT INTO team VALUES ('Avengers','Modern','Hero','Avengers Mansion');
 INSERT INTO team VALUES ('Brotherhood of Mutants','Modern','Villian','Various');
