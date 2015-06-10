@@ -214,3 +214,53 @@ INSERT INTO character VALUES ('Hawkeye','Modern','Clint Barton','Human','Hero','
 INSERT INTO character VALUES ('Black Widow','Modern','Natasha Romanoff','Human','Hero','Female','Combat','Earth');
 
 -- creates
+INSERT INTO creates VALUES ('Wolverine','Modern','Roy Thomas','Author');
+INSERT INTO creates VALUES ('Cyclops','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Superman','Modern','Jerry Siegel','Author');
+INSERT INTO creates VALUES ('Storm','Modern','Len Wein','Author');
+INSERT INTO creates VALUES ('Doctor Doom','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Thor','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Invisible Woman','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Captain America','Modern','Joe Simon','Author');
+INSERT INTO creates VALUES ('Iron Man','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Batman','Modern','Bill Finger','Author');
+INSERT INTO creates VALUES ('Hawkeye','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Black Widow','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Superman','Modern','Joe Shuster','Illustrator');
+INSERT INTO creates VALUES ('Wolverine','Modern','Len Wein','Author');
+INSERT INTO creates VALUES ('Wolverine','Modern','John Romita, Sr.','Illustrator');
+INSERT INTO creates VALUES ('Wolverine','Modern','Herb Trimpe','Illustrator');
+INSERT INTO creates VALUES ('Cyclops','Modern','Jack Kirby','Illustrator');
+INSERT INTO creates VALUES ('Batman','Modern','Bob Kane','Illustrator');
+INSERT INTO creates VALUES ('Black Widow','Modern','Don Rico','Illustrator');
+INSERT INTO creates VALUES ('Black Widow','Modern','Don Heck','Illustrator');
+INSERT INTO creates VALUES ('Captain America','Modern','Jack Kirby','Illustrator');
+INSERT INTO creates VALUES ('Doctor Doom','Modern','Jack Kirby','Illustrator');
+INSERT INTO creates VALUES ('Hawkeye','Modern','Don Heck','Illustrator');
+INSERT INTO creates VALUES ('Iron Man','Modern','Larry Lieber','Author');
+INSERT INTO creates VALUES ('Iron Man','Modern','Don Heck','Illustrator');
+INSERT INTO creates VALUES ('Iron Man','Modern','Jack Kirby','Illustrator');
+INSERT INTO creates VALUES ('Storm','Modern','Dave Cockrum','Illustrator');
+INSERT INTO creates VALUES ('Thor','Modern','Larry Lieber','Author');
+INSERT INTO creates VALUES ('Thor','Modern','Jack Kirby','Illustrator');
+INSERT INTO creates VALUES ('Invisible Woman','Modern','Jack Kirby','Illustrator');
+INSERT INTO creates VALUES ('Doctor Octopus','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Doctor Octopus','Modern','Steve Ditko','Illustrator');
+
+-- creator
+INSERT INTO creator VALUES ('Bill Finger','Author');
+INSERT INTO creator VALUES ('Bob Kane','Illustrator');
+INSERT INTO creator VALUES ('Dave Cockrum','Illustrator');
+INSERT INTO creator VALUES ('Don Heck','Illustrator');
+INSERT INTO creator VALUES ('Don Rico','Illustrator');
+INSERT INTO creator VALUES ('Herb Trimpe','Illustrator');
+INSERT INTO creator VALUES ('Jack Kirby','Illustrator');
+INSERT INTO creator VALUES ('Jerry Siegel','Author');
+INSERT INTO creator VALUES ('Joe Shuster','Illustrator');
+INSERT INTO creator VALUES ('Joe Simon','Author');
+INSERT INTO creator VALUES ('John Romita, Sr.','Illustrator');
+INSERT INTO creator VALUES ('Larry Lieber','Author');
+INSERT INTO creator VALUES ('Len Wein','Author');
+INSERT INTO creator VALUES ('Roy Thomas','Author');
+INSERT INTO creator VALUES ('Stan Lee','Author');
+INSERT INTO creator VALUES ('Steve Ditko','Illustrator');
