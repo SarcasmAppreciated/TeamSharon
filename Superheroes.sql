@@ -6,9 +6,7 @@ create table appearsIn
 	foreign key (charName, comicAge) 
 		references character (name, comicAge)
 		ON DELETE CASCADE ON UPDATE CASCADE);
- 
-grant select on appearsIn to public;
- 
+
 create table book
 	(mName varchar(45) not null,
 	ISBN varchar(20),
@@ -20,8 +18,6 @@ create table book
 		references distributesMedium (mName)
 		ON DELETE CASCADE ON UPDATE CASCADE);
  
-grant select on book to public;
- 
 create table character
 	(name varchar(48) not null,
 	comicAge varchar(45) not null,
@@ -32,9 +28,7 @@ create table character
 	power  varchar(450),
 	originPlanet varchar(45),
 	primary key (name, comicAge));
-	
-grant select on character to public;
-
+	 
 create table creates
 	(charName varchar(45) not null,
 	charComicAge varchar(45) not null,
@@ -47,15 +41,11 @@ create table creates
 	foreign key (crName, crType) 
 		references creator (name, type)
 		ON UPDATE CASCADE);
- 
-grant select on creates to public;
- 
+
 create table creator
 	(name varchar(45) not null,
 	type varchar(45) not null,
 	primary key (name, type));
- 
-grant select on creator to public;
  
 create table distributesMedium
 	(mName varchar(45) not null,
@@ -65,22 +55,16 @@ create table distributesMedium
 		references distributor (name)
 		ON UPDATE CASCADE);
  
-grant select on distributesMedium to public;
- 
 create table distributor
 	(name varchar(45) not null,
 	type varchar(45),
 	primary key (name));
- 
-grant select on distributor to public;
- 
+
 create table fight
 	(description varchar(100) not null,
 	comicAge varchar(45) not null,
 	victor varchar(45),
 	primary key (description, comicAge));
-	
-grant select on fight to public;
 
 create table makesUp
 	(teamName varchar(45) not null,
@@ -94,9 +78,7 @@ create table makesUp
 	foreign key(charComicAge, charName) 
 		references character (name, comicAge)
 		ON UPDATE CASCADE ON DELETE CASCADE));
- 
-grant select on makesUp to public;
- 
+
 create table movie
 	(mName varchar(45) not null,
 	director varchar(45),
@@ -107,8 +89,6 @@ create table movie
 	foreign key (mName) 
 		references distributesMedium (mName)
 		ON DELETE CASCADE ON UPDATE CASCADE);
-
-grant select on movie to public;
 
 create table participatesIn
 	(fightDesc varchar(100) not null,
@@ -123,16 +103,12 @@ create table participatesIn
 		references character (name, comicAge)
 		ON DELETE CASCADE ON UPDATE CASCADE);
 	
-grant select on participatesIn to public;
-
 create table team
 	(name varchar(45) not null,
 	comicAge varchar(45) not null,
 	alignment varchar(45),
 	HQ varchar(45),
 	primary key (name, comicAge));
-
-grant select on team to public;
 
 create table tvSeries
 	(mName varchar(45) not null,
@@ -143,10 +119,7 @@ create table tvSeries
 		references distributesMedium (mName)
 		ON DELETE CASCADE ON UPDATE CASCADE);
 
-grant select on tvSeries to public;
-
 -- appearsIn
-
 INSERT INTO appearsIn VALUES ('Superman','Modern','Adventures of Superman');
 INSERT INTO appearsIn VALUES ('Superman','Modern','The Superman Chronicles: Volume One');
 INSERT INTO appearsIn VALUES ('Wolverine','Modern','X-Men');
@@ -264,3 +237,79 @@ INSERT INTO creator VALUES ('Len Wein','Author');
 INSERT INTO creator VALUES ('Roy Thomas','Author');
 INSERT INTO creator VALUES ('Stan Lee','Author');
 INSERT INTO creator VALUES ('Steve Ditko','Illustrator');
+
+-- distributesMedium
+INSERT INTO distributesMedium VALUES ('X-Men: Days of Future Past','20th Century Fox');
+INSERT INTO distributesMedium VALUES ('The Superman Chronicles: Volume One','DC Comics');
+INSERT INTO distributesMedium VALUES ('The Superman Chronicles: Volume Two','DC Comics');
+INSERT INTO distributesMedium VALUES ('Essential Fantastic Four: Volume 1','Marvel Comics');
+INSERT INTO distributesMedium VALUES ('The Avengers: Volume 1','Marvel Comics');
+INSERT INTO distributesMedium VALUES ('The Avengers: Volume 2','Marvel Comics');
+INSERT INTO distributesMedium VALUES ('Adventures of Superman','Warner Bros. Television Distribution');
+INSERT INTO distributesMedium VALUES ('Fantastic Four (1994)','Disney–ABC Domestic Television');
+INSERT INTO distributesMedium VALUES ('The Avengers: United They Stand','Disney–ABC Domestic Television');
+INSERT INTO distributesMedium VALUES ('The Avengers: Earth''s Mightiest Heroes','Disney–ABC Domestic Television');
+INSERT INTO distributesMedium VALUES ('X-Men (1992)','Genesis Entertainment');
+INSERT INTO distributesMedium VALUES ('The Avengers','Marvel Studios');
+INSERT INTO distributesMedium VALUES ('The Dark Knight Rises','Warner Bros. Pictures');
+INSERT INTO distributesMedium VALUES ('Spider-Man 2','Columbia Pictures');
+
+-- distributor
+INSERT INTO distributor VALUES ('20th Century Fox','Studio');
+INSERT INTO distributor VALUES ('DC Comics','Publisher');
+INSERT INTO distributor VALUES ('Marvel Comics','Publisher');
+INSERT INTO distributor VALUES ('Warner Bros. Television Distribution','Studio');
+INSERT INTO distributor VALUES ('Disney–ABC Domestic Television','Studio');
+INSERT INTO distributor VALUES ('Genesis Entertainment','Studio');
+INSERT INTO distributor VALUES ('Marvel Studios','Studio');
+INSERT INTO distributor VALUES ('Columbia Pictures','Studio');
+INSERT INTO distributor VALUES ('Warner Bros. Pictures','Studio');
+
+-- fight
+INSERT INTO fight VALUES ('M-Day;Genosha;Decimation','Modern','None');
+INSERT INTO fight VALUES ('Battle of New York','Modern','Avengers');
+INSERT INTO fight VALUES ('Wolverine vs. Sabretooth','Modern','Wolverine');
+INSERT INTO fight VALUES ('Battle of Sokovia','Modern','Avengers');
+INSERT INTO fight VALUES ('Infinite Crisis','Modern','Justice League');
+
+-- makesUp
+INSERT INTO makesUp VALUES ('X-Men','Modern','Modern','Cyclops');
+INSERT INTO makesUp VALUES ('Brotherhood of Mutants','Modern','Modern','Magneto');
+INSERT INTO makesUp VALUES ('Avengers','Modern','Modern','Black Widow');
+INSERT INTO makesUp VALUES ('Sinister Six','Modern','Modern','Doctor Octopus');
+INSERT INTO makesUp VALUES ('Fantastic Four','Modern','Modern','Invisible Woman');
+INSERT INTO makesUp VALUES ('Avengers','Modern','Modern','Thor');
+INSERT INTO makesUp VALUES ('Avengers','Modern','Modern','Captain America');
+
+-- movie
+INSERT INTO movie VALUES ('X-Men','Bryan Singer','2000-07-14','FALSE',296300000);
+INSERT INTO movie VALUES ('X-Men: The Last Stand','Brett Ratner','2006-05-26','FALSE',459300000);
+INSERT INTO movie VALUES ('X-Men Origins: Wolverine','Gavin Hood','2009-05-01','FALSE',373000000);
+INSERT INTO movie VALUES ('X-Men: First Class','Matthew Vaughn','2011-06-03','FALSE',353600000);
+INSERT INTO movie VALUES ('X-Men: Days of Future Past','Bryan Singer','2013-05-23','FALSE',748100000);
+INSERT INTO movie VALUES ('The Avengers','Joss Whedon','2012-05-04','FALSE',1519000000);
+INSERT INTO movie VALUES ('Spider-Man 2','Sam Raimi','2004-06-30','FALSE',783800000);
+INSERT INTO movie VALUES ('The Dark Knight Rises','Christopher Nolan','2012-07-20','FALSE',1084000000);
+
+-- participatesIn
+INSERT INTO participatesIn VALUES ('Battle of New York','Modern','Black Widow','Modern');
+INSERT INTO participatesIn VALUES ('Battle of New York','Modern','Iron Man','Modern');
+INSERT INTO participatesIn VALUES ('Battle of New York','Modern','Thor','Modern');
+INSERT INTO participatesIn VALUES ('Battle of New York','Modern','Hawkeye','Modern');
+INSERT INTO participatesIn VALUES ('Battle of New York','Modern','Captain America','Modern');
+INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Captain America','Modern');
+ 
+-- team
+INSERT INTO team VALUES ('X-Men','Modern','Hero','X-Mansion');
+INSERT INTO team VALUES ('Fantastic Four','Modern','Hero','Baxter Building');
+INSERT INTO team VALUES ('Brotherhood of Mutants','Modern','Villian','Various');
+INSERT INTO team VALUES ('Sinister Six','Modern','Villian','New York');
+INSERT INTO team VALUES ('Avengers','Modern','Hero','Avengers Mansion');
+INSERT INTO team VALUES ('Justice League','Modern','Hero','The Hall;The Satellite');
+
+-- tvSeries
+INSERT INTO tvSeries VALUES ('Adventures of Superman','1952-09-19','Whitney Ellsworth');
+INSERT INTO tvSeries VALUES ('Fantastic Four (1994)','1994-09-24','Avi Arad');
+INSERT INTO tvSeries VALUES ('The Avengers: United They Stand','1999-10-30','Avi Arad');
+INSERT INTO tvSeries VALUES ('The Avengers: Earth''s Mightiest Heroes','2010-09-22','Simon Philips');
+INSERT INTO tvSeries VALUES ('X-Men (1992)','1992-10-31','Larry Houston');
