@@ -1,11 +1,30 @@
+-- drop tables if they exist
+drop table if exists appearsIn;
+drop table if exists book;
+drop table if exists character;
+drop table if exists creates;
+drop table if exists creator;
+drop table if exists distributesMedium;
+drop table if exists distributor;
+drop table if exists fight;
+drop table if exists makesUp;
+drop table if exists movie;
+drop table if exists participatesIn;
+drop table if exists team;
+drop table if exists tvSeries;
+
+-- Add tables
 create table appearsIn
 	(charName varchar(45) not null,
 	comicAge varchar(45),
 	mName varchar(45),
-	primary key (charName),
-	foreign key (charName, comicAge) 
+	primary key (charName, comicAge, mName),
+	foreign key (charName, comicAge)
 		references character (name, comicAge)
-		ON DELETE CASCADE ON UPDATE CASCADE);
+		ON DELETE CASCADE ON UPDATE CASCADE,
+    foreign key (mName)
+        references media (mName)
+        ON DELETE CASCADE ON UPDATE CASCADE);
 
 create table book
 	(mName varchar(45) not null,
@@ -73,11 +92,11 @@ create table makesUp
 	charName varchar(45) not null,
 	primary key(teamName, teamComicAge, charComicAge, charName),
 	foreign key(teamName, teamComicAge) 
-		references teamName (name, comicAge)
+		references team (name, comicAge)
 		ON UPDATE CASCADE ON DELETE CASCADE,
 	foreign key(charComicAge, charName) 
 		references character (name, comicAge)
-		ON UPDATE CASCADE ON DELETE CASCADE));
+		ON UPDATE CASCADE ON DELETE CASCADE);
 
 create table movie
 	(mName varchar(45) not null,
@@ -115,7 +134,7 @@ create table tvSeries
 	initialAirDate DATE,
 	director varchar(45),
 	primary key (mName),
-	foreign key(mName) 
+	foreign key (mName)
 		references distributesMedium (mName)
 		ON DELETE CASCADE ON UPDATE CASCADE);
 
@@ -139,7 +158,6 @@ INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: Earth''s
 INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: Earth''s Mightiest Heroes');
 INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers: Earth''s Mightiest Heroes');
 INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers: Earth''s Mightiest Heroes');
-INSERT INTO appearsIn VALUES ('Wolverine','Modern','X-Men');
 INSERT INTO appearsIn VALUES ('Storm','Modern','X-Men (1992)');
 INSERT INTO appearsIn VALUES ('Cyclops','Modern','X-Men (1992)');
 INSERT INTO appearsIn VALUES ('Superman','Modern','The Superman Chronicles: Volume 2');
@@ -156,7 +174,6 @@ INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers');
 INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers');
 INSERT INTO appearsIn VALUES ('Black Widow','Modern','The Avengers');
 INSERT INTO appearsIn VALUES ('Batman','Modern','The Dark Knight Rises');
-INSERT INTO appearsIn VALUES ('Wolverine','Modern','X-Men: First Class');
 INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: Volume 1');
 INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: Volume 1');
 INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers: Volume 1');
