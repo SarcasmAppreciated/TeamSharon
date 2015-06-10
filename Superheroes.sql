@@ -1,6 +1,6 @@
 create table appearsIn
 	(charName varchar(45) not null,
-	comicAge ENUM('Modern', 'Silver', 'Golden', 'Bronze'),
+	comicAge varchar(45),
 	mName varchar(45),
 	primary key (charName),
 	foreign key (charName, comicAge) 
@@ -14,7 +14,7 @@ create table book
 	ISBN varchar(20),
 	author varchar(45) not null,
 	publishDate DATE,
-	format ENUM('Novel', 'Graphic Novel', 'Other'),
+	format varchar(45),
 	primary key (mName),
 	foreign key (mName) 
 		references distributesMedium (mName)
@@ -24,11 +24,11 @@ grant select on book to public;
  
 create table character
 	(name varchar(48) not null,
-	comicAge ENUM('Modern', 'Silver', 'Golden', 'Bronze') not null,
+	comicAge varchar(45) not null,
 	personName varchar(45),
 	species varchar(45),
-	alignment ENUM('Hero', 'Villian', 'Other'),
-	gender ENUM('Male', 'Female', 'Other'),
+	alignment varchar(45),
+	gender varchar(45),
 	power  varchar(450),
 	originPlanet varchar(45),
 	primary key (name, comicAge));
@@ -37,9 +37,9 @@ grant select on character to public;
 
 create table creates
 	(charName varchar(45) not null,
-	charComicAge ENUM('Modern', 'Silver', 'Golden', 'Bronze') not null,
+	charComicAge varchar(45) not null,
 	crName varchar(45) not null,
-	crType ENUM('Author', 'Illustrator', 'Other') not null,
+	crType varchar(45) not null,
 	primary key (charName, charComicAge, crName, crType),
 	foreign key (charName, charComicAge) 
 		references character (name, comicAge)
@@ -52,7 +52,7 @@ grant select on creates to public;
  
 create table creator
 	(name varchar(45) not null,
-	type ENUM('Author', 'Illustrator', 'Other') not null,
+	type varchar(45) not null,
 	primary key (name, type));
  
 grant select on creator to public;
@@ -76,7 +76,7 @@ grant select on distributor to public;
  
 create table fight
 	(description varchar(100) not null,
-	comicAge ENUM('Modern', 'Silver', 'Golden', 'Bronze') not null,
+	comicAge varchar(45) not null,
 	victor varchar(45),
 	primary key (description, comicAge));
 	
@@ -84,8 +84,8 @@ grant select on fight to public;
 
 create table makesUp
 	(teamName varchar(45) not null,
-	teamComicAge ENUM('Modern', 'Silver', 'Golden', 'Bronze') not null,
-	charComicAge ENUM('Modern', 'Silver', 'Golden', 'Bronze') not null,
+	teamComicAge varchar(45) not null,
+	charComicAge varchar(45) not null,
 	charName varchar(45) not null,
 	primary key(teamName, teamComicAge, charComicAge, charName),
 	foreign key(teamName, teamComicAge) 
@@ -112,9 +112,9 @@ grant select on movie to public;
 
 create table participatesIn
 	(fightDesc varchar(100) not null,
-	fightComicAge ENUM('Modern', 'Silver', 'Golden', 'Bronze') not null,
+	fightComicAge varchar(45) not null,
 	charName varchar(45) not null,
-	charComicAge ENUM('Modern', 'Silver', 'Golden', 'Bronze') not null,
+	charComicAge varchar(45) not null,
 	primary key (fightDesc, fightComicAge, charName, charComicAge)
 	foreign key (fightDesc, fightComicAge) 
 		references fight (description, comicAge)
@@ -127,8 +127,8 @@ grant select on participatesIn to public;
 
 create table team
 	(name varchar(45) not null,
-	comicAge ENUM('Modern', 'Silver', 'Golden', 'Bronze') not null,
-	alignment ENUM('Hero', 'Villian', 'Other'),
+	comicAge varchar(45) not null,
+	alignment varchar(45),
 	HQ varchar(45),
 	primary key (name, comicAge));
 
@@ -192,3 +192,25 @@ INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: Volume 2');
 INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers: Volume 2');
 
 -- book
+INSERT INTO book VALUES ('The Superman Chronicles: Volume 1','978-1-4012-0764-9','Jerry Siegel','2006-02-22','Graphic Novel');
+INSERT INTO book VALUES ('The Superman Chronicles: Volume 2','978-1-4012-1215-5','Jerry Siegel','2007-02-07','Graphic Novel');
+INSERT INTO book VALUES ('Essential Fantastic Four: Volume 1','978-0-7851-1828-4','Martin Goodman','2005-05-25','Graphic Novel');
+INSERT INTO book VALUES ('The Avengers: Volume 1','978-0-7851-3706-1','Stan Lee','2009-05-13','Graphic Novel');
+INSERT INTO book VALUES ('The Avengers: Volume 2','978-0-7851-3708-5','Stan Lee','2009-10-14','Graphic Novel');
+
+-- character
+INSERT INTO character VALUES ('Wolverine','Modern','Logan Howlett','Mutant','Hero','Male','Healing Factor','Earth');
+INSERT INTO character VALUES ('Cyclops','Modern','Scott Summers','Mutant','Hero','Male','Lasers','Earth');
+INSERT INTO character VALUES ('Superman','Modern','Clark Kent','Kryptonian','Hero','Male','Strength;Flight','Krypton');
+INSERT INTO character VALUES ('Storm','Modern','Ororo Monroe','Mutant','Hero','Female','Weather Control;Flight','Earth');
+INSERT INTO character VALUES ('Doctor Doom','Modern','Viktor Krumm','Human','Villian','Male','Technopathy;Genius;Flight;Force Fields','Earth');
+INSERT INTO character VALUES ('Thor','Modern','Thor Odinson','Asgardian','Hero','Male','Mjolnr;God','Asgard');
+INSERT INTO character VALUES ('Invisible Woman','Modern','Susan Storm','Human','Hero','Female','Force Fields','Earth');
+INSERT INTO character VALUES ('Doctor Octopus','Modern','Otto Gunther Octavius','Human','Villian','Male','Genius','Earth');
+INSERT INTO character VALUES ('Captain America','Modern','Steve Rogers','Human','Hero','Male','Strength;Endurance','Earth');
+INSERT INTO character VALUES ('Iron Man','Modern','Tony Stark','Human','Hero','Male','Genius;Money','Earth');
+INSERT INTO character VALUES ('Batman','Modern','Bruce Wayne','Human','Hero','Male','Genius;Money','Earth');
+INSERT INTO character VALUES ('Hawkeye','Modern','Clint Barton','Human','Hero','Male','Archery','Earth');
+INSERT INTO character VALUES ('Black Widow','Modern','Natasha Romanoff','Human','Hero','Female','Combat','Earth');
+
+-- creates
