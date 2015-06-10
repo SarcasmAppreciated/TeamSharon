@@ -172,19 +172,39 @@ INSERT INTO book VALUES ('The Avengers: Volume 1','978-0-7851-3706-1','Stan Lee'
 INSERT INTO book VALUES ('The Avengers: Volume 2','978-0-7851-3708-5','Stan Lee','2009-10-14','Graphic Novel');
 
 -- character
-INSERT INTO character VALUES ('Wolverine','Modern','Logan Howlett','Mutant','Hero','Male','Healing Factor','Earth');
-INSERT INTO character VALUES ('Cyclops','Modern','Scott Summers','Mutant','Hero','Male','Lasers','Earth');
-INSERT INTO character VALUES ('Superman','Modern','Clark Kent','Kryptonian','Hero','Male','Strength;Flight','Krypton');
-INSERT INTO character VALUES ('Storm','Modern','Ororo Monroe','Mutant','Hero','Female','Weather Control;Flight','Earth');
-INSERT INTO character VALUES ('Doctor Doom','Modern','Viktor Krumm','Human','Villian','Male','Technopathy;Genius;Flight;Force Fields','Earth');
-INSERT INTO character VALUES ('Thor','Modern','Thor Odinson','Asgardian','Hero','Male','Mjolnr;God','Asgard');
-INSERT INTO character VALUES ('Invisible Woman','Modern','Susan Storm','Human','Hero','Female','Force Fields','Earth');
-INSERT INTO character VALUES ('Doctor Octopus','Modern','Otto Gunther Octavius','Human','Villian','Male','Genius','Earth');
-INSERT INTO character VALUES ('Captain America','Modern','Steve Rogers','Human','Hero','Male','Strength;Endurance','Earth');
-INSERT INTO character VALUES ('Iron Man','Modern','Tony Stark','Human','Hero','Male','Genius;Money','Earth');
+INSERT INTO character VALUES ('Aquaman','Modern','Arthur Curry','Human','Hero','Male','Telepathy;Hydrokinetic;Communicate with Marine Animals','Earth');
+INSERT INTO character VALUES ('Archangel','Modern','Warren Worthington III','Mutant','Hero','Male','Healing Factor;Flight','Earth');
 INSERT INTO character VALUES ('Batman','Modern','Bruce Wayne','Human','Hero','Male','Genius;Money','Earth');
-INSERT INTO character VALUES ('Hawkeye','Modern','Clint Barton','Human','Hero','Male','Archery','Earth');
+INSERT INTO character VALUES ('Beast','Modern','Hank McCoy','Mutant','Hero','Male','Genius;Animal Like','Earth');
 INSERT INTO character VALUES ('Black Widow','Modern','Natasha Romanoff','Human','Hero','Female','Combat','Earth');
+INSERT INTO character VALUES ('Captain America','Modern','Steve Rogers','Human','Hero','Male','Strength;Endurance','Earth');
+INSERT INTO character VALUES ('Cyclops','Modern','Scott Summers','Mutant','Hero','Male','Lasers','Earth');
+INSERT INTO character VALUES ('Dr. C#','Silver','Devon Graham','Human','Hero','Male','Properties;LaTeX','Earth');
+INSERT INTO character VALUES ('Doctor Doom','Modern','Viktor Krumm','Human','Villian','Male','Technopathy;Genius;Flight;Force Fields','Earth');
+INSERT INTO character VALUES ('Doctor Octopus','Modern','Otto Gunther Octavius','Human','Villian','Male','Genius','Earth');
+INSERT INTO character VALUES ('The Flash','Modern','Wally West','Human','Hero','Male','Speed','Earth');
+INSERT INTO character VALUES ('The Flash','Silver','Barry Allen','Human','Hero','Male','Speed','Earth');
+INSERT INTO character VALUES ('Green Lantern','Modern','Kyle Rayner','Human','Hero','Male','Power Ring','Earth');
+INSERT INTO character VALUES ('Green Lantern','Silver','Hal Jordan','Human','Hero','Male','Power Ring','Earth');
+INSERT INTO character VALUES ('Hawkeye','Modern','Clint Barton','Human','Hero','Male','Archery','Earth');
+INSERT INTO character VALUES ('Hulk','Modern','Bruce Banner','Human','Hero','Male','Genius;Strength','Earth');
+INSERT INTO character VALUES ('Human Torch','Modern','Johnny Storm','Human','Hero','Male','Pyrokinesis','Earth');
+INSERT INTO character VALUES ('Iceman','Modern','Bobby Drake','Mutant','Hero','Male','Thermal Vision;Tranform to Ice;Generate Ice','Earth');
+INSERT INTO character VALUES ('Invisible Woman','Modern','Susan Storm','Human','Hero','Female','Force Fields','Earth');
+INSERT INTO character VALUES ('Iron Man','Modern','Tony Stark','Human','Hero','Male','Genius;Money','Earth');
+INSERT INTO character VALUES ('Mister Fantastic','Modern','Reed Richards','Human','Hero','Male','Genius;Elasticity','Earth');
+INSERT INTO character VALUES ('Phoenix','Modern','Jean Grey','Mutant','Hero','Female','Telekinesis;Telepathy;Phoenix Force','Earth');
+INSERT INTO character VALUES ('Professor X','Modern','Charles Xavier','Mutant','Hero','Male','Telepathy','Earth');
+INSERT INTO character VALUES ('Quicksilver','Modern','Pietro Maximoff','Mutant','Hero','Male','Speed','Earth');
+
+INSERT INTO character VALUES ('Scarlet Witch','Modern','Wanda Maximoff','Mutant','Hero','Female','Reality Warping','Earth');
+
+INSERT INTO character VALUES ('Storm','Modern','Ororo Monroe','Mutant','Hero','Female','Weather Control;Flight','Earth');
+INSERT INTO character VALUES ('Superman','Modern','Clark Kent','Kryptonian','Hero','Male','Strength;Flight','Krypton');
+INSERT INTO character VALUES ('The Thing','Modern','Ben Grimm','Human','Hero','Male','Strength;Endurance','Earth');
+INSERT INTO character VALUES ('Thor','Modern','Thor Odinson','Asgardian','Hero','Male','Mjolnr;God','Asgard');
+INSERT INTO character VALUES ('Wolverine','Modern','Logan Howlett','Mutant','Hero','Male','Healing Factor','Earth');
+INSERT INTO character VALUES ('Wonder Woman','Modern','Princess Diana of Themyscira','Amazon','Hero','Female','Strength;Agility;Flight;Endurance','Earth');
 
 -- creates
 INSERT INTO creates VALUES ('Wolverine','Modern','Roy Thomas','Author');
@@ -273,13 +293,32 @@ INSERT INTO fight VALUES ('Battle of Sokovia','Modern','Avengers');
 INSERT INTO fight VALUES ('Infinite Crisis','Modern','Justice League');
 
 -- makesUp
-INSERT INTO makesUp VALUES ('X-Men','Modern','Modern','Cyclops');
-INSERT INTO makesUp VALUES ('Brotherhood of Mutants','Modern','Modern','Magneto');
-INSERT INTO makesUp VALUES ('Avengers','Modern','Modern','Black Widow');
-INSERT INTO makesUp VALUES ('Sinister Six','Modern','Modern','Doctor Octopus');
-INSERT INTO makesUp VALUES ('Fantastic Four','Modern','Modern','Invisible Woman');
 INSERT INTO makesUp VALUES ('Avengers','Modern','Modern','Thor');
 INSERT INTO makesUp VALUES ('Avengers','Modern','Modern','Captain America');
+INSERT INTO makesUp VALUES ('Avengers','Modern','Modern','Black Widow');
+INSERT INTO makesUp VALUES ('Avengers','Modern','Modern','Iron Man');
+INSERT INTO makesUp VALUES ('Avengers','Modern','Modern','Hawkeye');
+INSERT INTO makesUp VALUES ('Avengers','Modern','Modern','Hulk');
+INSERT INTO makesUp VALUES ('Brotherhood of Mutants','Modern','Modern','Magneto');
+INSERT INTO makesUp VALUES ('Fantastic Four','Modern','Modern','Invisible Woman');
+INSERT INTO makesUp VALUES ('Fantastic Four','Modern','Modern','Mister Fantastic');
+INSERT INTO makesUp VALUES ('Fantastic Four','Modern','Modern','The Thing');
+INSERT INTO makesUp VALUES ('Fantastic Four','Modern','Modern','Human Torch');
+INSERT INTO makesUp VALUES ('Justice League','Modern','Modern','The Flash');
+INSERT INTO makesUp VALUES ('Justice League','Modern','Modern','Superman');
+INSERT INTO makesUp VALUES ('Justice League','Modern','Modern','Batman');
+INSERT INTO makesUp VALUES ('Justice League','Modern','Modern','Green Lantern');
+INSERT INTO makesUp VALUES ('Justice League','Modern','Modern','Aquaman');
+INSERT INTO makesUp VALUES ('Justice League','Modern','Modern','Wonder Woman');
+INSERT INTO makesUp VALUES ('Sinister Six','Modern','Modern','Doctor Octopus');
+INSERT INTO makesUp VALUES ('X-Men','Modern','Modern','Archangel');
+INSERT INTO makesUp VALUES ('X-Men','Modern','Modern','Beast');
+INSERT INTO makesUp VALUES ('X-Men','Modern','Modern','Cyclops');
+INSERT INTO makesUp VALUES ('X-Men','Modern','Modern','Iceman');
+INSERT INTO makesUp VALUES ('X-Men','Modern','Modern','Phoenix');
+INSERT INTO makesUp VALUES ('X-Men','Modern','Modern','Professor X');
+INSERT INTO makesUp VALUES ('X-Men','Modern','Modern','Storm');
+INSERT INTO makesUp VALUES ('X-Men','Modern','Modern','Wolverine');
 
 -- movie
 INSERT INTO movie VALUES ('X-Men','Bryan Singer','2000-07-14','FALSE',296300000);
@@ -297,15 +336,23 @@ INSERT INTO participatesIn VALUES ('Battle of New York','Modern','Iron Man','Mod
 INSERT INTO participatesIn VALUES ('Battle of New York','Modern','Thor','Modern');
 INSERT INTO participatesIn VALUES ('Battle of New York','Modern','Hawkeye','Modern');
 INSERT INTO participatesIn VALUES ('Battle of New York','Modern','Captain America','Modern');
+INSERT INTO participatesIn VALUES ('Battle of New York','Modern','Hulk','Modern');
+INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Black Widow','Modern');
 INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Captain America','Modern');
- 
+INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Hawkeye','Modern');
+INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Hulk','Modern');
+INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Quicksilver','Modern');
+INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Scarlet Witch','Modern');
+INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Thor','Modern');
+
+INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Captain America','Modern'); 
 -- team
-INSERT INTO team VALUES ('X-Men','Modern','Hero','X-Mansion');
-INSERT INTO team VALUES ('Fantastic Four','Modern','Hero','Baxter Building');
-INSERT INTO team VALUES ('Brotherhood of Mutants','Modern','Villian','Various');
-INSERT INTO team VALUES ('Sinister Six','Modern','Villian','New York');
 INSERT INTO team VALUES ('Avengers','Modern','Hero','Avengers Mansion');
+INSERT INTO team VALUES ('Brotherhood of Mutants','Modern','Villian','Various');
+INSERT INTO team VALUES ('Fantastic Four','Modern','Hero','Baxter Building');
 INSERT INTO team VALUES ('Justice League','Modern','Hero','The Hall;The Satellite');
+INSERT INTO team VALUES ('Sinister Six','Modern','Villian','New York');
+INSERT INTO team VALUES ('X-Men','Modern','Hero','X-Mansion');
 
 -- tvSeries
 INSERT INTO tvSeries VALUES ('Adventures of Superman','1952-09-19','Whitney Ellsworth');
