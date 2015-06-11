@@ -138,6 +138,12 @@ create table tvSeries
 		references distributesMedium (mName)
 		ON DELETE CASCADE ON UPDATE CASCADE);
 
+-- ASSERTIONS
+create assertion charAppears CHECK
+	NOT EXISTS SELECT name, comicAge FROM character
+		EXCEPT SELECT charName, comicAge FROM appearsIn;
+
+
 -- appearsIn
 INSERT INTO appearsIn VALUES ('Archangel','Modern','X-Men: The Last Stand');
 INSERT INTO appearsIn VALUES ('Aquaman','Modern','Justice League');
@@ -165,12 +171,10 @@ INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers');
 INSERT INTO appearsIn VALUES ('Hawkeye','Modern','Avengers: Age Of Ultron');
 INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers: United They Stand');
 INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers: Earth''s Mightiest Heroes');
-
 INSERT INTO appearsIn VALUES ('Hulk','Modern','The Avengers');
 INSERT INTO appearsIn VALUES ('Hulk','Modern','Avengers: Age Of Ultron');
 INSERT INTO appearsIn VALUES ('Human Torch','Modern','Fantastic Four (1994)');
 INSERT INTO appearsIn VALUES ('Iceman','Modern','X-Men: The Last Stand');
-
 INSERT INTO appearsIn VALUES ('Invisible Woman','Modern','Fantastic Four (1994)');
 INSERT INTO appearsIn VALUES ('Invisible Woman','Modern','Essential Fantastic Four: Volume 1');
 INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: Earth''s Mightiest Heroes');
@@ -265,6 +269,18 @@ INSERT INTO creates VALUES ('Doctor Doom','Modern','Jack Kirby','Illustrator');
 INSERT INTO creates VALUES ('Doctor Doom','Modern','Stan Lee','Author');
 INSERT INTO creates VALUES ('Doctor Octopus','Modern','Stan Lee','Author');
 INSERT INTO creates VALUES ('Doctor Octopus','Modern','Steve Ditko','Illustrator');
+INSERT INTO creates VALUES ('The Flash','Modern','Gardner Fox','Author');
+INSERT INTO creates VALUES ('The Flash','Silver','Gardner Fox','Author');
+INSERT INTO creates VALUES ('The Flash','Modern','Harry Lampert','Illustrator');
+INSERT INTO creates VALUES ('The Flash','Silver','Harry Lampert','Illustrator');
+INSERT INTO creates VALUES ('Green Lantern','Modern','John Broome','Author');
+INSERT INTO creates VALUES ('Green Lantern','Silver','John Broome','Author');
+INSERT INTO creates VALUES ('Green Lantern','Modern','Gil Kane','Illustrator');
+INSERT INTO creates VALUES ('Green Lantern','Silver','Gil Kane','Illustrator');
+INSERT INTO creates VALUES ('Green Lantern','Modern','Bill Finger','Author');
+INSERT INTO creates VALUES ('Green Lantern','Silver','Bill Finger','Author');
+INSERT INTO creates VALUES ('Green Lantern','Modern','Martin Nodell','Illustrator');
+INSERT INTO creates VALUES ('Green Lantern','Silver','Martin Nodell','Illustrator');
 INSERT INTO creates VALUES ('Hawkeye','Modern','Stan Lee','Author');
 INSERT INTO creates VALUES ('Hawkeye','Modern','Don Heck','Illustrator');
 INSERT INTO creates VALUES ('Invisible Woman','Modern','Stan Lee','Author');
@@ -291,14 +307,19 @@ INSERT INTO creator VALUES ('Bob Kane','Illustrator');
 INSERT INTO creator VALUES ('Dave Cockrum','Illustrator');
 INSERT INTO creator VALUES ('Don Heck','Illustrator');
 INSERT INTO creator VALUES ('Don Rico','Illustrator');
+INSERT INTO creator VALUES ('Gardner Fox','Author');
+INSERT INTO creator VALUES ('Gil Kane','Illustrator');
 INSERT INTO creator VALUES ('Herb Trimpe','Illustrator');
+INSERT INTO creator VALUES ('Harry Lampert','Illustrator');
 INSERT INTO creator VALUES ('Jack Kirby','Illustrator');
 INSERT INTO creator VALUES ('Jerry Siegel','Author');
 INSERT INTO creator VALUES ('Joe Shuster','Illustrator');
 INSERT INTO creator VALUES ('Joe Simon','Author');
+INSERT INTO creator VALUES ('John Broome','Author');
 INSERT INTO creator VALUES ('John Romita, Sr.','Illustrator');
 INSERT INTO creator VALUES ('Larry Lieber','Author');
 INSERT INTO creator VALUES ('Len Wein','Author');
+INSERT INTO creator VALUES ('Martin Nodell','Illustrator');
 INSERT INTO creator VALUES ('Paul Norris','Illustrator');
 INSERT INTO creator VALUES ('Roy Thomas','Author');
 INSERT INTO creator VALUES ('Stan Lee','Author');
