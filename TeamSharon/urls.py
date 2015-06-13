@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from SuperheroesAndStuff.views import response
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 	url(r'^SuperheroesAndStuff/', include('SuperheroesAndStuff.urls')), # ADD THIS NEW TUPLE!
+	url(r'^SuperheroesAndStuff/', 'SuperheroesAndStuff.view.response'),
 ]
