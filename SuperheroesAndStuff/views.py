@@ -1,9 +1,15 @@
-# from django.http import HttpResponse
+from django.http import HttpResponse
+from django.http import JsonResponse
 from django.shortcuts import render
-import sqlite3
+	
+def response(request):	
+	return JsonResponse({'foo':'LOL'})
 
 def index(request):
     return render(request, 'SuperheroesAndStuff/index.html')
+	
+# if __name__ == '__main__': 
+#	response()
 
 
 def query_to_string(arg1, arg2, arg3):
