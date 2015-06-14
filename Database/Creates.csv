@@ -1,33 +1,50 @@
-CharName,CharComicAge,Cr_Name,Cr_Type
-Wolverine,Modern,"Roy Thomas",Author
-Cyclops,Modern,"Stan Lee",Author
-Superman,Modern,"Jerry Siegel",Author
-Storm,Modern,"Len Wein",Author
-"Doctor Doom",Modern,"Stan Lee",Author
-Thor,Modern,"Stan Lee",Author
-"Invisible Woman",Modern,"Stan Lee",Author
-"Captain America",Modern,"Joe Simon",Author
-"Iron Man",Modern,"Stan Lee",Author
-Batman,Modern,"Bill Finger",Author
-Hawkeye,Modern,"Stan Lee",Author
-"Black Widow",Modern,"Stan Lee",Author
-Superman,Modern,"Joe Shuster",Illustrator
-Wolverine,Modern,"Len Wein",Author
+charName,charComicAge,crName,crType
+Aquaman,Modern,Paul Norris,Illustrator
+Archangel,Modern,Jack Kirby,Illustrator
+Archangel,Modern,Stan Lee,Author
+Batman,Modern,Bill Finger,Author
+Batman,Modern,Bob Kane,Illustrator
+Beast,Modern,Jack Kirby,Illustrator
+Beast,Modern,Stan Lee,Author
+Black Widow,Modern,Don Heck,Illustrator
+Black Widow,Modern,Don Rico,Illustrator
+Black Widow,Modern,Stan Lee,Author
+Captain America,Modern,Jack Kirby,Illustrator
+Captain America,Modern,Joe Simon,Author
+Cyclops,Modern,Jack Kirby,Illustrator
+Cyclops,Modern,Stan Lee,Author
+Doctor Doom,Modern,Jack Kirby,Illustrator
+Doctor Doom,Modern,Stan Lee,Author
+Doctor Octopus,Modern,Stan Lee,Author
+Doctor Octopus,Modern,Steve Ditko,Illustrator
+Green Lantern,Modern,Bill Finger,Author
+Green Lantern,Modern,Gil Kane,Illustrator
+Green Lantern,Modern,John Broome,Author
+Green Lantern,Modern,Martin Nodell,Illustrator
+Green Lantern,Silver,Bill Finger,Author
+Green Lantern,Silver,Gil Kane,Illustrator
+Green Lantern,Silver,John Broome,Author
+Green Lantern,Silver,Martin Nodell,Illustrator
+Hawkeye,Modern,Don Heck,Illustrator
+Hawkeye,Modern,Stan Lee,Author
+Invisible Woman,Modern,Jack Kirby,Illustrator
+Invisible Woman,Modern,Stan Lee,Author
+Iron Man,Modern,Don Heck,Illustrator
+Iron Man,Modern,Jack Kirby,Illustrator
+Iron Man,Modern,Larry Lieber,Author
+Iron Man,Modern,Stan Lee,Author
+Storm,Modern,Dave Cockrum,Illustrator
+Storm,Modern,Len Wein,Author
+Superman,Modern,Jerry Siegel,Author
+Superman,Modern,Joe Shuster,Illustrator
+The Flash,Modern,Gardner Fox,Author
+The Flash,Modern,Harry Lampert,Illustrator
+The Flash,Silver,Gardner Fox,Author
+The Flash,Silver,Harry Lampert,Illustrator
+Thor,Modern,Jack Kirby,Illustrator
+Thor,Modern,Larry Lieber,Author
+Thor,Modern,Stan Lee,Author
+Wolverine,Modern,Herb Trimpe,Illustrator
 Wolverine,Modern,"John Romita, Sr.",Illustrator
-Wolverine,Modern,"Herb Trimpe",Illustrator
-Cyclops,Modern,"Jack Kirby",Illustrator
-Batman,Modern,"Bob Kane",Illustrator
-"Black Widow",Modern,"Don Rico",Illustrator
-"Black Widow",Modern,"Don Heck",Illustrator
-"Captain America",Modern,"Jack Kirby",Illustrator
-"Doctor Doom",Modern,"Jack Kirby",Illustrator
-Hawkeye,Modern,"Don Heck",Illustrator
-"Iron Man",Modern,"Larry Lieber",Author
-"Iron Man",Modern,"Don Heck",Illustrator
-"Iron Man",Modern,"Jack Kirby",Illustrator
-Storm,Modern,"Dave Cockrum",Illustrator
-Thor,Modern,"Larry Lieber",Author
-Thor,Modern,"Jack Kirby",Illustrator
-"Invisible Woman",Modern,"Jack Kirby",Illustrator
-"Doctor Octopus",Modern,"Stan Lee",Author
-"Doctor Octopus",Modern,"Steve Ditko",Illustrator
+Wolverine,Modern,Len Wein,Author
+Wolverine,Modern,Roy Thomas,Author

@@ -1,43 +1,64 @@
-CharName,ComicAge,MName
-Superman,Modern,"Adventures of Superman"
-Superman,Modern,"The Superman Chronicles: Volume 1"
-Wolverine,Modern,X-Men
-Wolverine,Modern,"X-Men: The Last Stand"
-Wolverine,Modern,"X-Men Origins: Wolverine"
-Wolverine,Modern,"X-Men: Days of Future Past"
+charName,comicAge,mName
+Aquaman,Modern,Justice League
+Archangel,Modern,X-Men: The Last Stand
+Batman,Modern,Justice League
+Batman,Modern,The Dark Knight Rises
+Beast,Modern,X-Men: The Last Stand
+Black Widow,Modern,Avengers: Age Of Ultron
+Black Widow,Modern,The Avengers
+Captain America,Modern,Avengers: Age Of Ultron
+Captain America,Modern,The Avengers
+Captain America,Modern,The Avengers: Earth's Mightiest Heroes
+Captain America,Modern,The Avengers: United They Stand
+Captain America,Modern,The Avengers: Volume 1
+Captain America,Modern,The Avengers: Volume 2
 Cyclops,Modern,X-Men
+Cyclops,Modern,X-Men (1992)
+Cyclops,Modern,X-Men Origins: Wolverine
+Cyclops,Modern,X-Men: The Last Stand
+Doctor Doom,Modern,Essential Fantastic Four: Volume 1
+Doctor Doom,Modern,X-Men
+Doctor Octopus,Modern,Spider-Man 2
+Green Lantern,Modern,Justice League
+Hawkeye,Modern,Avengers: Age Of Ultron
+Hawkeye,Modern,The Avengers
+Hawkeye,Modern,The Avengers: Earth's Mightiest Heroes
+Hawkeye,Modern,The Avengers: United They Stand
+Hulk,Modern,Avengers: Age Of Ultron
+Hulk,Modern,The Avengers
+Human Torch,Modern,Fantastic Four (1994)
+Iceman,Modern,X-Men: The Last Stand
+Invisible Woman,Modern,Essential Fantastic Four: Volume 1
+Invisible Woman,Modern,Fantastic Four (1994)
+Iron Man,Modern,Avengers: Age Of Ultron
+Iron Man,Modern,The Avengers
+Iron Man,Modern,The Avengers: Earth's Mightiest Heroes
+Iron Man,Modern,The Avengers: United They Stand
+Iron Man,Modern,The Avengers: Volume 1
+Iron Man,Modern,The Avengers: Volume 2
+Mister Fantastic,Modern,Fantastic Four (1994)
+Phoenix,Modern,X-Men
+Quicksilver,Modern,Avengers: Age Of Ultron
+Scarlet Witch,Modern,Avengers: Age Of Ultron
 Storm,Modern,X-Men
-"Doctor Doom",Modern,"Fantastic Four (1994)"
-"Invisible Woman",Modern,"Fantastic Four (1994)"
-"Captain America",Modern,"The Avengers: United They Stand"
-"Iron Man",Modern,"The Avengers: United They Stand"
-Hawkeye,Modern,"The Avengers: United They Stand"
-Thor,Modern,"The Avengers: United They Stand"
-"Captain America",Modern,"The Avengers: Earth's Mightiest Heroes"
-"Iron Man",Modern,"The Avengers: Earth's Mightiest Heroes"
-Hawkeye,Modern,"The Avengers: Earth's Mightiest Heroes"
-Thor,Modern,"The Avengers: Earth's Mightiest Heroes"
+Storm,Modern,X-Men (1992)
+Storm,Modern,X-Men: Days of Future Past
+Storm,Modern,X-Men: The Last Stand
+Superman,Modern,Adventures of Superman
+Superman,Modern,Justice League
+Superman,Modern,The Superman Chronicles: Volume 1
+Superman,Modern,The Superman Chronicles: Volume 2
+The Flash,Modern,Justice League
+The Thing,Modern,Fantastic Four (1994)
+Thor,Modern,Avengers: Age Of Ultron
+Thor,Modern,The Avengers
+Thor,Modern,The Avengers: Earth's Mightiest Heroes
+Thor,Modern,The Avengers: United They Stand
+Thor,Modern,The Avengers: Volume 1
+Thor,Modern,The Avengers: Volume 2
 Wolverine,Modern,X-Men
-Storm,Modern,"X-Men (1992)"
-Cyclops,Modern,"X-Men (1992)"
-Superman,Modern,"The Superman Chronicles: Volume 2"
-"Doctor Doom",Modern,"Essential Fantastic Four: Volume 1"
-"Invisible Woman",Modern,"Essential Fantastic Four: Volume 1"
-"Doctor Octopus",Modern,"Spider-Man 2"
-Cyclops,Modern,"X-Men Origins: Wolverine"
-Storm,Modern,"X-Men: Days of Future Past"
-Storm,Modern,"X-Men: The Last Stand"
-Cyclops,Modern,"X-Men: The Last Stand"
-"Captain America",Modern,"The Avengers"
-"Iron Man",Modern,"The Avengers"
-Hawkeye,Modern,"The Avengers"
-Thor,Modern,"The Avengers"
-"Black Widow",Modern,"The Avengers"
-Batman,Modern,"The Dark Knight Rises"
-Wolverine,Modern,"X-Men: First Class"
-"Captain America",Modern,"The Avengers: Volume 1"
-"Iron Man",Modern,"The Avengers: Volume 1"
-Thor,Modern,"The Avengers: Volume 1"
-"Captain America",Modern,"The Avengers: Volume 2"
-"Iron Man",Modern,"The Avengers: Volume 2"
-Thor,Modern,"The Avengers: Volume 2"
+Wolverine,Modern,X-Men Origins: Wolverine
+Wolverine,Modern,X-Men: Days of Future Past
+Wolverine,Modern,X-Men: First Class
+Wolverine,Modern,X-Men: The Last Stand
+Wonder Woman,Modern,Justice League

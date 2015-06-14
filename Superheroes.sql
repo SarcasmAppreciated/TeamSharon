@@ -27,12 +27,12 @@ create table kharacter
 
 create table creator
 	(fullName varchar(45) not null,
-	category varchar(45) not null,
-	primary key (fullName, category));
+	variant varchar(45) not null,
+	primary key (fullName, variant));
 
 create table distributor
 	(fullName varchar(45) not null,
-	category varchar(45),
+	variant varchar(45),
 	primary key (fullName));
 
 create table fight
@@ -62,7 +62,7 @@ create table book
 	ISBN varchar(20),
 	author varchar(45) not null,
 	publishDate DATE,
-	category varchar(45),
+	variant varchar(45),
 	primary key (mName),
 	foreign key (mName) 
 		references distributesMedium (mName)
@@ -97,7 +97,7 @@ create table creates
 	foreign key (charName, charComicAge) 
 		references kharacter (charName, comicAge),
 	foreign key (crName, crType) 
-		references creator (fullName, category));
+		references creator (fullName, variant));
 
  create table makesUp
 	(teamName varchar(45) not null,
@@ -364,6 +364,15 @@ INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Hulk','Modern')
 INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Quicksilver','Modern');
 INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Scarlet Witch','Modern');
 INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Thor','Modern');
+INSERT INTO participatesIn VALUES ('Infinite Crisis','Modern','Superman','Modern');
+INSERT INTO participatesIn VALUES ('Infinite Crisis','Modern','Batman','Modern');
+INSERT INTO participatesIn VALUES ('Infinite Crisis','Modern','Wonder Woman','Modern');
+INSERT INTO participatesIn VALUES ('M-Day;Genosha;Decimation','Modern','Scarlet Witch','Modern');
+INSERT INTO participatesIn VALUES ('M-Day;Genosha;Decimation','Modern','Beast','Modern');
+INSERT INTO participatesIn VALUES ('M-Day;Genosha;Decimation','Modern','Quicksilver','Modern');
+INSERT INTO participatesIn VALUES ('M-Day;Genosha;Decimation','Modern','Magneto','Modern');
+INSERT INTO participatesIn VALUES ('M-Day;Genosha;Decimation','Modern','Professor X','Modern');
+INSERT INTO participatesIn VALUES ('Wolverine vs. Sabretooth','Modern','Wolverine','Modern');
 
 -- appearsIn
 INSERT INTO appearsIn VALUES ('Archangel','Modern','X-Men: The Last Stand');

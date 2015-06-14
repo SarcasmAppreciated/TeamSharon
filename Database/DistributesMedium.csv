@@ -1,19 +1,22 @@
-MName,DistName
-X-Men,"20th Century Fox"
-"X-Men: The Last Stand","20th Century Fox"
-"X-Men Origins: Wolverine","20th Century Fox"
-"X-Men: First Class","20th Century Fox"
-"X-Men: Days of Future Past","20th Century Fox"
-"The Superman Chronicles: Volume One","DC Comics"
-"The Superman Chronicles: Volume Two","DC Comics"
-"Essential Fantastic Four: Volume 1","Marvel Comics"
-"The Avengers: Volume 1","Marvel Comics"
-"The Avengers: Volume 2","Marvel Comics"
-"Adventures of Superman","Warner Bros. Television Distribution"
-"Fantastic Four (1994)","Disney–ABC Domestic Television"
-"The Avengers: United They Stand","Disney–ABC Domestic Television"
-"The Avengers: Earth's Mightiest Heroes","Disney–ABC Domestic Television"
-"X-Men (1992)","Genesis Entertainment"
-"The Avengers","Marvel Studios"
-"The Dark Knight Rises","Warner Bros. Pictures"
-"Spider-Man 2","Columbia Pictures"
+mName,distName
+Adventures of Superman,Warner Bros. Television Distribution
+The Avengers: Volume 1,Marvel Comics
+The Avengers: Volume 2,Marvel Comics
+The Avengers: United They Stand,Disney–ABC Domestic Television
+The Avengers: Earth's Mightiest Heroes,Disney–ABC Domestic Television
+The Avengers,Marvel Studios
+Avengers: Age Of Ultron,Marvel Studios
+The Dark Knight Rises,Warner Bros. Pictures
+Essential Fantastic Four: Volume 1,Marvel Comics
+Fantastic Four (1994),Disney–ABC Domestic Television
+Fantastic Four,20th Century Fox
+Justice League,Warner Bros. Television Distribution
+Spider-Man 2,Columbia Pictures
+The Superman Chronicles: Volume 1,DC Comics
+The Superman Chronicles: Volume 2,DC Comics
+X-Men,20th Century Fox
+X-Men: The Last Stand,20th Century Fox
+X-Men Origins: Wolverine,20th Century Fox
+X-Men: First Class,20th Century Fox
+X-Men: Days of Future Past,20th Century Fox
+X-Men (1992),Genesis Entertainment

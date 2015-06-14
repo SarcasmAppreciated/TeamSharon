@@ -1,7 +1,23 @@
-FightDesc,FightComicAge,CharName,CharComicAge
-"Battle of New York",Modern,"Black Widow",Modern
-"Battle of New York",Modern,"Iron Man",Modern
-"Battle of New York",Modern,Thor,Modern
-"Battle of New York",Modern,Hawkeye,Modern
-"Battle of New York",Modern,"Captain America",Modern
-"Battle of Sokovia",Modern,"Captain America",Modern
+fightDesc,fightComicAge,charName,charComicAge
+Battle of New York,Modern,Black Widow,Modern
+Battle of New York,Modern,Captain America,Modern
+Battle of New York,Modern,Hawkeye,Modern
+Battle of New York,Modern,Hulk,Modern
+Battle of New York,Modern,Iron Man,Modern
+Battle of New York,Modern,Thor,Modern
+Battle of Sokovia,Modern,Black Widow,Modern
+Battle of Sokovia,Modern,Captain America,Modern
+Battle of Sokovia,Modern,Hawkeye,Modern
+Battle of Sokovia,Modern,Hulk,Modern
+Battle of Sokovia,Modern,Quicksilver,Modern
+Battle of Sokovia,Modern,Scarlet Witch,Modern
+Battle of Sokovia,Modern,Thor,Modern
+Infinite Crisis,Modern,Batman,Modern
+Infinite Crisis,Modern,Superman,Modern
+Infinite Crisis,Modern,Wonder Woman,Modern
+M-Day;Genosha;Decimation,Modern,Beast,Modern
+M-Day;Genosha;Decimation,Modern,Magneto,Modern
+M-Day;Genosha;Decimation,Modern,Professor X,Modern
+M-Day;Genosha;Decimation,Modern,Quicksilver,Modern
+M-Day;Genosha;Decimation,Modern,Scarlet Witch,Modern
+Wolverine vs. Sabretooth,Modern,Wolverine,Modern
