@@ -42,17 +42,55 @@
 			</div>
 			<div id="content">
 				<!--<div class="container">
-					<img src='{%static "images/spiderman.jpg" %}'></img>
+					<img src='/static/images/spiderman.jpg'></img>
 				</div>-->
-				<div class="catagory">
+				<div class="category faded">
 					<div class="title_box">
-					<h3>Character</h3>
+						<h3>Character</h3>
 					</div>
-					<div class="checkbox_box">
-					</div>
-					<div class="type_box">
-					</div>
+					<form class="checkbox_box">
+						<input type="checkbox" name="name" class="checkbox">Name</input>
+						<input type="checkbox" name="species" class="checkbox">Species</input>
+						<input type="checkbox" name="origin" class="checkbox">Origin</input>
+					</form>
+					<form class="type_box">
+						<div class="option_text">
+							<p>Power</p>
+							<p>Creator</p>
+							<p>Directed By</p>
+						</div>
+						<div class="option_input">
+							<input type="text" name="power" class="text_input"></input>
+							<input type="text" name="creator" class="text_input"></input>
+							<input type="text" name="director" class="text_input"></input>
+						</div>
+					</form>
+					<button class="submit_button">Submit</button>
 				</div>
+				<div class="category faded">
+					<div class="title_box">
+						<h3>Movies</h3>
+					</div>
+					<form class="checkbox_box">
+						<input type="checkbox" name="name" class="checkbox">Name</input>
+						<input type="checkbox" name="species" class="checkbox">Species</input>
+						<input type="checkbox" name="origin" class="checkbox">Origin</input>
+					</form>
+					<form class="type_box">
+						<div class="option_text">
+							<p>Power</p>
+							<p>Creator</p>
+							<p>Directed By</p>
+						</div>
+						<div class="option_input">
+							<input type="text" name="power" class="text_input"></input>
+							<input type="text" name="creator" class="text_input"></input>
+							<input type="text" name="director" class="text_input"></input>
+						</div>
+					</form>
+					<button class="submit_button">Submit</button>
+				</div>
+				
 			</div>
 		</div>
     </body>
