@@ -1,8 +1,54 @@
-TeamName,TeamComicAge,CharComicAge,CharName
-X-Men,Modern,Modern,Cyclops
-"Brotherhood of Mutants",Modern,Modern,Magneto
-Avengers,Modern,Modern,"Black Widow"
-"Sinister Six",Modern,Modern,"Doctor Octopus"
-"Fantastic Four",Modern,Modern,"Invisible Woman"
+teamName,teamComicAge,charComicAge,charName
+Avengers,Modern,Modern,Black Widow
+Avengers,Modern,Modern,Captain America
+Avengers,Modern,Modern,Hawkeye
+Avengers,Modern,Modern,Hulk
+Avengers,Modern,Modern,Iron Man
 Avengers,Modern,Modern,Thor
-Avengers,Modern,Modern,"Captain America"
+Brotherhood of Mutants,Modern,Modern,Magneto
+Fantastic Four,Modern,Modern,Human Torch
+Fantastic Four,Modern,Modern,Invisible Woman
+Fantastic Four,Modern,Modern,Mister Fantastic
+Fantastic Four,Modern,Modern,The Thing
+Justice League,Modern,Modern,Aquaman
+Justice League,Modern,Modern,Batman
+Justice League,Modern,Modern,Green Lantern
+Justice League,Modern,Modern,Superman
+Justice League,Modern,Modern,The Flash
+Justice League,Modern,Modern,Wonder Woman
+Sinister Six,Modern,Modern,Doctor Octopus
+X-Men,Modern,Modern,Archangel
+X-Men,Modern,Modern,Beast
+X-Men,Modern,Modern,Cyclops
+X-Men,Modern,Modern,Iceman
+X-Men,Modern,Modern,Phoenix
+X-Men,Modern,Modern,Professor X
+X-Men,Modern,Modern,Storm
+X-Men,Modern,Modern,Wolverine
+teamName,teamComicAge,charComicAge,charName
+Avengers,Modern,Modern,Black Widow
+Avengers,Modern,Modern,Captain America
+Avengers,Modern,Modern,Hawkeye
+Avengers,Modern,Modern,Hulk
+Avengers,Modern,Modern,Iron Man
+Avengers,Modern,Modern,Thor
+Brotherhood of Mutants,Modern,Modern,Magneto
+Fantastic Four,Modern,Modern,Human Torch
+Fantastic Four,Modern,Modern,Invisible Woman
+Fantastic Four,Modern,Modern,Mister Fantastic
+Fantastic Four,Modern,Modern,The Thing
+Justice League,Modern,Modern,Aquaman
+Justice League,Modern,Modern,Batman
+Justice League,Modern,Modern,Green Lantern
+Justice League,Modern,Modern,Superman
+Justice League,Modern,Modern,The Flash
+Justice League,Modern,Modern,Wonder Woman
+Sinister Six,Modern,Modern,Doctor Octopus
+X-Men,Modern,Modern,Archangel
+X-Men,Modern,Modern,Beast
+X-Men,Modern,Modern,Cyclops
+X-Men,Modern,Modern,Iceman
+X-Men,Modern,Modern,Phoenix
+X-Men,Modern,Modern,Professor X
+X-Men,Modern,Modern,Storm
+X-Men,Modern,Modern,Wolverine

@@ -1,6 +1,7 @@
-MName,InitialAirDate,Director
-"Adventures of Superman",1952-09-19,"Whitney Ellsworth"
-"Fantastic Four (1994)",1994-09-24,"Avi Arad"
-"The Avengers: United They Stand",1999-10-30,"Avi Arad"
-"The Avengers: Earth's Mightiest Heroes",2010-09-22,"Simon Philips"
-"X-Men (1992)",1992-10-31,"Larry Houston"
+mName,initialAirDate,director
+Adventures of Superman,1952-09-19,Whitney Ellsworth
+The Avengers: United They Stand,1999-10-30,Avi Arad
+The Avengers: Earth's Mightiest Heroes,2010-09-22,Simon Philips
+Fantastic Four (1994),1994-09-24,Avi Arad
+Justice League,2001-11-17,Bruce Timm
+X-Men (1992),1992-10-31,Larry Houston
