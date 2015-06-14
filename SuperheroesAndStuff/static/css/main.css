@@ -121,7 +121,7 @@ button.list:active {
 
 .title_box {
     height: 120px;
-    width: 150px;
+    width: 200px;
     display: block;
     float: left;
     margin-top: 15px;
@@ -131,7 +131,7 @@ button.list:active {
 
 .checkbox_box {
     height: auto;
-    width: 150px;
+    width: 200px;
     display: inline-block;
     margin-top: 25px;
     margin-right: 25px;
@@ -142,7 +142,7 @@ button.list:active {
 .checkbox {
     width: 50px;
     margin-bottom: 15px;
-    display: inline-block;
+	display: inline-block;
 }
 
 .type_box {
@@ -150,12 +150,11 @@ button.list:active {
     width: auto;
     display: inline-block;
     float: left;
-    text-align: left;
 }
 
 .option_text {
     height: auto;
-    width: 120px;
+    width: 150px;
     float: left;
     display: inline-block;
     margin-top: 25px;
@@ -185,8 +184,12 @@ button.list:active {
 .submit_button {
     height: 30px;
     width: 75px;
+	top: 50%;
     display: block;
-    margin-top: 60px;
+	position: relative;
+    margin-top: -15px;
+	margin-right: 75px;
+	float: right;
     border: 1px solid #999;
     background-color: #FFF;
     font-family: "Quicksand", "Lato", "Helvetica Neue", Arial, sans-serif;

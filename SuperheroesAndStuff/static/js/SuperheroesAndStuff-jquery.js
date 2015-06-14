@@ -1,36 +1,28 @@
 $( document ).ready(function(){
-  
-	$(".filter").click(function(){
+  	$(".submit_button").click(function(){
+		var userQuery = {cname:false, species:false, origin:false};
+		
+		if($("#cname").is(":checked"))
+			userQuery["cname"] = true;
+		if($("#species").is(":checked"))
+			userQuery["species"] = true;
+		if($("#origin").is(":checked"))
+			userQuery["origin"] = true;
+		
+		console.log(userQuery);
+
 		$.ajax({
 			type: 'GET',
 			url: '/SuperheroesAndStuff/response/',
 			cache: false,
-			data: { name: "Sharon"},
-			// dataType: 'json',
+			data: userQuery,
+			dataType: 'json',
 			success: function(json) {
-				/*$.each(json, function(i) {
-					alert(json.foo);
-				});*/
-				alert(json);
+					alert(json.name + " " + json.species + " " + json.origin);
 			},
 			error: function(e) {
 			     console.log(e);
 			}		
 		});
-
-		/*$.ajax({
-			type: 'POST',
-			url: '/SuperheroesAndStuff/response/',
-			cache: false,
-			dataType: 'json',
-			success: function(json) {
-				$.each(json, function(i) {
-					alert(json.foo);
-				});
-			},
-			error: function(e) {
-			     console.log(e);
-			}		
-		});*/
-	});	
+	});
 });
