@@ -1,6 +1,6 @@
-drop table appearsIn;
-drop table participatesIn;
-drop table makesUp;
+drop table if exists appearsIn;
+drop table if exists participatesIn;
+drop table if exists makesUp;
 drop table creates;
 drop table tvSeries;
 drop table movie;
@@ -27,12 +27,12 @@ create table kharacter
 
 create table creator
 	(fullName varchar(45) not null,
-	category varchar(45) not null,
-	primary key (fullName, category));
+	variant varchar(45) not null,
+	primary key (fullName, variant));
 
 create table distributor
 	(fullName varchar(45) not null,
-	category varchar(45),
+	variant varchar(45),
 	primary key (fullName));
 
 create table fight
@@ -62,7 +62,7 @@ create table book
 	ISBN varchar(20),
 	author varchar(45) not null,
 	publishDate DATE,
-	category varchar(45),
+	variant varchar(45),
 	primary key (mName),
 	foreign key (mName) 
 		references distributesMedium (mName)
@@ -97,7 +97,7 @@ create table creates
 	foreign key (charName, charComicAge) 
 		references kharacter (charName, comicAge),
 	foreign key (crName, crType) 
-		references creator (fullName, category));
+		references creator (fullName, variant));
 
  create table makesUp
 	(teamName varchar(45) not null,
@@ -136,40 +136,40 @@ create table appearsIn
 		ON DELETE CASCADE,
     foreign key (mName)
         references distributesMedium (mName)
-        ON DELETE CASCADE );
+        ON DELETE CASCADE);
 
 -- kharacter
-INSERT INTO kharacter VALUES ('Aquaman','Modern','Arthur Curry','Human','Hero','Male','Telepathy;Hydrokinetic;Communicate with Marine Animals','Earth');
-INSERT INTO kharacter VALUES ('Archangel','Modern','Warren Worthington III','Mutant','Hero','Male','Healing Factor;Flight','Earth');
-INSERT INTO kharacter VALUES ('Batman','Modern','Bruce Wayne','Human','Hero','Male','Genius;Money','Earth');
-INSERT INTO kharacter VALUES ('Beast','Modern','Hank McCoy','Mutant','Hero','Male','Genius;Animal Like','Earth');
+INSERT INTO kharacter VALUES ('Aquaman','Modern','Arthur Curry','Human','Hero','Male','Telepathy Hydrokinetic Communicate with Marine Animals','Earth');
+INSERT INTO kharacter VALUES ('Archangel','Modern','Warren Worthington III','Mutant','Hero','Male','Healing Factor Flight','Earth');
+INSERT INTO kharacter VALUES ('Batman','Modern','Bruce Wayne','Human','Hero','Male','Genius Money','Earth');
+INSERT INTO kharacter VALUES ('Beast','Modern','Hank McCoy','Mutant','Hero','Male','Genius Animal Like','Earth');
 INSERT INTO kharacter VALUES ('Black Widow','Modern','Natasha Romanoff','Human','Hero','Female','Combat','Earth');
-INSERT INTO kharacter VALUES ('Captain America','Modern','Steve Rogers','Human','Hero','Male','Strength;Endurance','Earth');
+INSERT INTO kharacter VALUES ('Captain America','Modern','Steve Rogers','Human','Hero','Male','Strength Endurance','Earth');
 INSERT INTO kharacter VALUES ('Cyclops','Modern','Scott Summers','Mutant','Hero','Male','Lasers','Earth');
-INSERT INTO kharacter VALUES ('Doctor Doom','Modern','Viktor Krumm','Human','Villian','Male','Technopathy;Genius;Flight;Force Fields','Earth');
+INSERT INTO kharacter VALUES ('Doctor Doom','Modern','Viktor Krumm','Human','Villian','Male','Technopathy Genius Flight Force Fields','Earth');
 INSERT INTO kharacter VALUES ('Doctor Octopus','Modern','Otto Gunther Octavius','Human','Villian','Male','Genius','Earth');
 INSERT INTO kharacter VALUES ('The Flash','Modern','Wally West','Human','Hero','Male','Speed','Earth');
 INSERT INTO kharacter VALUES ('The Flash','Silver','Barry Allen','Human','Hero','Male','Speed','Earth');
 INSERT INTO kharacter VALUES ('Green Lantern','Modern','Kyle Rayner','Human','Hero','Male','Power Ring','Earth');
 INSERT INTO kharacter VALUES ('Green Lantern','Silver','Hal Jordan','Human','Hero','Male','Power Ring','Earth');
 INSERT INTO kharacter VALUES ('Hawkeye','Modern','Clint Barton','Human','Hero','Male','Archery','Earth');
-INSERT INTO kharacter VALUES ('Hulk','Modern','Bruce Banner','Human','Hero','Male','Genius;Strength','Earth');
+INSERT INTO kharacter VALUES ('Hulk','Modern','Bruce Banner','Human','Hero','Male','Genius Strength','Earth');
 INSERT INTO kharacter VALUES ('Human Torch','Modern','Johnny Storm','Human','Hero','Male','Pyrokinesis','Earth');
-INSERT INTO kharacter VALUES ('Iceman','Modern','Bobby Drake','Mutant','Hero','Male','Thermal Vision;Tranform to Ice;Generate Ice','Earth');
+INSERT INTO kharacter VALUES ('Iceman','Modern','Bobby Drake','Mutant','Hero','Male','Thermal Vision Tranform to Ice Generate Ice','Earth');
 INSERT INTO kharacter VALUES ('Invisible Woman','Modern','Susan Storm','Human','Hero','Female','Force Fields','Earth');
-INSERT INTO kharacter VALUES ('Iron Man','Modern','Tony Stark','Human','Hero','Male','Genius;Money','Earth');
+INSERT INTO kharacter VALUES ('Iron Man','Modern','Tony Stark','Human','Hero','Male','Genius Money','Earth');
 INSERT INTO kharacter VALUES ('Magneto','Modern','Erik Lehnsherr','Mutant','Hero','Male','Magnetism','Earth');
-INSERT INTO kharacter VALUES ('Mister Fantastic','Modern','Reed Richards','Human','Hero','Male','Genius;Elasticity','Earth');
-INSERT INTO kharacter VALUES ('Phoenix','Modern','Jean Grey','Mutant','Hero','Female','Telekinesis;Telepathy;Phoenix Force','Earth');
+INSERT INTO kharacter VALUES ('Mister Fantastic','Modern','Reed Richards','Human','Hero','Male','Genius Elasticity','Earth');
+INSERT INTO kharacter VALUES ('Phoenix','Modern','Jean Grey','Mutant','Hero','Female','Telekinesis Telepathy Phoenix Force','Earth');
 INSERT INTO kharacter VALUES ('Professor X','Modern','Charles Xavier','Mutant','Hero','Male','Telepathy','Earth');
 INSERT INTO kharacter VALUES ('Quicksilver','Modern','Pietro Maximoff','Mutant','Hero','Male','Speed','Earth');
 INSERT INTO kharacter VALUES ('Scarlet Witch','Modern','Wanda Maximoff','Mutant','Hero','Female','Reality Warping','Earth');
-INSERT INTO kharacter VALUES ('Storm','Modern','Ororo Monroe','Mutant','Hero','Female','Weather Control;Flight','Earth');
-INSERT INTO kharacter VALUES ('Superman','Modern','Clark Kent','Kryptonian','Hero','Male','Strength;Flight','Krypton');
-INSERT INTO kharacter VALUES ('The Thing','Modern','Ben Grimm','Human','Hero','Male','Strength;Endurance','Earth');
-INSERT INTO kharacter VALUES ('Thor','Modern','Thor Odinson','Asgardian','Hero','Male','Mjolnr;God','Asgard');
+INSERT INTO kharacter VALUES ('Storm','Modern','Ororo Monroe','Mutant','Hero','Female','Weather Control Flight','Earth');
+INSERT INTO kharacter VALUES ('Superman','Modern','Clark Kent','Kryptonian','Hero','Male','Strength Flight','Krypton');
+INSERT INTO kharacter VALUES ('The Thing','Modern','Ben Grimm','Human','Hero','Male','Strength Endurance','Earth');
+INSERT INTO kharacter VALUES ('Thor','Modern','Thor Odinson','Asgardian','Hero','Male','Mjolnr God','Asgard');
 INSERT INTO kharacter VALUES ('Wolverine','Modern','Logan Howlett','Mutant','Hero','Male','Healing Factor','Earth');
-INSERT INTO kharacter VALUES ('Wonder Woman','Modern','Princess Diana of Themyscira','Amazon','Hero','Female','Strength;Agility;Flight;Endurance','Earth');
+INSERT INTO kharacter VALUES ('Wonder Woman','Modern','Princess Diana of Themyscira','Amazon','Hero','Female','Strength Agility Flight Endurance','Earth');
 
 -- creator
 INSERT INTO creator VALUES ('Bill Finger','Author');
@@ -210,15 +210,15 @@ INSERT INTO distributor VALUES ('Warner Bros. Pictures','Studio');
 INSERT INTO fight VALUES ('Battle of New York','Modern','Avengers');
 INSERT INTO fight VALUES ('Battle of Sokovia','Modern','Avengers');
 INSERT INTO fight VALUES ('Infinite Crisis','Modern','Justice League');
-INSERT INTO fight VALUES ('M-Day;Genosha;Decimation','Modern','None');
+INSERT INTO fight VALUES ('M-Day Genosha Decimation','Modern','None');
 INSERT INTO fight VALUES ('Wolverine vs. Sabretooth','Modern','Wolverine');
 
 -- team
 INSERT INTO team VALUES ('Avengers','Modern','Hero','Avengers Mansion');
-INSERT INTO team VALUES ('Brotherhood of Mutants','Modern','Villian','Various');
+INSERT INTO team VALUES ('Brotherhood of Mutants','Modern','Villain','Various');
 INSERT INTO team VALUES ('Fantastic Four','Modern','Hero','Baxter Building');
-INSERT INTO team VALUES ('Justice League','Modern','Hero','The Hall;The Satellite');
-INSERT INTO team VALUES ('Sinister Six','Modern','Villian','New York');
+INSERT INTO team VALUES ('Justice League','Modern','Hero','The Hall The Satellite');
+INSERT INTO team VALUES ('Sinister Six','Modern','Villain','New York');
 INSERT INTO team VALUES ('X-Men','Modern','Hero','X-Mansion');
 
 -- distributesMedium
@@ -364,6 +364,15 @@ INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Hulk','Modern')
 INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Quicksilver','Modern');
 INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Scarlet Witch','Modern');
 INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Thor','Modern');
+INSERT INTO participatesIn VALUES ('Infinite Crisis','Modern','Superman','Modern');
+INSERT INTO participatesIn VALUES ('Infinite Crisis','Modern','Batman','Modern');
+INSERT INTO participatesIn VALUES ('Infinite Crisis','Modern','Wonder Woman','Modern');
+INSERT INTO participatesIn VALUES ('M-Day Genosha Decimation','Modern','Scarlet Witch','Modern');
+INSERT INTO participatesIn VALUES ('M-Day Genosha Decimation','Modern','Beast','Modern');
+INSERT INTO participatesIn VALUES ('M-Day Genosha Decimation','Modern','Quicksilver','Modern');
+INSERT INTO participatesIn VALUES ('M-Day Genosha Decimation','Modern','Magneto','Modern');
+INSERT INTO participatesIn VALUES ('M-Day Genosha Decimation','Modern','Professor X','Modern');
+INSERT INTO participatesIn VALUES ('Wolverine vs. Sabretooth','Modern','Wolverine','Modern');
 
 -- appearsIn
 INSERT INTO appearsIn VALUES ('Archangel','Modern','X-Men: The Last Stand');
