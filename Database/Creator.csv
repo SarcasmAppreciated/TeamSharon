@@ -1,17 +1,23 @@
-Name,Type
-"Bill Finger",Author
-"Bob Kane",Illustrator
-"Dave Cockrum",Illustrator
-"Don Heck",Illustrator
-"Don Rico",Illustrator
-"Herb Trimpe",Illustrator
-"Jack Kirby",Illustrator
-"Jerry Siegel",Author
-"Joe Shuster",Illustrator
-"Joe Simon",Author
+fullName,variant
+Bill Finger,Author
+Bob Kane,Illustrator
+Dave Cockrum,Illustrator
+Don Heck,Illustrator
+Don Rico,Illustrator
+Gardner Fox,Author
+Gil Kane,Illustrator
+Harry Lampert,Illustrator
+Herb Trimpe,Illustrator
+Jack Kirby,Illustrator
+Jerry Siegel,Author
+Joe Shuster,Illustrator
+Joe Simon,Author
+John Broome,Author
 "John Romita, Sr.",Illustrator
-"Larry Lieber",Author
-"Len Wein",Author
-"Roy Thomas",Author
-"Stan Lee",Author
-"Steve Ditko",Illustrator
+Larry Lieber,Author
+Len Wein,Author
+Martin Nodell,Illustrator
+Paul Norris,Illustrator
+Roy Thomas,Author
+Stan Lee,Author
+Steve Ditko,Illustrator

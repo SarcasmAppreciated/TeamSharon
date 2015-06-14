@@ -41,9 +41,71 @@
 				</div>
 			</div>
 			<div id="content">
-				<div class="container">
-					<img src='{%static "images/spiderman.jpg" %}'></img>
-				</div>				
+				<!--<div class="container">
+					<img src='/static/images/spiderman.jpg'></img>
+				</div>-->
+				<div class="category">
+					<div class="title_box">
+						<h3>Character</h3>
+					</div>
+					<form class="checkbox_box" style="width: 150px; margin-right: 75px">
+						<input type="checkbox" id="cname" class="checkbox">Name</input>
+						<input type="checkbox" id="species" class="checkbox">Species</input>
+						<input type="checkbox" id="origin" class="checkbox">Origin</input>
+					</form>
+					<form class="type_box">
+						<div class="option_text">
+							<p>Power</p>
+							<p>Creator</p>
+							<p>Directed by:</p>
+						</div>
+						<div class="option_input">
+							<input type="text" id="power" class="text_input"></input>
+							<input type="text" id="creator" class="text_input"></input>
+							<input type="text" id="director" class="text_input"></input>
+						</div>
+					</form>
+					<button class="submit_button">Submit</button>
+				</div>
+				<div class="category">
+					<div class="title_box">
+						<h3>Movies</h3>
+					</div>
+					<form class="checkbox_box">
+						<input type="checkbox" id="total_rev " class="checkbox">Total Revenue</input>
+						<input type="checkbox" id="max_rev" class="checkbox">Max Revenue</input>
+					</form>
+					<form class="type_box">
+						<div class="option_text">
+							<p>Including name:</p>
+							<p>Name is exactly:</p>
+							<p>Year</p>
+						</div>
+						<div class="option_input">
+							<input type="text" id="miname" class="text_input"></input>
+							<input type="text" id="mename" class="text_input"></input>
+							<input type="text" id="year" class="text_input"></input>
+						</div>
+					</form>
+					<button class="submit_button">Submit</button>
+				</div>
+				<div class="category">
+					<div class="title_box">
+						<h3>Book</h3>
+					</div>
+					<form class="checkbox_box">
+						<input type="checkbox" id="bname" class="checkbox">Name</input>
+					</form>
+					<form class="type_box">
+						<div class="option_text">
+							<p>With more than X Characters:</p>
+						</div>
+						<div class="option_input">
+							<input type="text" id="greater_than" class="text_input"></input>
+						</div>
+					</form>
+					<button class="submit_button">Submit</button>
+				</div>
 			</div>
 		</div>
     </body>

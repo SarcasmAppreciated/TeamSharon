@@ -1,7 +1,7 @@
-Name,ComicAge,Alignment,HQ
+teamName,comicAge,alignment,HQ
+Avengers,Modern,Hero,Avengers Mansion
+Brotherhood of Mutants,Modern,Villian,Various
+Fantastic Four,Modern,Hero,Baxter Building
+Justice League,Modern,Hero,The Hall;The Satellite
+Sinister Six,Modern,Villian,New York
 X-Men,Modern,Hero,X-Mansion
-"Fantastic Four",Modern,Hero,"Baxter Building"
-"Brotherhood of Mutants",Modern,Villian,Various
-"Sinister Six",Modern,Villian,"New York"
-Avengers,Modern,Hero,"Avengers Mansion"
-"Justice League",Modern,Hero,"The Hall;The Satellite"
