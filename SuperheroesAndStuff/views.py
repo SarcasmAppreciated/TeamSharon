@@ -6,9 +6,13 @@ from SuperheroesAndStuff import models
 import sqlite3
 	
 def response(request):
-	data = {}
-	data = request.GET['name']
-	return HttpResponse(data)
+	returnArray = {}
+	cname = request.GET['cname']
+	species = request.GET['species']
+	origin = request.GET['origin']
+#	returnArray = {'name': cname, 'species':species, 'origin':origin}
+	returnArray = {'items':[{'name':'1'},{'name':'2'}]}
+	return JsonResponse(returnArray, safe=False)
 
 def index(request):
     return render(request, 'SuperheroesAndStuff/index.html')
