@@ -40,6 +40,7 @@ button.list {
 	margin: 2.5px;
 	border: 1px solid #DDD;
 	cursor: pointer;
+	color: #999;
 }
 
 button.list:hover {
@@ -78,6 +79,19 @@ button.list:active {
 	color: #666;
 }
 
+button#reset {
+	height: 30px;
+    width: 80px;
+	left: 50%;
+	bottom: 5%;
+    display: none;
+	margin-left: -40px;
+	position: fixed;
+    border: 1px solid #999;
+    background-color: #FFF;
+    font-family: "Quicksand", "Lato", "Helvetica Neue", Arial, sans-serif;
+}
+
 #content {
 	height: auto;
 	min-height: 500px;
@@ -88,22 +102,24 @@ button.list:active {
 	border-top: 1px solid #DDD;
 	border-left: 1px solid #DDD;
 	border-right: 1px solid #DDD;
+	text-align: left;
 }
 
 .container {
 	height: 200px;
 	width: 133px;
-	display: block;
+	display: none;
 	margin-top: 15px;
 	margin-left: 15px;
 	cursor: pointer;
+	background-color: #EEE;
+	box-shadow: 0px 3px 3px #888888;
 }
 
 .container img{
 	height: 200px;
 	width: 133px;
 	display: block;
-	box-shadow: 0px 3px 3px #888888;
 }
 
 .category {
@@ -115,8 +131,12 @@ button.list:active {
     opacity: 0.3;
 }
 
-.category:hover {
+.no_op, .category:hover {
 	opacity: 1;
+}
+
+.no_op {
+	display: none;
 }
 
 .title_box {
@@ -127,6 +147,7 @@ button.list:active {
     margin-top: 15px;
     margin-right: 10px;
     border-right: 1px solid #999;
+	text-align: center;
 }
 
 .checkbox_box {
@@ -194,4 +215,3 @@ button.list:active {
     background-color: #FFF;
     font-family: "Quicksand", "Lato", "Helvetica Neue", Arial, sans-serif;
 }
-
