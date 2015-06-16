@@ -40,7 +40,11 @@ def response(request):
     returnArray = {}
     query_cat = request.GET['query_cat']
     
-    if(query_cat == "character") {
+#    print ("HERE")
+#    if ("True"):
+#        print("YAY")
+
+    if(query_cat == "character"):
         characterIncludeCharName = request.GET['cname']
         characterIncludeSpecies = request.GET['species']
         characterIncludeOriginPlanet = request.GET['origin']
@@ -49,25 +53,24 @@ def response(request):
         characterPowerString = request.GET['power']
         characterCreatorString = request.GET['creator']
         characterDirectedByString = request.GET['director']
-    } else if (query_cat == "movie") {
+    elif (query_cat == "movie"):
         movieIncludeMName = request.GET['m_name']
         movieIncludeTotalRevenue = request.GET['total_rev']
         movieIncludeAverageRevenue = request.GET['avg_rev']
         movieIncludingNameString = request.GET['miname']
         movieNameExactlyString = request.GET['mename']
-    } else if (query_cat == "book") {
+    elif (query_cat == "book"):
         bookIncludeCount = request.GET['bcount']
         bookIncludeAverage = Frequest.GET['b_avg']
         bookWithMoreThanXCharacters = request.GET['less_than']
-    } else if (query_cat == "delete") {
+    elif (query_cat == "delete"):
         deletecharacterCreatorString = request.GET['d_creator']
         deleteCharacterString = request.GET['d_count']
-    } else if (query_cat == "update") {
+    elif (query_cat == "update"):
         updateRevenueValue = request.GET['revenue']
         updateMovieString = request.GET['u_movie']
-	} else {
-        err_message = "unknown category"    
-    }
+    else:
+        err_message = "unknown category"
 	
     returnArray = {'items':[{'name':'1'},{'name':'2'}]}
 
