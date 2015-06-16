@@ -278,10 +278,9 @@ class appearsIn(models.Model):
     comicAge = models.CharField(max_length=45)
     mName = models.ForeignKey('distributesMedium')
 
-
     #dummy value for debugging
     def __unicode__(self):
-        return ""
+        return self.charName + " " + self.mName.__unicode__()
 
     class Meta:
         unique_together = ("charID", "mName")

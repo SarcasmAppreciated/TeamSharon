@@ -55,7 +55,7 @@ create table distributesMedium
 	primary key (mName),
 	foreign key (distName) 
 		references distributor (fullName)
-		ON DELETE CASCADE);
+		ON DELETE CASCADE ON UPDATE CASCADE);
 
 create table book
 	(mName varchar(45) not null,
@@ -66,7 +66,7 @@ create table book
 	primary key (mName),
 	foreign key (mName) 
 		references distributesMedium (mName)
-		ON DELETE CASCADE);
+		ON DELETE CASCADE ON UPDATE CASCADE);
  
 create table movie
 	(mName varchar(45) not null,
@@ -77,7 +77,7 @@ create table movie
 	primary key (mName),
 	foreign key (mName) 
 		references distributesMedium (mName)
-		ON DELETE CASCADE);
+		ON DELETE CASCADE ON UPDATE CASCADE);
 
 create table tvSeries
 	(mName varchar(45) not null,
@@ -86,7 +86,7 @@ create table tvSeries
 	primary key (mName),
 	foreign key (mName)
 		references distributesMedium (mName)
-		ON DELETE CASCADE);
+		ON DELETE CASCADE ON UPDATE CASCADE);
 	 
 create table creates
 	(charName varchar(45) not null,
@@ -95,9 +95,11 @@ create table creates
 	crType varchar(45) not null,
 	primary key (charName, charComicAge, crName, crType),
 	foreign key (charName, charComicAge) 
-		references kharacter (charName, comicAge),
+		references kharacter (charName, comicAge)
+		ON DELETE CASCADE ON UPDATE CASCADE,
 	foreign key (crName, crType) 
-		references creator (fullName, variant));
+		references creator (fullName, variant)
+		ON DELETE CASCADE ON UPDATE CASCADE);
 
  create table makesUp
 	(teamName varchar(45) not null,
@@ -107,10 +109,10 @@ create table creates
 	primary key(teamName, teamComicAge, charComicAge, charName),
 	foreign key(teamName, teamComicAge) 
 		references team (teamName, comicAge)
-		 ON DELETE CASCADE,
+		 ON DELETE CASCADE ON UPDATE CASCADE,
 	foreign key(charComicAge, charName) 
 		references kharacter (comicAge, charName)
-		 ON DELETE CASCADE);
+		 ON DELETE CASCADE ON UPDATE CASCADE);
 
 create table participatesIn
 	(fightDesc varchar(100) not null,
@@ -120,10 +122,10 @@ create table participatesIn
 	primary key (fightDesc, fightComicAge, charName, charComicAge),
 	foreign key (fightDesc, fightComicAge) 
 		references fight 
-		ON DELETE CASCADE,
+		ON DELETE CASCADE ON UPDATE CASCADE,
 	foreign key (charName, charComicAge) 
 		references kharacter
-		ON DELETE CASCADE );
+		ON DELETE CASCADE ON UPDATE CASCADE);
 	
 
 create table appearsIn
@@ -133,10 +135,10 @@ create table appearsIn
 	primary key (charName, comicAge, mName),
 	foreign key (charName, comicAge)
 		references kharacter (charName, comicAge)
-		ON DELETE CASCADE,
+		ON DELETE CASCADE ON UPDATE CASCADE,
     foreign key (mName)
         references distributesMedium (mName)
-        ON DELETE CASCADE);
+        ON DELETE CASCADE ON UPDATE CASCADE);
 
 -- kharacter
 INSERT INTO kharacter VALUES ('Aquaman','Modern','Arthur Curry','Human','Hero','Male','Telepathy Hydrokinetic Communicate with Marine Animals','Earth');
