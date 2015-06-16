@@ -110,7 +110,7 @@ class team(models.Model):
 
 class distributesMedium(models.Model):
     mName = models.CharField(max_length=45, primary_key=True)
-    distName = models.ForeignKey(distributor, null=True)
+    distName = models.ForeignKey('distributor', null=True)
 
     def __unicode__(self):
         return self.mName
@@ -126,14 +126,14 @@ class distributesMedium(models.Model):
 
 
 class book(models.Model):
-    mName = models.ForeignKey(distributesMedium, primary_key=True)
+    mName = models.ForeignKey('distributesMedium')
     ISBN = models.CharField(max_length=20)
     author = models.CharField(max_length=45)
     publishDate = models.DateField()
     variant = models.CharField(max_length=45, default='')
 
     def __unicode__(self):
-        return self.mName
+        return self.mName.__unicode__()
 
     class Meta:
         managed = True
@@ -150,14 +150,14 @@ class book(models.Model):
 
 
 class movie(models.Model):
-    mName = models.ForeignKey(distributesMedium, primary_key=True)
+    mName = models.ForeignKey('distributesMedium')
     director = models.CharField(max_length=45)
     releaseDate = models.DateField()
     isAnimated = models.CharField(max_length=45)
     revenue = models.BigIntegerField()
 
     def __unicode__(self):
-        return self.mName
+        return self.mName.__unicode__()
 
     class Meta:
         managed = True
@@ -173,12 +173,12 @@ class movie(models.Model):
 
 
 class tvSeries(models.Model):
-    mName = models.ForeignKey(distributesMedium, primary_key=True)
+    mName = models.ForeignKey('distributesMedium')
     initialAirDate = models.DateField()
     director = models.CharField(max_length=45)
 
     def __unicode__(self):
-        return self.mName
+        return self.mName.__unicode__()
 
     class Meta:
         managed = True
@@ -192,10 +192,10 @@ class tvSeries(models.Model):
 
 
 class creates(models.Model):
-    charID = models.ForeignKey(kharacter)
+    charID = models.ForeignKey('kharacter')
     charName = models.CharField(max_length=45)
     charComicAge = models.CharField(max_length=45)
-    crID = models.ForeignKey(creator)
+    crID = models.ForeignKey('creator')
     crName = models.CharField(max_length=45)
     crType = models.CharField(max_length=45)
 
@@ -219,10 +219,10 @@ class creates(models.Model):
 
 
 class makesUp(models.Model):
-    teamID = models.ForeignKey(team)
+    teamID = models.ForeignKey('team')
     teamName = models.CharField(max_length=45)
     teamComicAge = models.CharField(max_length=45)
-    charID = models.ForeignKey(kharacter)
+    charID = models.ForeignKey('kharacter')
     charComicAge = models.CharField(max_length=45)
     charName = models.CharField(max_length=45)
 
@@ -246,10 +246,10 @@ class makesUp(models.Model):
 
 
 class participatesIn(models.Model):
-    fightID = models.ForeignKey(fight)
+    fightID = models.ForeignKey('fight')
     fightDesc = models.CharField(max_length=100)
     fightComicAge = models.CharField(max_length=45)
-    charID = models.ForeignKey(kharacter)
+    charID = models.ForeignKey('kharacter')
     charName = models.CharField(max_length=45)
     charComicAge = models.CharField(max_length=45)
 
@@ -273,13 +273,15 @@ class participatesIn(models.Model):
 
 
 class appearsIn(models.Model):
-    charID = models.ForeignKey(kharacter)
+    charID = models.ForeignKey('kharacter')
     charName = models.CharField(max_length=45)
     comicAge = models.CharField(max_length=45)
-    mName = models.ForeignKey(distributesMedium, null=True)
+    mName = models.ForeignKey('distributesMedium')
 
+
+    #dummy value for debugging
     def __unicode__(self):
-        return self.charName + " " + self.mName
+        return ""
 
     class Meta:
         unique_together = ("charID", "mName")
