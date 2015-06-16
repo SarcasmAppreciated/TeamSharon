@@ -44,6 +44,14 @@ $( document ).ready(function(){
 				userQuery["origin"] = true;
 			else
 				userQuery["origin"] = false;
+			if($("#aname").is(":checked"))
+				userQuery["aname"] = true;
+			else
+				userQuery["aname"] = false;
+			if($("#powerc").is(":checked"))
+				userQuery["powerc"] = true;
+			else
+				userQuery["powerc"] = false;
 						
 			userQuery['power'] = $('#power').val();
 			userQuery['creator'] = $('#creator').val();
@@ -93,17 +101,8 @@ $( document ).ready(function(){
 		}
 		
 		else if($(this).attr('id') == 'delete_submit') {
-			if($("#delete").is(":checked"))
-				userQuery["kharacter"] = true;
-			else
-				userQuery["kharacter"] = false;
-			if($("#fight").is(":checked"))
-				userQuery["fight"] = true;
-			else
-				userQuery["fight"] = false;	
-			
+			userQuery['d_creator'] = $('#d_creator').val();
 			userQuery['d_cname'] = $('#d_cname').val();
-			userQuery['comic_age'] = $('#comic_age').val();
 					
 			update_table();
 		}
