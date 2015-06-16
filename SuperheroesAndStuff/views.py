@@ -5,13 +5,68 @@ from django.shortcuts import render
 from SuperheroesAndStuff import models
 import sqlite3
 
+
+## Variables coming from UI (with default values):
+
+characterIncludeCharName = False
+characterIncludeSpecies = False
+characterIncludeOriginPlanet = False
+characterIncludePersonName = False
+characterIncludePower = False
+characterPowerString = ""
+characterCreatorString = ""
+characterDirectedByString = ""
+
+
+
+
+
+
+#def boolConverter(bool):
+#    if (bool == 'true'):
+#        print("CNAME")
+#    return False
+
+
 def response(request):
+    
+    ## Declare changes to affect global variables:
+    global characterIncludeCharName
+    global characterIncludeSpecies
+    global characterIncludeOriginPlanet
+    global characterIncludePersonName
+    global characterIncludePower
+    global characterPowerString
+    global characterCreatorString
+    global characterDirectedByString
+    
+    
     returnArray = {}
     cname = request.GET['cname']
     species = request.GET['species']
     origin = request.GET['origin']
     #returnArray = {'name': cname, 'species':species, 'origin':origin}
     returnArray = {'items':[{'name':'1'},{'name':'2'}]}
+
+
+    ## Convert 'true' to 'True' and 'false' to 'False':
+    cname = cname == 'true'
+    species = species == 'true'
+    origin = origin == 'true'
+ 
+    ## Set global variables with data from UI:
+    characterIncludeCharName = cname
+    characterIncludeSpecies = species
+    characterIncludeOriginPlanet = origin
+    characterIncludePersonName = False
+    characterIncludePower = False
+    characterPowerString = "Genius"
+    characterCreatorString = "Stan Lee"
+    characterDirectedByString = "Bryan Singer"
+
+    executeKharacterQuery()
+
+    
     return JsonResponse(returnArray, safe=False)
 
 def index(request):
@@ -62,77 +117,146 @@ for command in sqlCommands:
 
 
 ##...........
-## Coming from UI:
-includeCharName = True
-includePersonName = False
-includePower = False
-includeSpecies = True
-includeOriginPlanet = False
 
-filterPower = True
-powerString = "Genius"
 
-filterCreator = False
-creatorString = "Stan Lee"
+includingNameString = "X-Men"
 
-filterDirectedBy = False
-directedByString = "Bryan Singer"
+filterNameExactly = False
+nameExactlyString = "X-Men"
+
+deleteCreator = True
+deletecharacterCreatorString = "Stan Lee"
+
+deleteCharacterFromMedia = False
+deleteCharacterString = "Iron Man"
+
 ##...........
 
 
-
+##### kharacter Queries ######################################
 def addSelectedFieldsToKharacterQuery(query):
-    if (includeCharName):
+    if (characterIncludeCharName):
         query += " k.charName"
-        if (includePersonName):
-            if (includeCharName):
+        if (characterIncludePersonName):
+            if (characterIncludeCharName):
                 query += ","
             query += " k.personName"
-    if (includePower):
-        if (includeCharName | includePersonName):
+    if (characterIncludePower):
+        if (characterIncludeCharName | characterIncludePersonName):
             query += ","
             query += " k.power"
-    if (includeSpecies):
-        if (includeCharName | includePersonName | includePower):
+    if (characterIncludeSpecies):
+        if (characterIncludeCharName | characterIncludePersonName | characterIncludePower):
             query += ","
         query += " k.species"
-    if (includeOriginPlanet):
-        if (includeCharName | includePersonName | includePower | includeOriginPlanet):
+    if (characterIncludeOriginPlanet):
+        if (characterIncludeCharName | characterIncludePersonName | characterIncludePower | characterIncludeOriginPlanet):
             query += ","
         query += " k.originPlanet"
     return query
 
 
 def makeKharacterQuery():
-    if (filterPower):
+    if (characterPowerString != ""):
         query = "SELECT"
         query = addSelectedFieldsToKharacterQuery(query)
         query += " FROM kharacter k"
         query += " WHERE k.power LIKE '%"
-        query += powerString
+        query += characterPowerString
         query += "%';"
-    if (filterCreator):
+    elif (characterCreatorString != ""):
         query = "SELECT"
         query = addSelectedFieldsToKharacterQuery(query)
         query += " FROM kharacter k"
         query += " INNER JOIN creates c ON k.charName=c.charName AND k.comicAge=c.charComicAge INNER JOIN creator w ON c.crName=w.fullName AND c.crType=w.variant WHERE w.fullName='"
-        query += creatorString
+        query += characterCreatorString
         query += "';"
-    if (filterDirectedBy):
+    elif (characterDirectedByString != ""):
         query = "SELECT"
         query = addSelectedFieldsToKharacterQuery(query)
         query += " FROM kharacter k"
         query += " WHERE NOT EXISTS (SELECT m.mName FROM movie m WHERE m.director='"
-        query += directedByString
-        query += " EXCEPT SELECT DISTINCT m.mName FROM appearsIn a INNER JOIN movie m ON a.mName=m.mName WHERE k.charName=a.charName AND k.comicAge=a.comicAge);"
+        query += characterDirectedByString
+        query += "' EXCEPT SELECT DISTINCT m.mName FROM appearsIn a INNER JOIN movie m ON a.mName=m.mName WHERE k.charName=a.charName AND k.comicAge=a.comicAge);"
+    else:
+        query = ""
     return query
 
+def executeKharacterQuery():
+    kharacterQuery = makeKharacterQuery()
+    rows = connection.execute(kharacterQuery)
+    #.....
+    for r in rows:
+        print(r)
+    #.....
 
 
-kharacterQuery = makeKharacterQuery()
-rows = connection.execute(kharacterQuery)
-for r in rows:
-    print(r)
+##############################################################
+
+##### Movie Queries ##########################################
+
+def makeMovieQuery():
+    if (True):
+        query = "SELECT"
+        query = addSelectedFieldsToKharacterQuery(query)
+        query += " FROM kharacter k"
+        query += " WHERE k.power LIKE '%"
+        query += characterPowerString
+        query += "%';"
+    return query
+
+#movieQuery = makeMovieQuery()
+#rows = connection.execute(movieQuery)
+#for r in rows:
+#    print(r)
+
+##############################################################
+
+##### Book Queries ###########################################
+
+def makeBookQuery():
+    if (True):
+        query = "SELECT"
+        query = addSelectedFieldsToKharacterQuery(query)
+        query += " FROM kharacter k"
+        query += " WHERE k.power LIKE '%"
+        query += characterPowerString
+        query += "%';"
+    return query
+
+#bookQuery = makeBookQuery()
+#rows = connection.execute(movieQuery)
+#for r in rows:
+#    print(r)
+
+##############################################################
+
+##### Delete Queries ###########################################
+
+def executeDeleteQuery():
+    if (deleteCreator):
+        query = "DELETE FROM creator WHERE fullName='"
+        query += deletecharacterCreatorString
+        query += "';"
+    if (deleteCharacterFromMedia):
+        query = "DELETE FROM appearsIn WHERE charName='"
+        query += deleteCharacterString
+        query += "';"
+    connection.execute(query)
+
+##############################################################
+
+
+##### Update Queries ###########################################
+
+def executeUpdateQuery():
+    if (True):
+        query = ""
+    connection.execute(query)
+
+##############################################################
+
+
 
 #1.	Display the name and the person name of all characters that are geniuses.
 #print("-------------------------------")
@@ -209,10 +333,8 @@ for r in rows:
 ##### ? Returns : (u'The Superman Chronicles: Volume 2',)
 #for r in rowsx:
 #    print(r)
-
-print("-------------------------------")
-
-
+#
+#print("-------------------------------")
 
 
 
