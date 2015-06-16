@@ -1,16 +1,16 @@
 drop table if exists appearsIn;
 drop table if exists participatesIn;
 drop table if exists makesUp;
-drop table creates;
-drop table tvSeries;
-drop table movie;
-drop table book;
-drop table distributesMedium;
-drop table team; 
-drop table fight;
-drop table distributor;
-drop table creator;
-drop table kharacter;
+drop table if exists creates;
+drop table if exists tvSeries;
+drop table if exists movie;
+drop table if exists book;
+drop table if exists distributesMedium;
+drop table if exists team; 
+drop table if exists fight;
+drop table if exists distributor;
+drop table if exists creator;
+drop table if exists kharacter;
 
 -- Add tables
 create table kharacter
