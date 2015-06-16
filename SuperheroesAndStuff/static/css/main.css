@@ -90,6 +90,7 @@ button#reset {
     border: 1px solid #999;
     background-color: #FFF;
     font-family: "Quicksand", "Lato", "Helvetica Neue", Arial, sans-serif;
+	cursor: pointer;
 }
 
 #content {
