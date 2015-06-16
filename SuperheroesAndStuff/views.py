@@ -36,8 +36,6 @@ updateRevenueValue = 0
 updateMovieString = ""
 
 
-
-
 def response(request):
     returnArray = {}
     query_cat = request.GET['query_cat']
@@ -105,6 +103,7 @@ def response(request):
 #    #.....
 #    for r in kharacterRows:
 #        print(r)
+#    print(kharacterJsonObject)
 #    #....
 ########################################
     
@@ -133,6 +132,7 @@ def response(request):
 #    #.....
 #    for r in movieRows:
 #        print(r)
+#    print(movieJsonObject)
 #    #....
 ########################################
 
@@ -157,6 +157,7 @@ def response(request):
 #    #.....
 #    for r in bookRows:
 #        print(r)
+#    print(bookJsonObject)
 #    #....
 ########################################
 
@@ -172,7 +173,7 @@ def response(request):
     
     ## Set global variables with data from UI:
     deletecharacterCreatorString = "Stan Lee"
-    deleteCharacterString = "Iron Man"
+    deleteCharacterString = ""
     
 #    executeDeleteQuery()
 ########################################
@@ -342,7 +343,7 @@ def executeMovieQuery():
 
 ##### Book Queries ###########################################
 def makeBookCountViewQuery():
-    query = "CREATE VIEW counts AS SELECT b.mName AS name, COUNT(k.charName) AS num FROM kharacter k INNER JOIN appearsIn a ON k.charName=a.charName AND k.comicAge=a.comicAge INNER JOIN book b ON a.mName=b.mName GROUP BY k.charName, k.comicAge HAVING COUNT >"
+    query = "CREATE VIEW counts AS SELECT b.mName AS name, COUNT(k.charName) AS num FROM kharacter k INNER JOIN appearsIn a ON k.charName=a.charName AND k.comicAge=a.comicAge INNER JOIN book b ON a.mName=b.mName GROUP BY k.charName, k.comicAge HAVING COUNT(*) <"
     query += str(bookWithMoreThanXCharacters)
     query += ";"
     print(query)
@@ -360,16 +361,13 @@ def executeBookQuery():
     bookQuery = makeBookQuery()
     try:
         connection.execute("DROP VIEW IF EXISTS counts;");
-        print("here1")
         connection.execute(bookCountViewQuery)
-        print("here2")
         cursor.execute(bookQuery)
-        print("here3")
         rows = cursor.fetchall()
     except:
         print("Bad Book Query")
     return rows
-##############################################################
+################################################################
 
 
 
@@ -390,7 +388,6 @@ def executeDeleteQuery():
         print(e)
     except:
         print("Bad Delete Query")
-
 
 ##############################################################
 
