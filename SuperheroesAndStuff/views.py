@@ -50,13 +50,13 @@ sqlCommands = sqlFile.split(';')
 for command in sqlCommands:
     connection.execute(command)
 
-#rows = connection.execute("SELECT * FROM kharacter;")
-#for r in rows:
+# rows = connection.execute("SELECT * FROM kharacter;")
+# for r in rows:
 #    print("r")
 #    print(r)
 
-#rows = connection.execute("SELECT * FROM kharacter WHERE charName = 'Superman';")
-#for r in rows:
+# rows = connection.execute("SELECT * FROM kharacter WHERE charName = 'Superman';")
+# for r in rows:
 #    print("r")
 #    print(r)
 
