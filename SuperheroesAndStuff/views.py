@@ -4,10 +4,10 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from SuperheroesAndStuff import models
 import sqlite3
+import json
 
 
 ## Variables coming from UI (with default values):
-
 characterIncludeCharName = False
 characterIncludeSpecies = False
 characterIncludeOriginPlanet = False
@@ -17,18 +17,41 @@ characterPowerString = ""
 characterCreatorString = ""
 characterDirectedByString = ""
 
+movieIncludeMName = False
+movieIncludeTotalRevenue = False
+movieIncludeAverageRevenue = False
+movieIncludingNameString = ""
+movieNameExactlyString = ""
+
+bookIncludeCount = False
+bookIncludeAverage = False
+bookWithMoreThanXCharacters = 0
+
+deleteCreator = False
+deleteCharacterFromMedia = False
+deletecharacterCreatorString = ""
+deleteCharacterString = ""
+
+updateRevenueValue = 0
+updateMovieString = ""
 
 
-
-
-
-#def boolConverter(bool):
-#    if (bool == 'true'):
-#        print("CNAME")
-#    return False
 
 
 def response(request):
+    returnArray = {}
+    cname = request.GET['cname']
+    species = request.GET['species']
+    origin = request.GET['origin']
+    #returnArray = {'name': cname, 'species':species, 'origin':origin}
+    returnArray = {'items':[{'name':'1'},{'name':'2'}]}
+
+
+######### Character ##################
+    ## Convert 'true' to 'True' and 'false' to 'False':
+    cname = cname == 'true'
+    species = species == 'true'
+    origin = origin == 'true'
     
     ## Declare changes to affect global variables:
     global characterIncludeCharName
@@ -40,20 +63,6 @@ def response(request):
     global characterCreatorString
     global characterDirectedByString
     
-    
-    returnArray = {}
-    cname = request.GET['cname']
-    species = request.GET['species']
-    origin = request.GET['origin']
-    #returnArray = {'name': cname, 'species':species, 'origin':origin}
-    returnArray = {'items':[{'name':'1'},{'name':'2'}]}
-
-
-    ## Convert 'true' to 'True' and 'false' to 'False':
-    cname = cname == 'true'
-    species = species == 'true'
-    origin = origin == 'true'
- 
     ## Set global variables with data from UI:
     characterIncludeCharName = cname
     characterIncludeSpecies = species
@@ -61,10 +70,124 @@ def response(request):
     characterIncludePersonName = False
     characterIncludePower = False
     characterPowerString = "Genius"
-    characterCreatorString = "Stan Lee"
-    characterDirectedByString = "Bryan Singer"
+    characterCreatorString = ""
+    characterDirectedByString = ""
 
-    executeKharacterQuery()
+#    kharacterRows = executeKharacterQuery()
+#    kharacterJsonObject = json.dumps(kharacterRows)
+#    #.....
+#    for r in kharacterRows:
+#        print(r)
+#    #....
+########################################
+    
+    
+    
+########### Movie ######################
+    ## Convert 'true' to 'True' and 'false' to 'False':
+    #.....
+    
+    ## Declare changes to affect global variables:
+    global movieIncludeMName
+    global movieIncludeTotalRevenue
+    global movieIncludeAverageRevenue
+    global movieIncludingNameString
+    global movieNameExactlyString
+    
+    ## Set global variables with data from UI:
+    movieIncludeMName = False
+    movieIncludeTotalRevenue = True
+    movieIncludeAverageRevenue = False
+    movieIncludingNameString = "X-Men"
+    movieNameExactlyString = ""
+
+#    movieRows = executeMovieQuery()
+#    movieJsonObject = json.dumps(movieRows)
+#    #.....
+#    for r in movieRows:
+#        print(r)
+#    #....
+########################################
+
+    
+
+########### Book ######################
+    ## Convert 'true' to 'True' and 'false' to 'False':
+    #.....
+
+    ## Declare changes to affect global variables:
+    global bookIncludeCount
+    global bookIncludeAverage
+    global bookWithMoreThanXCharacters
+    
+    ## Set global variables with data from UI:
+    bookIncludeCount = True
+    bookIncludeAverage = False
+    bookWithMoreThanXCharacters = 2
+
+#    bookRows = executeBookQuery()
+#    bookJsonObject = json.dumps(bookRows)
+#    #.....
+#    for r in bookRows:
+#        print(r)
+#    #....
+########################################
+
+
+
+########### DELETE ######################
+    ## Convert 'true' to 'True' and 'false' to 'False':
+    #.....
+
+    ## Declare changes to affect global variables:
+    global deleteCreator
+    global deleteCharacterFromMedia
+    global deletecharacterCreatorString
+    global deleteCharacterString
+    
+    ## Set global variables with data from UI:
+    deleteCreator = True
+    deleteCharacterFromMedia = False
+    deletecharacterCreatorString = "Stan Lee"
+    deleteCharacterString = "Iron Man"
+    
+#    executeDeleteQuery()
+########################################
+#
+#    rows = connection.execute("SELECT charName FROM creates WHERE crName='Stan Lee';")
+#    for r in rows:
+#        print(r)
+#    executeDeleteQuery()
+#    rows = connection.execute("SELECT charName FROM creates WHERE crName='Stan Lee';")
+#    for r in rows:
+#        print(r)
+
+    
+    
+########### UPDATE ######################
+    ## Convert 'true' to 'True' and 'false' to 'False':
+    #.....
+    
+    ## Declare changes to affect global variables:
+    global updateRevenueValue
+    global updateMovieString
+    
+    ## Set global variables with data from UI:
+    updateRevenueValue = 100
+    updateMovieString = "X-Men"
+    
+#    executeUpdateQuery()
+########################################
+    
+#    rows = connection.execute("SELECT mName, revenue FROM movie WHERE mName='X-Men';")
+#    for r in rows:
+#        print(r)
+#    executeUpdateQuery()
+#    rows = connection.execute("SELECT mName, revenue FROM movie WHERE mName='X-Men';")
+#    for r in rows:
+#        print(r)
+
+
 
     
     return JsonResponse(returnArray, safe=False)
@@ -72,25 +195,17 @@ def response(request):
 def index(request):
     return render(request, 'SuperheroesAndStuff/index.html')
 
-# if __name__ == '__main__': 
-#	response()
 
-#
-#def query_to_string(arg1, arg2, arg3):
-#
-# # the following code was adapted from the following source:
-# # http://www.cdotson.com/2014/06/generating-json-documents-from-sqlite-databases-in-python/
-# def dict_factory(cursor, row):
-#     d = {}
-#     for idx, col in enumerate(cursor.description):
-#         d[col[0]] = row[idx]
-#     return d
-#
-# connection.row_factory = dict_factory
+# Define row format
+def dict_factory(cursor, row):
+    d = {}
+    for idx, col in enumerate(cursor.description):
+        d[col[0]] = row[idx]
+    return d
 
-
-
+# Connect to db
 connection = sqlite3.connect("db.sqlite3")
+connection.row_factory = dict_factory
 cursor = connection.cursor()
 
 # Open and read the file as a single buffer
@@ -104,33 +219,6 @@ sqlCommands = sqlFile.split(';')
 # Execute every command from the input file
 for command in sqlCommands:
     connection.execute(command)
-
-#rows = connection.execute("SELECT * FROM kharacter;")
-#for r in rows:
-#    print("r")
-#    print(r)
-
-#rows = connection.execute("SELECT * FROM kharacter WHERE charName = 'Superman';")
-#for r in rows:
-#    print("r")
-#    print(r)
-
-
-##...........
-
-
-includingNameString = "X-Men"
-
-filterNameExactly = False
-nameExactlyString = "X-Men"
-
-deleteCreator = True
-deletecharacterCreatorString = "Stan Lee"
-
-deleteCharacterFromMedia = False
-deleteCharacterString = "Iron Man"
-
-##...........
 
 
 ##### kharacter Queries ######################################
@@ -184,52 +272,83 @@ def makeKharacterQuery():
 
 def executeKharacterQuery():
     kharacterQuery = makeKharacterQuery()
-    rows = connection.execute(kharacterQuery)
-    #.....
-    for r in rows:
-        print(r)
-    #.....
-
-
+    try:
+        cursor.execute(kharacterQuery)
+        rows = cursor.fetchall()
+    except:
+        print("Bad Kharacter Query")
+    return rows
 ##############################################################
+
 
 ##### Movie Queries ##########################################
 
 def makeMovieQuery():
-    if (True):
-        query = "SELECT"
-        query = addSelectedFieldsToKharacterQuery(query)
-        query += " FROM kharacter k"
-        query += " WHERE k.power LIKE '%"
-        query += characterPowerString
+    if (movieIncludeMName):
+        query = "SELECT m.mName FROM movie m WHERE m.mName"
+        if (movieNameExactlyString != ""):
+            query += "='"
+            query += movieNameExactlyString
+            query += "';"
+        else:
+            query += " LIKE '%"
+            query += movieIncludingNameString
+            query += "%';"
+    elif (movieIncludeTotalRevenue):
+        query = "SELECT SUM(m.revenue) FROM movie m WHERE m.mName LIKE "
+        query += "'%"
+        query += movieIncludingNameString
+        query += "%';"
+    elif (movieIncludeAverageRevenue):
+        query = "SELECT AVG(m.revenue) FROM movie m WHERE m.mName LIKE "
+        query += "'%"
+        query += movieIncludingNameString
         query += "%';"
     return query
 
-#movieQuery = makeMovieQuery()
-#rows = connection.execute(movieQuery)
-#for r in rows:
-#    print(r)
-
+def executeMovieQuery():
+    movieQuery = makeMovieQuery()
+    try:
+        cursor.execute(movieQuery)
+        rows = cursor.fetchall()
+    except:
+        print("Bad Movie Query")
+    return rows
 ##############################################################
+
 
 ##### Book Queries ###########################################
-
-def makeBookQuery():
-    if (True):
-        query = "SELECT"
-        query = addSelectedFieldsToKharacterQuery(query)
-        query += " FROM kharacter k"
-        query += " WHERE k.power LIKE '%"
-        query += characterPowerString
-        query += "%';"
+def makeBookCountViewQuery():
+    query = "CREATE VIEW counts AS SELECT b.mName AS name, COUNT(k.charName) AS num FROM kharacter k INNER JOIN appearsIn a ON k.charName=a.charName AND k.comicAge=a.comicAge INNER JOIN book b ON a.mName=b.mName GROUP BY k.charName, k.comicAge HAVING COUNT >"
+    query += str(bookWithMoreThanXCharacters)
+    query += ";"
+    print(query)
     return query
 
-#bookQuery = makeBookQuery()
-#rows = connection.execute(movieQuery)
-#for r in rows:
-#    print(r)
+def makeBookQuery():
+    if (bookIncludeCount):
+        query = "SELECT COUNT(*) FROM counts c;"
+    if (bookIncludeAverage):
+        query = "SELECT AVG(num) FROM counts c;"
+    return query
 
+def executeBookQuery():
+    bookCountViewQuery = makeBookCountViewQuery()
+    bookQuery = makeBookQuery()
+    try:
+        connection.execute("DROP VIEW IF EXISTS counts;");
+        print("here1")
+        connection.execute(bookCountViewQuery)
+        print("here2")
+        cursor.execute(bookQuery)
+        print("here3")
+        rows = cursor.fetchall()
+    except:
+        print("Bad Book Query")
+    return rows
 ##############################################################
+
+
 
 ##### Delete Queries ###########################################
 
@@ -242,7 +361,13 @@ def executeDeleteQuery():
         query = "DELETE FROM appearsIn WHERE charName='"
         query += deleteCharacterString
         query += "';"
-    connection.execute(query)
+    try:
+        connection.execute(query)
+    except sqlite3.IntegrityError as e:
+        print(e)
+    except:
+        print("Bad Delete Query")
+
 
 ##############################################################
 
@@ -250,9 +375,17 @@ def executeDeleteQuery():
 ##### Update Queries ###########################################
 
 def executeUpdateQuery():
-    if (True):
-        query = ""
-    connection.execute(query)
+    query = "UPDATE movie SET revenue="
+    query += str(updateRevenueValue)
+    query += " WHERE mName='"
+    query += updateMovieString
+    query += "';"
+    try:
+        connection.execute(query)
+    except sqlite3.IntegrityError as e:
+        print(e)
+    except:
+        print("Bad Update Query")
 
 ##############################################################
 
