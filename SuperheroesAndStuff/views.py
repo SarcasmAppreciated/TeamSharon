@@ -4,15 +4,15 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from SuperheroesAndStuff import models
 import sqlite3
-	
+
 def response(request):
-	returnArray = {}
-	cname = request.GET['cname']
-	species = request.GET['species']
-	origin = request.GET['origin']
-#	returnArray = {'name': cname, 'species':species, 'origin':origin}
-	returnArray = {'items':[{'name':'1'},{'name':'2'}]}
-	return JsonResponse(returnArray, safe=False)
+    returnArray = {}
+    cname = request.GET['cname']
+    species = request.GET['species']
+    origin = request.GET['origin']
+    #returnArray = {'name': cname, 'species':species, 'origin':origin}
+    returnArray = {'items':[{'name':'1'},{'name':'2'}]}
+    return JsonResponse(returnArray, safe=False)
 
 def index(request):
     return render(request, 'SuperheroesAndStuff/index.html')
@@ -62,20 +62,20 @@ for command in sqlCommands:
 
 
 ##...........
-## Comming from UI:
-includeCharName = True;
-includePersonName = False;
-includePower = False;
-includeSpecies = True;
-includeOriginPlanet = False;
+## Coming from UI:
+includeCharName = True
+includePersonName = False
+includePower = False
+includeSpecies = True
+includeOriginPlanet = False
 
-filterPower = True;
+filterPower = True
 powerString = "Genius"
 
-filterCreator = False;
+filterCreator = False
 creatorString = "Stan Lee"
 
-filterDirectedBy = False;
+filterDirectedBy = False
 directedByString = "Bryan Singer"
 ##...........
 
@@ -122,14 +122,9 @@ def makeKharacterQuery():
         query = "SELECT"
         query = addSelectedFieldsToKharacterQuery(query)
         query += " FROM kharacter k"
-        query += " WHERE NOT EXISTS (SELECT m.mName FROM movie m WHERE m.director='Bryan Singer'
-                            EXCEPT
-                          SELECT DISTINCT m.mName
-                          FROM appearsIn a 
-                          INNER JOIN movie m 
-                          ON a.mName=m.mName 
-                          WHERE k.charName=a.charName AND k.comicAge=a.comicAge);
-
+        query += " WHERE NOT EXISTS (SELECT m.mName FROM movie m WHERE m.director='"
+        query += directedByString
+        query += " EXCEPT SELECT DISTINCT m.mName FROM appearsIn a INNER JOIN movie m ON a.mName=m.mName WHERE k.charName=a.charName AND k.comicAge=a.comicAge);"
     return query
 
 
