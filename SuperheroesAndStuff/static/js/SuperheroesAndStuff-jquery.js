@@ -32,6 +32,8 @@ $( document ).ready(function(){
   	$(".submit_button").click(function(){
 		userQuery = {};
 		if($(this).attr('id') == 'character_submit') {
+			userQuery["query_cat"] = "character";
+			
 			if($("#cname").is(":checked"))
 				userQuery["cname"] = true;
 			else
@@ -60,47 +62,54 @@ $( document ).ready(function(){
 			get_response();
 		}
 		else if($(this).attr('id') == 'movie_submit') {
+			userQuery["query_cat"] = "movie";
+			
+			if($("#m_name").is(":checked"))
+				userQuery["m_name"] = true;
+			else
+				userQuery["m_name"] = false;
 			if($("#total_rev").is(":checked"))
 				userQuery["total_rev"] = true;
 			else
 				userQuery["total_rev"] = false;
-			if($("#max_rev").is(":checked"))
-				userQuery["max_rev"] = true;
+			if($("#avg_rev").is(":checked"))
+				userQuery["avg_rev"] = true;
 			else
-				userQuery["max_rev"] = false;
+				userQuery["avg_rev"] = false;
 			
 			userQuery['miname'] = $('#miname').val();
 			userQuery['mename'] = $('#mename').val();
-			userQuery['year'] = $('#year').val();
 			
 			get_response();
 		}
 		else if($(this).attr('id') == 'book_submit') {
+			userQuery["query_cat"] = "book";
+			
 			if($("#bcount").is(":checked"))
 				userQuery["bcount"] = true;
 			else
-				userQuery["bname"] = false;
+				userQuery["bcount"] = false;
+			if($("#b_avg").is(":checked"))
+				userQuery["b_avg"] = true;
+			else
+				userQuery["b_avg"] = false;
 			
-			userQuery['greater_than'] = $('#greater_than').val();
+			userQuery['less_than'] = $('#less_than').val();
 		
 			get_response();
 		}
 		else if($(this).attr('id') == 'update_submit') {
-			if($("#animated").is(":checked"))
-				userQuery["animated"] = true;
-			else
-				userQuery["animated"] = false;			
-			
-			userQuery['with_name'] = $('#with_name').val();
-			userQuery['to_name'] = $('#to_name').val();
-			userQuery['m_director'] = $('#m_director').val();
-			userQuery['release_date'] = $('#release_date').val();
+			userQuery["query_cat"] = "update";
+		
+			userQuery['u_movie'] = $('#u_movie').val();
 			userQuery['revenue'] = $('#revenue').val();
 					
 			update_table();
 		}
 		
 		else if($(this).attr('id') == 'delete_submit') {
+			userQuery["query_cat"] = "delete";
+			
 			userQuery['d_creator'] = $('#d_creator').val();
 			userQuery['d_cname'] = $('#d_cname').val();
 					
