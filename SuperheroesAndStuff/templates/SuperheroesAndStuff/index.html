@@ -48,25 +48,12 @@
 					</div>
 					<form class="type_box">
 						<div class="option_text">
-							<p style="margin-right: 0">Movie with Name</p>
-							<p>to Name</p>
-							<p>Director</p>
-						</div>
-						<div class="option_input" style="width: 150px; margin-right: 0px">
-							<input type="text" id="with_name" class="text_input"></input>
-							<input type="text" id="to_name" class="text_input"></input>
-							<input type="text" id="m_director" class="text_input"></input>
-						</div>
-					</form>
-					<form class="type_box">
-						<div class="option_text" style="text-align: center">
-							<p>Release Date</p>
+							<p>Movie</p>
 							<p>Revenue</p>
 						</div>
-						<div class="option_input" style="width: 150px; margin-right: 5px">							
-							<input type="text" id="release_date" value="yyyy-mm-dd" class="text_input"></input>
+						<div class="option_input" style="width: 150px; margin-right: 0px">
+							<input type="text" id="u_movie" class="text_input"></input>
 							<input type="text" id="revenue" class="text_input"></input>
-							<input type="checkbox" id="animated" class="checkbox">Animated</input>
 						</div>
 					</form>
 					<button class="submit_button" id="update_submit">Submit</button>
@@ -117,19 +104,18 @@
 						<h3>Movies</h3>
 					</div>
 					<form class="checkbox_box">
+						<input type="checkbox" id="m_name" class="checkbox">Name</input>
 						<input type="checkbox" id="total_rev" class="checkbox">Total Revenue</input>
-						<input type="checkbox" id="max_rev" class="checkbox">Max Revenue</input>
+						<input type="checkbox" id="avg_rev" class="checkbox">Average Revenue</input>
 					</form>
 					<form class="type_box">
 						<div class="option_text">
 							<p>Including name:</p>
 							<p>Name is exactly:</p>
-							<p>Year</p>
 						</div>
 						<div class="option_input">
 							<input type="text" id="miname" class="text_input"></input>
 							<input type="text" id="mename" class="text_input"></input>
-							<input type="text" id="year" class="text_input"></input>
 						</div>
 					</form>
 					<button class="submit_button" id="movie_submit">Submit</button>

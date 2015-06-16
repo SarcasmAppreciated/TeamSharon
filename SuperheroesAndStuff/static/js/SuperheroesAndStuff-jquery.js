@@ -60,18 +60,21 @@ $( document ).ready(function(){
 			get_response();
 		}
 		else if($(this).attr('id') == 'movie_submit') {
+			if($("#m_name").is(":checked"))
+				userQuery["m_name"] = true;
+			else
+				userQuery["m_name"] = false;
 			if($("#total_rev").is(":checked"))
 				userQuery["total_rev"] = true;
 			else
 				userQuery["total_rev"] = false;
-			if($("#max_rev").is(":checked"))
-				userQuery["max_rev"] = true;
+			if($("#avg_rev").is(":checked"))
+				userQuery["avg_rev"] = true;
 			else
-				userQuery["max_rev"] = false;
+				userQuery["avg_rev"] = false;
 			
 			userQuery['miname'] = $('#miname').val();
 			userQuery['mename'] = $('#mename').val();
-			userQuery['year'] = $('#year').val();
 			
 			get_response();
 		}
@@ -85,16 +88,8 @@ $( document ).ready(function(){
 		
 			get_response();
 		}
-		else if($(this).attr('id') == 'update_submit') {
-			if($("#animated").is(":checked"))
-				userQuery["animated"] = true;
-			else
-				userQuery["animated"] = false;			
-			
-			userQuery['with_name'] = $('#with_name').val();
-			userQuery['to_name'] = $('#to_name').val();
-			userQuery['m_director'] = $('#m_director').val();
-			userQuery['release_date'] = $('#release_date').val();
+		else if($(this).attr('id') == 'update_submit') {	
+			userQuery['u_movie'] = $('#u_movie').val();
 			userQuery['revenue'] = $('#revenue').val();
 					
 			update_table();
