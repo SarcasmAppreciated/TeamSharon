@@ -12,6 +12,8 @@ drop table if exists distributor;
 drop table if exists creator;
 drop table if exists kharacter;
 
+PRAGMA foreign_keys = ON;
+
 -- Add tables
 create table kharacter
 	(charName varchar(48) not null,
@@ -23,7 +25,6 @@ create table kharacter
 	power  varchar(450),
 	originPlanet varchar(45),
 	primary key (charName, comicAge));
-
 
 create table creator
 	(fullName varchar(45) not null,
@@ -126,7 +127,6 @@ create table participatesIn
 	foreign key (charName, charComicAge) 
 		references kharacter
 		ON DELETE CASCADE ON UPDATE CASCADE);
-	
 
 create table appearsIn
 	(charName varchar(45) not null,
@@ -197,7 +197,7 @@ INSERT INTO creator VALUES ('Paul Norris','Illustrator');
 INSERT INTO creator VALUES ('Roy Thomas','Author');
 INSERT INTO creator VALUES ('Stan Lee','Author');
 INSERT INTO creator VALUES ('Steve Ditko','Illustrator');
-INSERT INTO creator VALUES ('William Moulton Maston','Author');
+INSERT INTO creator VALUES ('William Moulton Maston','Illustrator');
 
 -- distributor
 INSERT INTO distributor VALUES ('20th Century Fox','Studio');
@@ -441,7 +441,7 @@ INSERT INTO appearsIn VALUES ('Hulk','Modern','The Avengers: United They Stand')
 INSERT INTO appearsIn VALUES ('Hulk','Modern','The Avengers: Earth''s Mightiest Heroes');
 INSERT INTO appearsIn VALUES ('Human Torch','Modern','Fantastic Four (1994)');
 INSERT INTO appearsIn VALUES ('Human Torch','Modern','Essential Fantastic Four: Volume 1');
-INSERT INTO appearsIn VALUES ('Human Torchn','Modern','Fantastic Four');
+INSERT INTO appearsIn VALUES ('Human Torch','Modern','Fantastic Four');
 INSERT INTO appearsIn VALUES ('Iceman','Modern','X-Men: The Last Stand');
 INSERT INTO appearsIn VALUES ('Invisible Woman','Modern','Fantastic Four (1994)');
 INSERT INTO appearsIn VALUES ('Invisible Woman','Modern','Essential Fantastic Four: Volume 1');
