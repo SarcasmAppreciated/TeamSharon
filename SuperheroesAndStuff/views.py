@@ -96,7 +96,6 @@ def response(request):
         bookIncludeAverage = makeBool(request.GET['b_avg'])
         bookWithMoreThanXCharacters = request.GET['less_than']
         bookRows = executeBookQuery()
-#       cursor.execute("CREATE VIEW counts AS SELECT DISTINCT b.mName AS name, COUNT(k.charName) AS num FROM kharacter k INNER JOIN appearsIn a ON k.charName=a.charName AND k.comicAge=a.comicAge INNER JOIN book b ON a.mName=b.mName GROUP BY k.charName, k.comicAge HAVING COUNT(*) <2;")
         returnJson = json.dumps(bookRows)
         print returnJson
     elif (query_cat == "delete"):
@@ -213,25 +212,28 @@ def makeMovieQuery():
             query += movieIncludingNameString
             query += "%';"
     elif (movieIncludeTotalRevenue):
-        query = "SELECT SUM(m.revenue) AS sumMovie FROM movie m WHERE m.mName LIKE "
-        query += "'%"
-        query += movieIncludingNameString
-        query += "%';"
+        query = "SELECT SUM(m.revenue) AS sumMovie FROM movie m"
+        if (movieIncludingNameString != ""):
+            query += " WHERE m.mName LIKE '%"
+            query += movieIncludingNameString
+            query += "%'"
+        elif (movieNameExactlyString):
+            query += " WHERE m.mName='"
+            query += movieNameExactlyString
+            query += "'"
+        query += ";"
     elif (movieIncludeAverageRevenue):
-        query = "SELECT AVG(m.revenue) AS avgMovie FROM movie m WHERE m.mName LIKE "
-        query += "'%"
-        query += movieIncludingNameString
-        query += "%';"
+        query = "SELECT AVG(m.revenue) AS sumMovie FROM movie m"
+        if (movieIncludingNameString != ""):
+            query += " WHERE m.mName LIKE '%"
+            query += movieIncludingNameString
+            query += "%'"
+        elif (movieNameExactlyString):
+            query += " WHERE m.mName='"
+            query += movieNameExactlyString
+            query += "'"
+        query += ";"
     return query
-
-def executeMovieQuery():
-    movieQuery = makeMovieQuery()
-    try:
-        cursor.execute(movieQuery)
-        rows = cursor.fetchall()
-    except:
-        print("Bad Movie Query")
-    return rows
 ##############################################################
 
 
