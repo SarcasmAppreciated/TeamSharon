@@ -126,12 +126,14 @@ $( document ).ready(function(){
 			data: userQuery,
 			dataType: 'json',
 			success: function(json) {
-				console.log(json);
+				// console.log(json);
 				$(".category").fadeOut("fast");
 				$("#reset").fadeIn("slow");
-				for(var i = 0; i < json.items.length; i++) {
-					$("#content").append("<div class='container' id=" + json.items[i].name +"></div>");
+                
+				for(var i = 0; i < json.length; i++) {    
+					$("#content").append("<div class='container'><img title='Name: " + json[i].charName + "\nSpecies: " + json[i].species + "' src='/static/images/Unknown.png'></img></div>");
 				}
+
 				$(".container").fadeIn("slow").css("display","inline-block");
 			},
 			error: function(e) {
