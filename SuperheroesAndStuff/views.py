@@ -65,8 +65,6 @@ def response(request):
     global updateRevenueValue
     global updateMovieString
 
-
-
     if(query_cat == "character"):
         characterIncludeCharName = makeBool(request.GET['cname'])
         characterIncludeSpecies = makeBool(request.GET['species'])
@@ -93,7 +91,12 @@ def response(request):
         bookIncludeAverage = makeBool(request.GET['b_avg'])
         bookWithMoreThanXCharacters = request.GET['less_than']
         bookRows = executeBookQuery()
+
+#        cursor.execute("CREATE VIEW counts AS SELECT DISTINCT b.mName AS name, COUNT(k.charName) AS num FROM kharacter k INNER JOIN appearsIn a ON k.charName=a.charName AND k.comicAge=a.comicAge INNER JOIN book b ON a.mName=b.mName GROUP BY k.charName, k.comicAge HAVING COUNT(*) <2;")
+
+        
         returnJson = json.dumps(bookRows)
+        print returnJson
     elif (query_cat == "delete"):
         deletecharacterCreatorString = request.GET['d_creator']
         deleteCharacterString = request.GET['d_count']
@@ -105,6 +108,7 @@ def response(request):
     else:
         err_message = "unknown category"
 
+    print returnJson
     return JsonResponse(returnJson, safe=False)
     
 
@@ -178,7 +182,6 @@ def makeKharacterQuery():
         query += characterCreatorString
         query += "'"
     elif (characterDirectedByString != ""):
-
         query += " WHERE NOT EXISTS (SELECT m.mName FROM movie m WHERE m.director='"
         query += characterDirectedByString
         query += "' EXCEPT SELECT DISTINCT m.mName FROM appearsIn a INNER JOIN movie m ON a.mName=m.mName WHERE k.charName=a.charName AND k.comicAge=a.comicAge)"
@@ -238,22 +241,21 @@ def makeBookCountViewQuery():
     query = "CREATE VIEW counts AS SELECT DISTINCT b.mName AS name, COUNT(k.charName) AS num FROM kharacter k INNER JOIN appearsIn a ON k.charName=a.charName AND k.comicAge=a.comicAge INNER JOIN book b ON a.mName=b.mName GROUP BY k.charName, k.comicAge HAVING COUNT(*) <"
     query += str(bookWithMoreThanXCharacters)
     query += ";"
-    print(query)
     return query
 
 def makeBookQuery():
     if (bookIncludeCount):
         query = "SELECT COUNT(*) FROM counts c;"
-    if (bookIncludeAverage):
+    elif (bookIncludeAverage):
         query = "SELECT AVG(num) FROM counts c;"
     return query
 
 def executeBookQuery():
     bookCountViewQuery = makeBookCountViewQuery()
+    cursor.execute("DROP VIEW IF EXISTS counts;");
+    cursor.execute(bookCountViewQuery)
     bookQuery = makeBookQuery()
     try:
-        connection.execute("DROP VIEW IF EXISTS counts;");
-        connection.execute(bookCountViewQuery)
         cursor.execute(bookQuery)
         rows = cursor.fetchall()
     except:
