@@ -103,13 +103,11 @@ def response(request):
     elif (query_cat == "delete"):
         deletecharacterCreatorString = request.POST['d_creator']
         deleteCharacterString = request.POST['d_cname']
-        executeDeleteQuery()
-        returnJson = {'request':'Sucessful'}
+        returnJson = {'request': executeDeleteQuery()}
     elif (query_cat == "update"):
         updateRevenueValue = request.POST['revenue']
         updateMovieString = request.POST['u_movie']
-        executeUpdateQuery()
-        returnJson = {'request':'Sucessful'}
+        returnJson = {'request': executeUpdateQuery()}
     else:
         err_message = "unknown category"
     
@@ -280,8 +278,10 @@ def executeDeleteQuery():
         query += "';"
     try:
         connection.execute(query)
+        return {'request':'Sucessful'}
     except sqlite3.IntegrityError as e:
         print(e)
+        return unhandled(e)
     except:
         print("Bad Delete Query")
 
@@ -298,8 +298,10 @@ def executeUpdateQuery():
     query += "';"
     try:
         connection.execute(query)
+        return {'request':'Sucessful'}
     except sqlite3.IntegrityError as e:
         print(e)
+        return unhandled(e)
     except:
         print("Bad Update Query")
 

@@ -198,16 +198,16 @@ $( document ).ready(function(){
 			dataType: 'json',
             success: function(msg) {
 			    console.log(msg.request);
-                $("#update_message").append("<p>Changes Sucessful</p>");
+                $("#update_message").append("<p style='color: #00b200;'>Changes Sucessful</p>").css("border-color","#00b200");;
                 $("#update_message").fadeIn().delay(800).fadeOut(function(){
-                    $("#update_message").empty(); 
+                    $("#update_message").empty().css("border-color","#999"); 
                 });
 			},
             error: function(e) {
 			    console.log(e);
-                $("#update_message").append("<p>Changes Unsucessful</p>");
+                $("#update_message").append("<p style='color: #f00;'>Changes Unsucessful</p>").css("border-color","#f00");
                 $("#update_message").fadeIn().delay(800).fadeOut(function(){
-                    $("#update_message").empty(); 
+                    $("#update_message").empty().css("border-color","#999");
                 });
 			}
 		}); 
