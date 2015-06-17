@@ -87,6 +87,7 @@ def response(request):
         movieNameExactlyString = request.GET['mename']
         movieRows = executeMovieQuery()
         returnJson = json.dumps(movieRows)
+        print returnJson
     elif (query_cat == "book"):
         bookIncludeCount = makeBool(request.GET['bcount'])
         bookIncludeAverage = makeBool(request.GET['b_avg'])
@@ -120,7 +121,7 @@ def dict_factory(cursor, row):
     return d
 
 # Connect to db
-connection = sqlite3.connect("db.sqlite3")
+connection = sqlite3.connect("db.sqlite3", check_same_thread=False)
 connection.row_factory = dict_factory
 cursor = connection.cursor()
 
@@ -138,52 +139,50 @@ for command in sqlCommands:
 
 
 ##### kharacter Queries ######################################
-def addSelectedFieldsToKharacterQuery(query):
+def addSelectedFieldsToKharacterQuery():
+    attributes = []
+    query = ""
+    
     if (characterIncludeCharName):
-        query += " k.charName"
-        if (characterIncludePersonName):
-            if (characterIncludeCharName):
-                query += ","
-            query += " k.personName"
-    if (characterIncludePower):
-        if (characterIncludeCharName | characterIncludePersonName):
-            query += ","
-            query += " k.power"
+        attributes.append("k.charName")
     if (characterIncludeSpecies):
-        if (characterIncludeCharName | characterIncludePersonName | characterIncludePower):
-            query += ","
-        query += " k.species"
+        attributes.append("k.species")
+    if (characterIncludePersonName):
+        attributes.append("k.personName")
+    if (characterIncludePower):
+        attributes.append("k.power")
     if (characterIncludeOriginPlanet):
-        if (characterIncludeCharName | characterIncludePersonName | characterIncludePower | characterIncludeOriginPlanet):
-            query += ","
-        query += " k.originPlanet"
+        attributes.append("k.originPlanet")
+
+    if (len(attributes) == 0):
+        query = "*"
+    elif (len(attributes) == 1):
+        query = attributes[0]
+    else:
+        query = attributes[0]
+        for a in attributes:
+            query += ", "
+            query += a
     return query
 
-
 def makeKharacterQuery():
+    query = "SELECT "
+    query += addSelectedFieldsToKharacterQuery()
+    query += " FROM kharacter k"
     if (characterPowerString != ""):
-        query = "SELECT"
-        query = addSelectedFieldsToKharacterQuery(query)
-        query += " FROM kharacter k"
         query += " WHERE k.power LIKE '%"
         query += characterPowerString
-        query += "%';"
+        query += "%'"
     elif (characterCreatorString != ""):
-        query = "SELECT"
-        query = addSelectedFieldsToKharacterQuery(query)
-        query += " FROM kharacter k"
         query += " INNER JOIN creates c ON k.charName=c.charName AND k.comicAge=c.charComicAge INNER JOIN creator w ON c.crName=w.fullName AND c.crType=w.variant WHERE w.fullName='"
         query += characterCreatorString
-        query += "';"
+        query += "'"
     elif (characterDirectedByString != ""):
-        query = "SELECT"
-        query = addSelectedFieldsToKharacterQuery(query)
-        query += " FROM kharacter k"
+
         query += " WHERE NOT EXISTS (SELECT m.mName FROM movie m WHERE m.director='"
         query += characterDirectedByString
-        query += "' EXCEPT SELECT DISTINCT m.mName FROM appearsIn a INNER JOIN movie m ON a.mName=m.mName WHERE k.charName=a.charName AND k.comicAge=a.comicAge);"
-    else:
-        query = ""
+        query += "' EXCEPT SELECT DISTINCT m.mName FROM appearsIn a INNER JOIN movie m ON a.mName=m.mName WHERE k.charName=a.charName AND k.comicAge=a.comicAge)"
+    query += ";"
     return query
 
 def executeKharacterQuery():
