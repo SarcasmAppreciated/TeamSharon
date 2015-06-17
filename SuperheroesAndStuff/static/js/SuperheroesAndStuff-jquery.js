@@ -22,8 +22,9 @@ $( document ).ready(function(){
 	
 	$("#reset").click(function(){
 		$(".container").fadeOut("fast").remove();
-		$("#reset").fadeOut("fast", function(){
+		$("#reset, #revenue_cat").fadeOut("fast", function(){
 			$(".category").not(".no_op").fadeIn("slow");
+            $("h2").remove();
 		});
 	});
 	
@@ -125,16 +126,36 @@ $( document ).ready(function(){
 			cache: false,
 			data: userQuery,
 			dataType: 'json',
-			success: function(json) {
-				// console.log(json);
+			success: function(data) {
+                var json = $.parseJSON(data);
+
 				$(".category").fadeOut("fast");
 				$("#reset").fadeIn("slow");
                 
-				for(var i = 0; i < json.length; i++) {    
-					$("#content").append("<div class='container'><img title='Name: " + json[i].charName + "\nSpecies: " + json[i].species + "' src='/static/images/Unknown.png'></img></div>");
-				}
-
-				$(".container").fadeIn("slow").css("display","inline-block");
+                if((json[0].charName != null) || (json[0].personName != null) || (json[0].species != null) || (json[0].power != null) || (json[0].originPlanet != null)) {
+                    for(var i = 0; i < json.length; i++) {    
+                        $("#content").append("<div class='container'><img title='Name: " + json[i].charName + "\nActual Name: " +
+                        json[i].personName + "\nSpecies: " + json[i].species + "\nPower: " + json[i].power + "\nOrigin: " + json[i].originPlanet + "' src='/static/images/Unknown.png'></img></div>");
+                    }
+                    $(".container").fadeIn("slow").css("display","inline-block");                    
+                } else if(json[0].mName != null) {
+                    for(var i = 0; i < json.length; i++) {    
+                        $("#content").append("<div class='container'><img title='Name: " + json[i].mName + "' src='/static/images/Unknown.png'></img></div>");
+                    }
+                    $(".container").fadeIn("slow").css("display","inline-block");
+                } else if(json[0].sumMovie != null) {
+                    for(var i = 0; i < json.length; i++) {    
+                        $("#revenue_cat").append("<h2>Total Revenue: $" + json[i].sumMovie + "</h2>");
+                    }
+                    $("#revenue_cat").fadeIn("slow").css("display","inline-block");                    
+                } else if(json[0].avgMovie != null) {
+                    for(var i = 0; i < json.length; i++) {    
+                        $("#revenue_cat").append("<h2>Average Revenue: $" + json[i].avgMovie + "</h2>");
+                    }
+                    $("#revenue_cat").fadeIn("slow").css("display","inline-block");                    
+                }
+                
+				
 			},
 			error: function(e) {
 			    console.log(e);
