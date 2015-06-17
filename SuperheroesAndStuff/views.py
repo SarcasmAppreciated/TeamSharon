@@ -49,8 +49,6 @@ def response(request):
     elif request.method == "GET" and request.GET:
         query_cat = request.GET['query_cat']
     
-    print query_cat
-    
     global characterIncludeCharName
     global characterIncludeSpecies
     global characterIncludeOriginPlanet
@@ -104,7 +102,7 @@ def response(request):
         print returnJson
     elif (query_cat == "delete"):
         deletecharacterCreatorString = request.POST['d_creator']
-        deleteCharacterString = request.POST['d_count']
+        deleteCharacterString = request.POST['d_cname']
         executeDeleteQuery()
         returnJson = {'request':'Sucessful'}
     elif (query_cat == "update"):
