@@ -224,7 +224,7 @@ def makeMovieQuery():
             query += "'"
         query += ";"
     elif (movieIncludeAverageRevenue):
-        query = "SELECT AVG(m.revenue) AS sumMovie FROM movie m"
+        query = "SELECT AVG(m.revenue) AS avgMovie FROM movie m"
         if (movieIncludingNameString != ""):
             query += " WHERE m.mName LIKE '%"
             query += movieIncludingNameString
