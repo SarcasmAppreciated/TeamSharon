@@ -35,25 +35,25 @@ $( document ).ready(function(){
 			userQuery["query_cat"] = "character";
 			
 			if($("#cname").is(":checked"))
-				userQuery["cname"] = true;
+				userQuery["cname"] = "True";
 			else
-				userQuery["cname"] = false;
+				userQuery["cname"] = "False";
 			if($("#species").is(":checked"))
-				userQuery["species"] = true;
+				userQuery["species"] = "True";
 			else
-				userQuery["species"] = false;
+				userQuery["species"] = "False";
 			if($("#origin").is(":checked"))
-				userQuery["origin"] = true;
+				userQuery["origin"] = "True";
 			else
-				userQuery["origin"] = false;
+				userQuery["origin"] = "False";
 			if($("#aname").is(":checked"))
-				userQuery["aname"] = true;
+				userQuery["aname"] = "True";
 			else
-				userQuery["aname"] = false;
+				userQuery["aname"] = "False";
 			if($("#powerc").is(":checked"))
-				userQuery["powerc"] = true;
+				userQuery["powerc"] = "True";
 			else
-				userQuery["powerc"] = false;
+				userQuery["powerc"] = "False";
 						
 			userQuery['power'] = $('#power').val();
 			userQuery['creator'] = $('#creator').val();
@@ -65,17 +65,17 @@ $( document ).ready(function(){
 			userQuery["query_cat"] = "movie";
 			
 			if($("#m_name").is(":checked"))
-				userQuery["m_name"] = true;
+				userQuery["m_name"] = "True";
 			else
-				userQuery["m_name"] = false;
+				userQuery["m_name"] = "False";
 			if($("#total_rev").is(":checked"))
-				userQuery["total_rev"] = true;
+				userQuery["total_rev"] = "True";
 			else
-				userQuery["total_rev"] = false;
+				userQuery["total_rev"] = "False";
 			if($("#avg_rev").is(":checked"))
-				userQuery["avg_rev"] = true;
+				userQuery["avg_rev"] = "True";
 			else
-				userQuery["avg_rev"] = false;
+				userQuery["avg_rev"] = "False";
 			
 			userQuery['miname'] = $('#miname').val();
 			userQuery['mename'] = $('#mename').val();
@@ -86,13 +86,13 @@ $( document ).ready(function(){
 			userQuery["query_cat"] = "book";
 			
 			if($("#bcount").is(":checked"))
-				userQuery["bcount"] = true;
+				userQuery["bcount"] = "True";
 			else
-				userQuery["bcount"] = false;
+				userQuery["bcount"] = "False";
 			if($("#b_avg").is(":checked"))
-				userQuery["b_avg"] = true;
+				userQuery["b_avg"] = "True";
 			else
-				userQuery["b_avg"] = false;
+				userQuery["b_avg"] = "False";
 			
 			userQuery['less_than'] = $('#less_than').val();
 		
