@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
-from SuperheroesAndStuff import models
 import sqlite3
 import json
 
@@ -170,7 +169,7 @@ def addSelectedFieldsToKharacterQuery():
     return query
 
 def makeKharacterQuery():
-    query = "SELECT "
+    query = "SELECT DISTINCT "
     query += addSelectedFieldsToKharacterQuery()
     query += " FROM kharacter k"
     if (characterPowerString != ""):

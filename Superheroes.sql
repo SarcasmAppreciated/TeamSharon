@@ -148,8 +148,8 @@ INSERT INTO kharacter VALUES ('Beast','Modern','Hank McCoy','Mutant','Hero','Mal
 INSERT INTO kharacter VALUES ('Black Widow','Modern','Natasha Romanoff','Human','Hero','Female','Combat','Earth');
 INSERT INTO kharacter VALUES ('Captain America','Modern','Steve Rogers','Human','Hero','Male','Strength Endurance','Earth');
 INSERT INTO kharacter VALUES ('Cyclops','Modern','Scott Summers','Mutant','Hero','Male','Lasers','Earth');
-INSERT INTO kharacter VALUES ('Doctor Doom','Modern','Viktor Krumm','Human','Villian','Male','Technopathy Genius Flight Force Fields','Earth');
-INSERT INTO kharacter VALUES ('Doctor Octopus','Modern','Otto Gunther Octavius','Human','Villian','Male','Genius','Earth');
+INSERT INTO kharacter VALUES ('Doctor Doom','Modern','Viktor Krumm','Human','Villain','Male','Technopathy Genius Flight Force Fields','Earth');
+INSERT INTO kharacter VALUES ('Doctor Octopus','Modern','Otto Gunther Octavius','Human','Villain','Male','Genius','Earth');
 INSERT INTO kharacter VALUES ('The Flash','Modern','Wally West','Human','Hero','Male','Speed','Earth');
 INSERT INTO kharacter VALUES ('Green Lantern','Modern','Kyle Rayner','Human','Hero','Male','Power Ring Flight','Earth');
 INSERT INTO kharacter VALUES ('Hawkeye','Modern','Clint Barton','Human','Hero','Male','Archery','Earth');

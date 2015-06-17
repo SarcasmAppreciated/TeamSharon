@@ -149,9 +149,50 @@ $( document ).ready(function(){
 				$("#reset").fadeIn("slow");
                 
                 if((json[0].charName != null) || (json[0].personName != null) || (json[0].species != null) || (json[0].power != null) || (json[0].originPlanet != null)) {
-                    for(var i = 0; i < json.length; i++) {    
-                        $("#content").append("<div class='container'><img title='Name: " + json[i].charName + "\nActual Name: " +
-                        json[i].personName + "\nSpecies: " + json[i].species + "\nPower: " + json[i].power + "\nOrigin: " + json[i].originPlanet + "' src='/static/images/Unknown.png'></img></div>");
+                    for(var i = 0; i < json.length; i++) {
+                        firstItem = true;
+                        toAppend = "<div class='container'><img title='";
+                        if (json[0].charName != null) {
+                            if (firstItem) {
+                                firstItem = false;
+                            } else {
+                                toAppend += "\n";
+                            }
+                            toAppend += "Name: " + json[i].charName;
+                        }
+                        if (json[0].personName != null) {
+                            if (firstItem) {
+                                firstItem = false;
+                            } else {
+                                toAppend += "\n";
+                            }
+                            toAppend += "Actual Name: " + json[i].personName;
+                        }
+                        if (json[0].species != null) {
+                            if (firstItem) {
+                                firstItem = false;
+                            } else {
+                                toAppend += "\n";
+                            }
+                            toAppend += "Species: " + json[i].species;
+                        }
+                        if (json[0].power != null) {
+                            if (firstItem) {
+                                firstItem = false;
+                            } else {
+                                toAppend += "\n";
+                            }
+                            toAppend += "Power: " + json[i].power;
+                        }
+                        if (json[0].originPlanet != null) {
+                            if (firstItem) {
+                                firstItem = false;
+                            } else {
+                                toAppend += "\n";
+                            }
+                            toAppend += "Origin: " + json[i].originPlanet;
+                        }
+                        $("#content").append(toAppend + "' src='/static/images/Unknown.png'></img></div>");
                     }
                     $(".container").fadeIn("slow").css("display","inline-block");                    
                 } else if(json[0].mName != null) {
@@ -171,12 +212,12 @@ $( document ).ready(function(){
                     $("#revenue_cat").fadeIn("slow").css("display","inline-block");                    
                 } else if(json[0].cBook != null) {
                     for(var i = 0; i < json.length; i++) {    
-                        $("#revenue_cat").append("<h2>Number of books with fewer than X characters: " + json[i].cBook + "</h2>");
+                        $("#revenue_cat").append("<h2>Number of books with fewer than " + userQuery['less_than'] + " characters: " + json[i].cBook + "</h2>");
                     }
                     $("#revenue_cat").fadeIn("slow").css("display","inline-block");                    
                 } else if(json[0].avgBook != null) {
                     for(var i = 0; i < json.length; i++) {    
-                        $("#revenue_cat").append("<h2 style='line-height: 50px;'>Average number of characters in books in less than X characters: " + json[i].avgBook + "</h2>");
+                        $("#revenue_cat").append("<h2 style='line-height: 50px;'>Average number of characters in books in less than " + userQuery['less_than'] + " characters: " + json[i].avgBook + "</h2>");
                     }
                     $("#revenue_cat").fadeIn("slow").css("display","inline-block");                    
                 } else {
