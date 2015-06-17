@@ -1,5 +1,4 @@
 from django.db import OperationalError
-from django.http import HttpResponse
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
@@ -365,10 +364,8 @@ def executeMediaContainingStormQuery():
 
 ##############################################################
 
-
-
-
-
+def unhandled(e):
+    return {'Error':e}
 
 
 
