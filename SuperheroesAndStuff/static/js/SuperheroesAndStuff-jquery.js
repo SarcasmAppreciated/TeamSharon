@@ -1,5 +1,20 @@
 $( document ).ready(function(){
-	
+	/*
+    var csrftoken = $.cookie('csrftoken');
+    
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+    alert(csrftoken);*/
+    
 	$("#delete_button").click(function(){
 		$("#delete_cat").fadeIn("slow", function(){
 			$("#delete_submit").click(function(){
@@ -26,6 +41,7 @@ $( document ).ready(function(){
 			$(".category").not(".no_op").fadeIn("slow");
             $("h2").remove();
 		});
+        $(".type_box").trigger('reset');
 	});
 	
 	var userQuery = {};
@@ -121,7 +137,7 @@ $( document ).ready(function(){
 	
 	function get_response() {
 		$.ajax({
-			type: 'GET',
+			method: 'GET',
 			url: '/SuperheroesAndStuff/response/',
 			cache: false,
 			data: userQuery,
@@ -153,9 +169,19 @@ $( document ).ready(function(){
                         $("#revenue_cat").append("<h2>Average Revenue: $" + json[i].avgMovie + "</h2>");
                     }
                     $("#revenue_cat").fadeIn("slow").css("display","inline-block");                    
-                }
-                
-				
+                } else if(json[0].cBook != null) {
+                    for(var i = 0; i < json.length; i++) {    
+                        $("#revenue_cat").append("<h2>Number of books with fewer than X characters: " + json[i].cBook + "</h2>");
+                    }
+                    $("#revenue_cat").fadeIn("slow").css("display","inline-block");                    
+                } else if(json[0].avgBook != null) {
+                    for(var i = 0; i < json.length; i++) {    
+                        $("#revenue_cat").append("<h2 style='line-height: 50px;'>Average number of characters in books in less than X characters: " + json[i].avgBook + "</h2>");
+                    }
+                    $("#revenue_cat").fadeIn("slow").css("display","inline-block");                    
+                } else {
+                    alert("Unknown return");                    
+                }           
 			},
 			error: function(e) {
 			    console.log(e);
@@ -164,18 +190,26 @@ $( document ).ready(function(){
 	}
 	
 	function update_table() {
-		var request = $.ajax({
+		$.ajax({
 			url: '/SuperheroesAndStuff/response/',
-			method: "POST",
-			data: {},
-			dataType: ""
-		});
-
-		request.done(function( msg ) {
-		});
-
-		request.fail(function( jqXHR, textStatus ) {
-			alert( "Request failed: " + textStatus );
-		});
+			method: 'POST',
+			cache: false,
+			data: userQuery,
+			dataType: 'json',
+            success: function(msg) {
+			    console.log(msg.request);
+                $("#update_message").append("<p>Changes Sucessful</p>");
+                $("#update_message").fadeIn().delay(800).fadeOut(function(){
+                    $("#update_message").empty(); 
+                });
+			},
+            error: function(e) {
+			    console.log(e);
+                $("#update_message").append("<p>Changes Unsucessful</p>");
+                $("#update_message").fadeIn().delay(800).fadeOut(function(){
+                    $("#update_message").empty(); 
+                });
+			}
+		}); 
 	}
 });
