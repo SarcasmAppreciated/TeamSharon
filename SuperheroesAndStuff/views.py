@@ -201,6 +201,7 @@ def executeKharacterQuery():
 ##### Movie Queries ##########################################
 
 def makeMovieQuery():
+    print("HERE")
     if (movieIncludeMName):
         query = "SELECT m.mName FROM movie m WHERE m.mName"
         if (movieNameExactlyString != ""):
@@ -217,7 +218,7 @@ def makeMovieQuery():
             query += " WHERE m.mName LIKE '%"
             query += movieIncludingNameString
             query += "%'"
-        elif (movieNameExactlyString):
+        elif (movieNameExactlyString != ""):
             query += " WHERE m.mName='"
             query += movieNameExactlyString
             query += "'"
@@ -233,7 +234,18 @@ def makeMovieQuery():
             query += movieNameExactlyString
             query += "'"
         query += ";"
+    print query
     return query
+
+
+def executeMovieQuery():
+    movieQuery = makeMovieQuery()
+    try:
+        cursor.execute(movieQuery)
+        rows = cursor.fetchall()
+    except:
+        print("Bad Movie Query")
+    return rows
 ##############################################################
 
 
