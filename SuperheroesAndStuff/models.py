@@ -1,7 +1,4 @@
 from django.db import models
-from sqlalchemy import *
-
-metadata = MetaData()
 
 # Create your models here.
 
@@ -23,18 +20,6 @@ class kharacter(models.Model):
         managed = True
 
 
-# kharacter = Table('kharacter', metadata,
-#                   Column('charName', String(48), primary_key=True),
-#                   Column('comicAge', String(45), primary_key=True),
-#                   Column('personName', String(45)),
-#                   Column('species', String(20)),
-#                   Column('alignment', String(45)),
-#                   Column('gender', String(45)),
-#                   Column('power', String(450)),
-#                   Column('originPlanet', String(45))
-#                   )
-
-
 class creator(models.Model):
     fullName = models.CharField(max_length=45)
     variant = models.CharField(max_length=45, default='')
@@ -46,11 +31,6 @@ class creator(models.Model):
         unique_together = ("fullName", "variant")
         managed = True
 
-# creator = Table('creator', metadata,
-#                 Column('fullName', String(45), primary_key=True),
-#                 Column('category', String(45), primary_key=True)
-#                 )
-
 
 class distributor(models.Model):
     fullName = models.CharField(max_length=45, primary_key=True)
@@ -61,11 +41,6 @@ class distributor(models.Model):
 
     class Meta:
         managed = True
-
-# distributor = Table('distributor', metadata,
-#                     Column('fullName', String(45), primary_key=True),
-#                     Column('category', String(45))
-#                     )
 
 
 class fight(models.Model):
@@ -79,12 +54,6 @@ class fight(models.Model):
     class Meta:
         unique_together = ("description", "comicAge")
         managed = True
-
-# fight = Table('fight', metadata,
-#               Column('description', String(100), primary_key=True),
-#               Column('comicAge', String(45), primary_key=True),
-#               Column('victor', String(45))
-#               )
 
 
 class team(models.Model):
@@ -100,13 +69,6 @@ class team(models.Model):
         unique_together = ("teamName", "comicAge")
         managed = True
 
-# team = Table('team', metadata,
-#              Column('teamName', String(45), primary_key=True),
-#              Column('comicAge', String(45), primary_key=True),
-#              Column('alignment', String(45)),
-#              Column('HQ', String(45))
-#              )
-
 
 class distributesMedium(models.Model):
     mName = models.CharField(max_length=45, primary_key=True)
@@ -117,12 +79,6 @@ class distributesMedium(models.Model):
 
     class Meta:
         managed = True
-
-# distributesMedium = Table('distributesMedium', metadata,
-#                           Column('mName', String(45), primary_key=True),
-#                           Column('distName', String(45), ForeignKey('distributor.fullName',
-#                                  onupdate="CASCADE", ondelete="CASCADE"))
-#                           )
 
 
 class book(models.Model):
@@ -139,16 +95,6 @@ class book(models.Model):
         managed = True
 
 
-# book = Table('book', metadata,
-#              Column('mName', String(45), ForeignKey('distrbutesMedium.mName', onupdate="CASCADE", ondelete="CASCADE"),
-#                     primary_key=True),
-#              Column('ISBN', String(45)),
-#              Column('author', String(45), nullable=False),
-#              Column('publishDate', DateTime),
-#              Column('category', String(45))
-#              )
-
-
 class movie(models.Model):
     mName = models.ForeignKey('distributesMedium')
     director = models.CharField(max_length=45)
@@ -162,15 +108,6 @@ class movie(models.Model):
     class Meta:
         managed = True
 
-# movie = Table('movie', metadata,
-#               Column('mName', String(45), ForeignKey('distrbutesMedium.mName', onupdate="CASCADE", ondelete="CASCADE"),
-#                      primary_key=True),
-#               Column('director', String(45)),
-#               Column('releaseDate', DateTime),
-#               Column('isAnimated', String(10)),
-#               Column('revenue', Integer)
-#               )
-
 
 class tvSeries(models.Model):
     mName = models.ForeignKey('distributesMedium')
@@ -182,13 +119,6 @@ class tvSeries(models.Model):
 
     class Meta:
         managed = True
-
-# tvSeries = Table('tvSeries', metadata,
-#                  Column('mName', String(45), ForeignKey('distrbutesMedium.mName', onupdate="CASCADE", ondelete="CASCADE"),
-#                         primary_key=True),
-#                  Column('initialAirDate', DateTime),
-#                  Column('director', String(45)),
-#                  )
 
 
 class creates(models.Model):
@@ -206,17 +136,6 @@ class creates(models.Model):
         unique_together = ("charID", "crID")
         managed = True
 
-# creates = Table('creates', metadata,
-#                 Column('charName', String(45), primary_key=True),
-#                 Column('charComicAge', String(45), primary_key=True),
-#                 Column('crName', String(45), primary_key=True),
-#                 Column('crType', String(45), primary_key=True),
-#                 ForeignKeyConstraint(['charName', 'charComicAge'], ['kharacter.charName', 'kharacter.comicAge'],
-#                                      onupdate="CASCADE", ondelete="CASCADE"),
-#                 ForeignKeyConstraint(['crName', 'crType'], ['creator.fullName', 'creator.category'],
-#                                      onupdate="CASCADE", ondelete="CASCADE")
-#                 )
-
 
 class makesUp(models.Model):
     teamID = models.ForeignKey('team')
@@ -232,17 +151,6 @@ class makesUp(models.Model):
     class Meta:
         unique_together = ("teamID", "charID")
         managed = True
-
-# makesUp = Table('makesUp', metadata,
-#                 Column('teamName', String(45), primary_key=True),
-#                 Column('teamComicAge', String(45), primary_key=True),
-#                 Column('charComicAge', String(45), primary_key=True),
-#                 Column('charName', String(45), primary_key=True),
-#                 ForeignKeyConstraint(['teamName', 'teamComicAge'], ['team.name', 'team.comicAge'],
-#                                      onupdate="CASCADE", ondelete="CASCADE"),
-#                 ForeignKeyConstraint(['charName', 'charComicAge'], ['kharacter.charName', 'kharacter.comicAge'],
-#                                      onupdate="CASCADE", ondelete="CASCADE"),
-#                 )
 
 
 class participatesIn(models.Model):
@@ -260,17 +168,6 @@ class participatesIn(models.Model):
         unique_together = ("fightID", "charID")
         managed = True
 
-# participatesIn = Table('participatesIn', metadata,
-#                        Column('fightDesc', String(45), primary_key=True),
-#                        Column('fightComicAge', String(45), primary_key=True),
-#                        Column('charName', String(45), primary_key=True),
-#                        Column('charComicAge', String(45), primary_key=True),
-#                        ForeignKeyConstraint(['fightDesc', 'fightComicAge'], ['fight.description', 'fight.comicAge'],
-#                                             onupdate="CASCADE", ondelete="CASCADE"),
-#                        ForeignKeyConstraint(['charName', 'charComicAge'], ['kharacter.charName', 'kharacter.comicAge'],
-#                                             onupdate="CASCADE", ondelete="CASCADE"),
-#                        )
-
 
 class appearsIn(models.Model):
     charID = models.ForeignKey('kharacter')
@@ -278,18 +175,9 @@ class appearsIn(models.Model):
     comicAge = models.CharField(max_length=45)
     mName = models.ForeignKey('distributesMedium')
 
-    #dummy value for debugging
     def __unicode__(self):
         return self.charName + " " + self.mName.__unicode__()
 
     class Meta:
         unique_together = ("charID", "mName")
         managed = True
-
-# appearsIn = Table('appearsIn', metadata,
-#                   Column('charName', String(45), primary_key=True),
-#                   Column('comicAge', String(45), primary_key=True),
-#                   Column('mName', String(45), ForeignKey('distributesMedia.mName'), primary_key=True),
-#                   ForeignKeyConstraint(['charName', 'comicAge'], ['kharacter.charName', 'kharacter.comicAge'],
-#                                        onupdate="CASCADE", ondelete="CASCADE")
-#                   )

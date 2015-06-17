@@ -78,6 +78,7 @@ def response(request):
         characterDirectedByString = request.GET['director']
         kharacterRows = executeKharacterQuery()
         returnJson = json.dumps(kharacterRows)
+        print returnJson
     elif (query_cat == "movie"):
         movieIncludeMName = makeBool(request.GET['m_name'])
         movieIncludeTotalRevenue = makeBool(request.GET['total_rev'])
@@ -88,7 +89,7 @@ def response(request):
         returnJson = json.dumps(movieRows)
     elif (query_cat == "book"):
         bookIncludeCount = makeBool(request.GET['bcount'])
-        bookIncludeAverage = makeBool(Frequest.GET['b_avg'])
+        bookIncludeAverage = makeBool(request.GET['b_avg'])
         bookWithMoreThanXCharacters = request.GET['less_than']
         bookRows = executeBookQuery()
         returnJson = json.dumps(bookRows)
@@ -190,7 +191,8 @@ def executeKharacterQuery():
     try:
         cursor.execute(kharacterQuery)
         rows = cursor.fetchall()
-    except:
+    except Exception, msg:
+        print msg
         print("Bad Kharacter Query")
     return rows
 ##############################################################
