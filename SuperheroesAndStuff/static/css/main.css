@@ -140,6 +140,17 @@ button#reset {
 	display: none;
 }
 
+#revenue_cat {
+    width: 975px;
+    border-color: #999;
+    text-align: center;
+}
+
+#revenue_cat h2 {
+    line-height: 100px;
+    display: inline-block;
+}
+
 .title_box {
     height: 120px;
     width: 200px;
