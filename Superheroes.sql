@@ -142,8 +142,8 @@ create table appearsIn
 
 -- kharacter
 INSERT INTO kharacter VALUES ('Aquaman','Modern','Arthur Curry','Human','Hero','Male','Telepathy Hydrokinetic Communicate with Marine Animals','Earth');
-INSERT INTO kharacter VALUES ('Archangel','Modern','Warren Worthington III','Mutant','Hero','Male','Healing Factor Flight','Earth');
-INSERT INTO kharacter VALUES ('Batman','Modern','Bruce Wayne','Human','Hero','Male','Genius Money','Earth');
+INSERT INTO kharacter VALUES ('Archangel','Modern','Warren Worthington III','Mutant','Hero','Male','Healing Factor Flight Strength','Earth');
+INSERT INTO kharacter VALUES ('Batman','Modern','Bruce Wayne','Human','Hero','Male','Genius Money Combat','Earth');
 INSERT INTO kharacter VALUES ('Beast','Modern','Hank McCoy','Mutant','Hero','Male','Genius Animal Like','Earth');
 INSERT INTO kharacter VALUES ('Black Widow','Modern','Natasha Romanoff','Human','Hero','Female','Combat','Earth');
 INSERT INTO kharacter VALUES ('Captain America','Modern','Steve Rogers','Human','Hero','Male','Strength Endurance','Earth');
@@ -152,8 +152,8 @@ INSERT INTO kharacter VALUES ('Doctor Doom','Modern','Viktor Krumm','Human','Vil
 INSERT INTO kharacter VALUES ('Doctor Octopus','Modern','Otto Gunther Octavius','Human','Villian','Male','Genius','Earth');
 INSERT INTO kharacter VALUES ('The Flash','Modern','Wally West','Human','Hero','Male','Speed','Earth');
 INSERT INTO kharacter VALUES ('The Flash','Silver','Barry Allen','Human','Hero','Male','Speed','Earth');
-INSERT INTO kharacter VALUES ('Green Lantern','Modern','Kyle Rayner','Human','Hero','Male','Power Ring','Earth');
-INSERT INTO kharacter VALUES ('Green Lantern','Silver','Hal Jordan','Human','Hero','Male','Power Ring','Earth');
+INSERT INTO kharacter VALUES ('Green Lantern','Modern','Kyle Rayner','Human','Hero','Male','Power Ring Flight','Earth');
+INSERT INTO kharacter VALUES ('Green Lantern','Silver','Hal Jordan','Human','Hero','Male','Power Ring Flight','Earth');
 INSERT INTO kharacter VALUES ('Hawkeye','Modern','Clint Barton','Human','Hero','Male','Archery','Earth');
 INSERT INTO kharacter VALUES ('Hulk','Modern','Bruce Banner','Human','Hero','Male','Genius Strength','Earth');
 INSERT INTO kharacter VALUES ('Human Torch','Modern','Johnny Storm','Human','Hero','Male','Pyrokinesis','Earth');
@@ -176,6 +176,8 @@ INSERT INTO kharacter VALUES ('Wonder Woman','Modern','Princess Diana of Themysc
 -- creator
 INSERT INTO creator VALUES ('Bill Finger','Author');
 INSERT INTO creator VALUES ('Bob Kane','Illustrator');
+INSERT INTO creator VALUES ('Carl Burgos','Illustrator');
+INSERT INTO creator VALUES ('Carl Burgos','Author');
 INSERT INTO creator VALUES ('Dave Cockrum','Illustrator');
 INSERT INTO creator VALUES ('Don Heck','Illustrator');
 INSERT INTO creator VALUES ('Don Rico','Illustrator');
@@ -196,6 +198,7 @@ INSERT INTO creator VALUES ('Paul Norris','Illustrator');
 INSERT INTO creator VALUES ('Roy Thomas','Author');
 INSERT INTO creator VALUES ('Stan Lee','Author');
 INSERT INTO creator VALUES ('Steve Ditko','Illustrator');
+INSERT INTO creator VALUES ('William Moulton Maston','Author');
 
 -- distributor
 INSERT INTO distributor VALUES ('20th Century Fox','Studio');
@@ -228,7 +231,7 @@ INSERT INTO distributesMedium VALUES ('Adventures of Superman','Warner Bros. Tel
 INSERT INTO distributesMedium VALUES ('The Avengers: Volume 1','Marvel Comics');
 INSERT INTO distributesMedium VALUES ('The Avengers: Volume 2','Marvel Comics');
 INSERT INTO distributesMedium VALUES ('The Avengers: United They Stand','Disney–ABC Domestic Television');
-INSERT INTO distributesMedium VALUES ('The Avengers: Earth''s Mightiest Heroes','Disney–ABC Domestic Television');
+INSERT INTO distributesMedium VALUES ('The Avengers: Earths Mightiest Heroes','Disney–ABC Domestic Television');
 INSERT INTO distributesMedium VALUES ('The Avengers','Marvel Studios');
 INSERT INTO distributesMedium VALUES ('Avengers: Age Of Ultron','Marvel Studios');
 INSERT INTO distributesMedium VALUES ('The Dark Knight Rises','Warner Bros. Pictures');
@@ -268,7 +271,7 @@ INSERT INTO movie VALUES ('X-Men: Days of Future Past','Bryan Singer','2013-05-2
 -- tvSeries
 INSERT INTO tvSeries VALUES ('Adventures of Superman','1952-09-19','Whitney Ellsworth');
 INSERT INTO tvSeries VALUES ('The Avengers: United They Stand','1999-10-30','Avi Arad');
-INSERT INTO tvSeries VALUES ('The Avengers: Earth''s Mightiest Heroes','2010-09-22','Simon Philips');
+INSERT INTO tvSeries VALUES ('The Avengers: Earths Mightiest Heroes','2010-09-22','Simon Philips');
 INSERT INTO tvSeries VALUES ('Fantastic Four (1994)','1994-09-24','Avi Arad');
 INSERT INTO tvSeries VALUES ('Justice League', '2001-11-17', 'Bruce Timm');
 INSERT INTO tvSeries VALUES ('X-Men (1992)','1992-10-31','Larry Houston');
@@ -306,16 +309,36 @@ INSERT INTO creates VALUES ('Green Lantern','Modern','Martin Nodell','Illustrato
 INSERT INTO creates VALUES ('Green Lantern','Silver','Martin Nodell','Illustrator');
 INSERT INTO creates VALUES ('Hawkeye','Modern','Stan Lee','Author');
 INSERT INTO creates VALUES ('Hawkeye','Modern','Don Heck','Illustrator');
+INSERT INTO creates VALUES ('Hulk','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Hulk','Modern','Jack Kirby','Illustrator');
+INSERT INTO creates VALUES ('Human Torch','Modern','Carl Burgos','Illustrator');
+INSERT INTO creates VALUES ('Human Torch','Modern','Carl Burgos','Author');
+INSERT INTO creates VALUES ('Iceman','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Iceman','Modern','Jack Kirby','Illustrator');
 INSERT INTO creates VALUES ('Invisible Woman','Modern','Stan Lee','Author');
 INSERT INTO creates VALUES ('Invisible Woman','Modern','Jack Kirby','Illustrator');
 INSERT INTO creates VALUES ('Iron Man','Modern','Stan Lee','Author');
 INSERT INTO creates VALUES ('Iron Man','Modern','Larry Lieber','Author');
 INSERT INTO creates VALUES ('Iron Man','Modern','Don Heck','Illustrator');
 INSERT INTO creates VALUES ('Iron Man','Modern','Jack Kirby','Illustrator');
+INSERT INTO creates VALUES ('Magneto','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Magneto','Modern','Jack Kirby','Illustrator');
+INSERT INTO creates VALUES ('Mister Fantastic','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Mister Fantastic','Modern','Jack Kirby','Illustrator');
+INSERT INTO creates VALUES ('Phoenix','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Phoenix','Modern','Jack Kirby','Illustrator');
+INSERT INTO creates VALUES ('Professor X','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Professor X','Modern','Jack Kirby','Illustrator');
+INSERT INTO creates VALUES ('Quicksilver','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Quicksilver','Modern','Jack Kirby','Illustrator');
+INSERT INTO creates VALUES ('Scarlet Witch','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('Scarlet Witch','Modern','Jack Kirby','Illustrator');
 INSERT INTO creates VALUES ('Storm','Modern','Dave Cockrum','Illustrator');
 INSERT INTO creates VALUES ('Storm','Modern','Len Wein','Author');
 INSERT INTO creates VALUES ('Superman','Modern','Joe Shuster','Illustrator');
 INSERT INTO creates VALUES ('Superman','Modern','Jerry Siegel','Author');
+INSERT INTO creates VALUES ('The Thing','Modern','Stan Lee','Author');
+INSERT INTO creates VALUES ('The Thing','Modern','Jack Kirby','Illustrator');
 INSERT INTO creates VALUES ('Thor','Modern','Stan Lee','Author');
 INSERT INTO creates VALUES ('Thor','Modern','Larry Lieber','Author');
 INSERT INTO creates VALUES ('Thor','Modern','Jack Kirby','Illustrator');
@@ -323,6 +346,7 @@ INSERT INTO creates VALUES ('Wolverine','Modern','Roy Thomas','Author');
 INSERT INTO creates VALUES ('Wolverine','Modern','Len Wein','Author');
 INSERT INTO creates VALUES ('Wolverine','Modern','John Romita, Sr.','Illustrator');
 INSERT INTO creates VALUES ('Wolverine','Modern','Herb Trimpe','Illustrator');
+INSERT INTO creates VALUES ('Wonder Woman','Modern','William Moulton Maston','Author');
 
 -- makesUp
 INSERT INTO makesUp VALUES ('Avengers','Modern','Modern','Thor');
@@ -332,6 +356,8 @@ INSERT INTO makesUp VALUES ('Avengers','Modern','Modern','Iron Man');
 INSERT INTO makesUp VALUES ('Avengers','Modern','Modern','Hawkeye');
 INSERT INTO makesUp VALUES ('Avengers','Modern','Modern','Hulk');
 INSERT INTO makesUp VALUES ('Brotherhood of Mutants','Modern','Modern','Magneto');
+INSERT INTO makesUp VALUES ('Brotherhood of Mutants','Modern','Modern','Quicksilver');
+INSERT INTO makesUp VALUES ('Brotherhood of Mutants','Modern','Modern','Scarlet Witch');
 INSERT INTO makesUp VALUES ('Fantastic Four','Modern','Modern','Invisible Woman');
 INSERT INTO makesUp VALUES ('Fantastic Four','Modern','Modern','Mister Fantastic');
 INSERT INTO makesUp VALUES ('Fantastic Four','Modern','Modern','The Thing');
@@ -369,11 +395,16 @@ INSERT INTO participatesIn VALUES ('Battle of Sokovia','Modern','Thor','Modern')
 INSERT INTO participatesIn VALUES ('Infinite Crisis','Modern','Superman','Modern');
 INSERT INTO participatesIn VALUES ('Infinite Crisis','Modern','Batman','Modern');
 INSERT INTO participatesIn VALUES ('Infinite Crisis','Modern','Wonder Woman','Modern');
+INSERT INTO participatesIn VALUES ('Infinite Crisis','Modern','The Flash','Modern');
+INSERT INTO participatesIn VALUES ('Infinite Crisis','Modern','Green Lantern','Modern');
+INSERT INTO participatesIn VALUES ('Infinite Crisis','Modern','Aquaman','Modern');
 INSERT INTO participatesIn VALUES ('M-Day Genosha Decimation','Modern','Scarlet Witch','Modern');
 INSERT INTO participatesIn VALUES ('M-Day Genosha Decimation','Modern','Beast','Modern');
 INSERT INTO participatesIn VALUES ('M-Day Genosha Decimation','Modern','Quicksilver','Modern');
 INSERT INTO participatesIn VALUES ('M-Day Genosha Decimation','Modern','Magneto','Modern');
 INSERT INTO participatesIn VALUES ('M-Day Genosha Decimation','Modern','Professor X','Modern');
+INSERT INTO participatesIn VALUES ('M-Day Genosha Decimation','Modern','Iceman','Modern');
+INSERT INTO participatesIn VALUES ('M-Day Genosha Decimation','Modern','Archangel','Modern');
 INSERT INTO participatesIn VALUES ('Wolverine vs. Sabretooth','Modern','Wolverine','Modern');
 
 -- appearsIn
@@ -386,7 +417,7 @@ INSERT INTO appearsIn VALUES ('Black Widow','Modern','The Avengers');
 INSERT INTO appearsIn VALUES ('Black Widow','Modern','Avengers: Age Of Ultron');
 INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers');
 INSERT INTO appearsIn VALUES ('Captain America','Modern','Avengers: Age Of Ultron');
-INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: Earth''s Mightiest Heroes');
+INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: Earths Mightiest Heroes');
 INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: United They Stand');
 INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: Volume 1');
 INSERT INTO appearsIn VALUES ('Captain America','Modern','The Avengers: Volume 2');
@@ -398,18 +429,19 @@ INSERT INTO appearsIn VALUES ('Doctor Doom','Modern','X-Men');
 INSERT INTO appearsIn VALUES ('Doctor Doom','Modern','Essential Fantastic Four: Volume 1');
 INSERT INTO appearsIn VALUES ('Doctor Octopus','Modern','Spider-Man 2');
 INSERT INTO appearsIn VALUES ('The Flash','Modern','Justice League');
+INSERT INTO appearsIn VALUES ('The Flash','Silver','Justice League');
 INSERT INTO appearsIn VALUES ('Green Lantern','Modern','Justice League');
 INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers');
 INSERT INTO appearsIn VALUES ('Hawkeye','Modern','Avengers: Age Of Ultron');
 INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers: United They Stand');
-INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers: Earth''s Mightiest Heroes');
+INSERT INTO appearsIn VALUES ('Hawkeye','Modern','The Avengers: Earths Mightiest Heroes');
 INSERT INTO appearsIn VALUES ('Hulk','Modern','The Avengers');
 INSERT INTO appearsIn VALUES ('Hulk','Modern','Avengers: Age Of Ultron');
 INSERT INTO appearsIn VALUES ('Human Torch','Modern','Fantastic Four (1994)');
 INSERT INTO appearsIn VALUES ('Iceman','Modern','X-Men: The Last Stand');
 INSERT INTO appearsIn VALUES ('Invisible Woman','Modern','Fantastic Four (1994)');
 INSERT INTO appearsIn VALUES ('Invisible Woman','Modern','Essential Fantastic Four: Volume 1');
-INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: Earth''s Mightiest Heroes');
+INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: Earths Mightiest Heroes');
 INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers: United They Stand');
 INSERT INTO appearsIn VALUES ('Iron Man','Modern','The Avengers');
 INSERT INTO appearsIn VALUES ('Iron Man','Modern','Avengers: Age Of Ultron');
@@ -428,7 +460,7 @@ INSERT INTO appearsIn VALUES ('Superman','Modern','The Superman Chronicles: Volu
 INSERT INTO appearsIn VALUES ('Superman','Modern','The Superman Chronicles: Volume 2');
 INSERT INTO appearsIn VALUES ('Superman','Modern','Justice League');
 INSERT INTO appearsIn VALUES ('The Thing','Modern','Fantastic Four (1994)');
-INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers: Earth''s Mightiest Heroes');
+INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers: Earths Mightiest Heroes');
 INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers');
 INSERT INTO appearsIn VALUES ('Thor','Modern','Avengers: Age Of Ultron');
 INSERT INTO appearsIn VALUES ('Thor','Modern','The Avengers: Volume 1');
