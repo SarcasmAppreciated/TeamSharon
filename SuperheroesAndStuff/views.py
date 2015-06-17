@@ -61,7 +61,7 @@ def response(request):
         movieNameExactlyString = request.GET['mename']
     elif (query_cat == "book"):
         bookIncludeCount = request.GET['bcount']
-        bookIncludeAverage = Frequest.GET['b_avg']
+        bookIncludeAverage = request.GET['b_avg']
         bookWithMoreThanXCharacters = request.GET['less_than']
     elif (query_cat == "delete"):
         deletecharacterCreatorString = request.GET['d_creator']
@@ -214,9 +214,6 @@ def response(request):
 #    for r in rows:
 #        print(r)
 
-
-
-    
     return JsonResponse(returnArray, safe=False)
 
 def index(request):
