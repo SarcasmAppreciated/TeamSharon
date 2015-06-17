@@ -1,20 +1,4 @@
-$( document ).ready(function(){
-	/*
-    var csrftoken = $.cookie('csrftoken');
-    
-    function csrfSafeMethod(method) {
-        // these HTTP methods do not require CSRF protection
-        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-    }
-    $.ajaxSetup({
-        beforeSend: function(xhr, settings) {
-            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                xhr.setRequestHeader("X-CSRFToken", csrftoken);
-            }
-        }
-    });
-    alert(csrftoken);*/
-    
+$( document ).ready(function(){   
 	$("#delete_button").click(function(){
 		$("#delete_cat").fadeIn("slow", function(){
 			$("#delete_submit").click(function(){
@@ -46,7 +30,7 @@ $( document ).ready(function(){
 	
 	var userQuery = {};
 	
-  	$(".submit_button").click(function(){
+  	$(".submit_button, .filter").click(function(){
 		userQuery = {};
 		if($(this).attr('id') == 'character_submit') {
 			userQuery["query_cat"] = "character";
@@ -123,7 +107,6 @@ $( document ).ready(function(){
 					
 			update_table();
 		}
-		
 		else if($(this).attr('id') == 'delete_submit') {
 			userQuery["query_cat"] = "delete";
 			
@@ -132,7 +115,18 @@ $( document ).ready(function(){
 					
 			update_table();
 		}
-		
+        else if($(this).attr('id') == 'stanLee_hashtag') {
+			userQuery["query_cat"] = "stan_lee_characters";					
+			get_response();
+		}
+        else if($(this).attr('id') == 'storm_hashtag') {
+			userQuery["query_cat"] = "storm_character";
+			get_response();
+		}
+        else if($(this).attr('id') == 'storm_media_hashtag') {
+			userQuery["query_cat"] = "storm_media";
+			get_response();
+		}		
 	});
 	
 	function get_response() {

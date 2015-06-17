@@ -64,11 +64,12 @@ button.list:active {
 }
 
 .filter {
-	height: 25px;
-	width: 100%;
+	height: auto;
+	width: 125px;
 	display: block;
 	margin-left: 25px;
 	cursor: pointer;
+    word-wrap: break-word;
 }
 
 .filter:hover {
