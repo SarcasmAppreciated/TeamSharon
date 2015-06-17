@@ -106,10 +106,27 @@ def response(request):
         updateRevenueValue = request.POST['revenue']
         updateMovieString = request.POST['u_movie']
         returnJson = {'request': executeUpdateQuery()}
+    elif (query_cat == "stan_lee_creator"):
+        stanLeeRows = executeCreatorsNamedStanLeeQuery()
+        returnJson = json.dumps(stanLeeRows)
+        print returnJson
+    elif (query_cat == "stan_lee_characters"):
+        stanLeeCharactersRows = executeCharactersCreatedByStanLeeQuery()
+        returnJson = json.dumps(stanLeeCharactersRows)
+        print returnJson
+    elif (query_cat == "storm_character"):
+        stormCharaterRows = executeCharactersNamedStormQuery()
+        returnJson = json.dumps(stormCharaterRows)
+        print returnJson
+    elif (query_cat == "storm_media"):
+        stormMediaRows = executeMediaContainingStormQuery()
+        returnJson = json.dumps(stormMediaRows)
+        print returnJson
     else:
         err_message = "unknown category"
     
     return JsonResponse(returnJson, safe=False)
+
 
 def index(request):
     return render(request, 'SuperheroesAndStuff/index.html')
@@ -319,6 +336,39 @@ def executeUpdateQuery():
         print("Bad Update Query")
 
 ##############################################################
+
+
+######## Hard Coded Queries ##################################
+def executeCreatorsNamedStanLeeQuery():
+    query = "SELECT fullName FROM creator WHERE fullName='Stan Lee';"
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    return rows
+
+def executeCharactersCreatedByStanLeeQuery():
+    query = "SELECT c.charName FROM creates c WHERE c.crName='Stan Lee';"
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    return rows
+
+def executeCharactersNamedStormQuery():
+    query = "SELECT charName FROM kharacter WHERE charName='Storm';"
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    return rows
+
+def executeMediaContainingStormQuery():
+    query = "SELECT mName FROM appearsIn WHERE charName='Storm';"
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    return rows
+
+##############################################################
+
+
+
+
+
 
 
 
