@@ -93,6 +93,23 @@ button#reset {
 	cursor: pointer;
 }
 
+#update_message {
+    height: 30px;
+    width: 200px;
+	left: 50%;
+	bottom: 10%;
+    display: none;
+	margin-left: -100px;
+	position: fixed;
+    border: 1px solid #999;
+    background-color: #FFF;
+    font-family: "Quicksand", "Lato", "Helvetica Neue", Arial, sans-serif;
+}
+
+#update_message p {
+    margin-top: 8px;
+}
+
 #content {
 	height: auto;
 	min-height: 500px;

@@ -1,6 +1,7 @@
 from django.db import OperationalError
 from django.http import HttpResponse
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from SuperheroesAndStuff import models
 import sqlite3
@@ -39,11 +40,17 @@ updateMovieString = ""
 def makeBool(b):
     return b == "True"
 
-
+@csrf_exempt
 def response(request):
     returnArray = {}
-    query_cat = request.GET['query_cat']
 
+    if request.method == 'POST' and request.POST:
+        query_cat = request.POST['query_cat']
+    elif request.method == "GET" and request.GET:
+        query_cat = request.GET['query_cat']
+    
+    print query_cat
+    
     global characterIncludeCharName
     global characterIncludeSpecies
     global characterIncludeOriginPlanet
@@ -64,6 +71,7 @@ def response(request):
     global deleteCharacterString
     global updateRevenueValue
     global updateMovieString
+
 
     if(query_cat == "character"):
         characterIncludeCharName = makeBool(request.GET['cname'])
@@ -91,27 +99,23 @@ def response(request):
         bookIncludeAverage = makeBool(request.GET['b_avg'])
         bookWithMoreThanXCharacters = request.GET['less_than']
         bookRows = executeBookQuery()
-
-#        cursor.execute("CREATE VIEW counts AS SELECT DISTINCT b.mName AS name, COUNT(k.charName) AS num FROM kharacter k INNER JOIN appearsIn a ON k.charName=a.charName AND k.comicAge=a.comicAge INNER JOIN book b ON a.mName=b.mName GROUP BY k.charName, k.comicAge HAVING COUNT(*) <2;")
-
-        
+#       cursor.execute("CREATE VIEW counts AS SELECT DISTINCT b.mName AS name, COUNT(k.charName) AS num FROM kharacter k INNER JOIN appearsIn a ON k.charName=a.charName AND k.comicAge=a.comicAge INNER JOIN book b ON a.mName=b.mName GROUP BY k.charName, k.comicAge HAVING COUNT(*) <2;")
         returnJson = json.dumps(bookRows)
         print returnJson
     elif (query_cat == "delete"):
-        deletecharacterCreatorString = request.GET['d_creator']
-        deleteCharacterString = request.GET['d_count']
+        deletecharacterCreatorString = request.POST['d_creator']
+        deleteCharacterString = request.POST['d_count']
         executeDeleteQuery()
+        returnJson = {'request':'Sucessful'}
     elif (query_cat == "update"):
-        updateRevenueValue = makeBool(request.GET['revenue'])
-        updateMovieString = makeBool(request.GET['u_movie'])
+        updateRevenueValue = request.POST['revenue']
+        updateMovieString = request.POST['u_movie']
         executeUpdateQuery()
+        returnJson = {'request':'Sucessful'}
     else:
         err_message = "unknown category"
-
-    print returnJson
-    return JsonResponse(returnJson, safe=False)
     
-
+    return JsonResponse(returnJson, safe=False)
 
 def index(request):
     return render(request, 'SuperheroesAndStuff/index.html')
@@ -214,12 +218,12 @@ def makeMovieQuery():
             query += movieIncludingNameString
             query += "%';"
     elif (movieIncludeTotalRevenue):
-        query = "SELECT SUM(m.revenue) FROM movie m WHERE m.mName LIKE "
+        query = "SELECT SUM(m.revenue) AS sumMovie FROM movie m WHERE m.mName LIKE "
         query += "'%"
         query += movieIncludingNameString
         query += "%';"
     elif (movieIncludeAverageRevenue):
-        query = "SELECT AVG(m.revenue) FROM movie m WHERE m.mName LIKE "
+        query = "SELECT AVG(m.revenue) AS avgMovie FROM movie m WHERE m.mName LIKE "
         query += "'%"
         query += movieIncludingNameString
         query += "%';"
@@ -245,9 +249,9 @@ def makeBookCountViewQuery():
 
 def makeBookQuery():
     if (bookIncludeCount):
-        query = "SELECT COUNT(*) FROM counts c;"
+        query = "SELECT COUNT(*) AS cBook FROM counts c;"
     elif (bookIncludeAverage):
-        query = "SELECT AVG(num) FROM counts c;"
+        query = "SELECT AVG(num) AS avgBook FROM counts c;"
     return query
 
 def executeBookQuery():
